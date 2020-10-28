@@ -3,22 +3,33 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Coffee Together</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Mød nye mennesker over en god kop kaffe" />
-  <meta name="author" content="Jesson, Carl, Kevin, Victoria" />
+  <title>stærk person</title>
+  <meta name="viewport" content="initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
   <link rel="stylesheet" href="css/styles.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 </head>
 
-<body>
+<body onhashchange="pageChange()">
 
-<a class="opslag-svenn, opslag-icon" href="#TestPage1"></a>
-<a class="opslag-svenn, opslag-icon" href="#TestPage2"></a>
-<a class="opslag-svenn, opslag-icon" href="#TestPage3"></a>
+<div id="firebaseui-auth-container"></div>
+
+<nav class="tabbar" id="navbar">
+<a href="#TestPage1">TestPage1</a>
+<a href="#TestPage2">TestPage2</a>
+</nav>
+
+<p onclick="logout()"> Log Ud</p>
 
 <section id="root"></section>
 
-
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
 <script src="main.js" type="module"></script>
 </body>
 </html>

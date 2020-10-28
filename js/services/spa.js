@@ -1,30 +1,32 @@
 class SpaService {
     constructor() {
-      this.defaultPage = "TestPage1";
+      this.defaultPage = "#TestPage1";
+      this.init();
     }
   
     init() {
       this.pages = document.querySelectorAll(".page");
       this.navItems = document.querySelectorAll(".tabbar a");
-      this.pageChange();
+      this.setpage(this.defaultPage);
+    }
+
+    pageChange() {
+      let page = window.location.hash.slice(1);
+      this.showPage(page);
     }
   
-    // hide all pages
+    showPage(pageId) {
+      this.hideAllPages();
+      document.querySelector(`#${pageId}`).style.display = "block";
+      this.setActiveTab(pageId);
+    }
+
     hideAllPages() {
       for (let page of this.pages) {
         page.style.display = "none";
       }
     }
   
-    // show page or tab
-    showPage(pageId) {
-      console.log(pageId)
-      this.hideAllPages();
-      document.querySelector(`#${pageId}`).style.display = "block";
-      this.setActiveTab(pageId);
-    }
-  
-    // sets active tabbar/ menu item
     setActiveTab(pageId) {
       for (let navItem of this.navItems) {
         if (`#${pageId}` === navItem.getAttribute("href")) {
@@ -34,20 +36,10 @@ class SpaService {
         }
       }
     }
-  
-    // navigate to a new view/page by changing href
-    navigateTo(pageId) {
-      window.location.href = `#${pageId}`;
-    }
-  
-    // set default page or given page by the hash url
-    // function is called 'onhashchange'
-    pageChange() {
-      let page = this.defaultPage;
-      if (window.location.hash) {
-        page = window.location.hash.slice(1);
-      }
-      this.showPage(page);
+
+    setpage(page) {
+      location.href = page
+      this.pageChange()
     }
   }
   export default SpaService;
