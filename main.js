@@ -10,6 +10,7 @@ import SpaService from "./js/services/spa.js";
 import Firebase from "./js/services/firebase.js";
 import Login from "./js/services/login.js";
 import UserData from "./js/services/UserData.js"
+import Upload from "./js/services/upload.js"
 
 // variables
 let Currentuser = null;
@@ -27,7 +28,7 @@ let IsAdmin = null;
     new Firebase();
     let userdata = new UserData();
     let spaService = new SpaService();
-
+    let upload = new Upload();
     let login = new Login();
 
 
@@ -35,20 +36,25 @@ let IsAdmin = null;
 window.SendUserData = () => userdata.send(Currentuser, testpage2.GetValue())
 window.pageChange = () => spaService.pageChange();
 window.logout = () => login.logout();
+window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 
-
-// Watchers
+// Watchers --> after login specifiks
 firebase.auth().onAuthStateChanged(user => {
     // logged in
     if (user) {
         Currentuser = user;
         login.login(user)
 
-        if (login.isAdmin(user)) {
-            IsAdmin = true;
-            adminPage.init(userdata)
-        }
-        profilPage.init(user.uid, userdata)
+        let admins = firebase.database().ref('/admins/');
+        admins.once('value', (snapshot) => {
+            let admins = snapshot.val().split(",")
+            if (admins.includes(user.email)) {
+                adminPage.init(admins)
+                IsAdmin = true;
+            }
+            profilPage.init(user.uid)
+            spaService.init();
+        })
     // ikke logged in
     } else {
         login.startAuthUI();
@@ -63,5 +69,3 @@ firebase.auth().onAuthStateChanged(user => {
     }
     spaService.init();
 })
-
-

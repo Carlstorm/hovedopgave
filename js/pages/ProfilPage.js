@@ -2,25 +2,14 @@ export default class ProfilPage {
     constructor() {
       this.Navitem
       this.ContentWrap
-      this.DatabaseContent
+      this.requestPath
+      this.completedRequestPath
+      this.onValueChange
+      this.onValueChangeCompleted
       this.navitem()
       this.contentWrap()
     }
-
-    async databaseContent(userID, userdata) {
-     return userdata.get("user", userID)
-      .then(res => {
-        return `<p>${res.data}</p>`
-      })
-    }
-
-    navitem() {
-      let Navitem = document.createElement("A")
-      Navitem.innerHTML = "ProfilPage"
-      Navitem.href = "#ProfilPage";
-      this.Navitem = Navitem;
-    }
-
+    
     contentWrap() {
       let ContentWrap = document.createElement("SECTION")
       ContentWrap.innerHTML = `
@@ -32,26 +21,98 @@ export default class ProfilPage {
       this.ContentWrap = ContentWrap;
     }
 
-    async update(userID, userdata) {
+    CompletedRequest(requestData, userID) {
+      document.getElementById("userdata").innerHTML = `<p>${requestData.request}</p>
+      <a href="./UserForms/${userID}.pdf" target="_blank">PDF FORM HER!</a>
+      `
+    }
+
+    // UpdateStates(requests, userID) {
+    //   if (requests) {
+    //     let requestData = requests.val();
+    //         this.CompletedRequest(requestData, userID)
+    //   } else {
+    //     document.getElementById("userdata").innerHTML = "ingen ansøgninger"
+    //   }
+    // } 
+
+    showRequests(ArrayMerged, userID) {
+      document.getElementById("userdata").innerHTML = ""
+      let htmlTemplate = "";
+      ArrayMerged.map(res => {
+        if (res.responseState) {
+          htmlTemplate += `
+          <div class="requestElement">
+          <p>${res.formName}</p>
+          <p>${res.request}</p>
+          <a href="./UserForms/${userID}/${res.formName}.pdf" download="${res.formName}">Download</a>
+          <br>
+          <a href="./UserForms/${userID}/${res.formName}.pdf" target="_blank">Se PDF!</a>
+          </div>
+          `
+        } else {
+          htmlTemplate += `
+          <div class="requestElement">
+          <p>${res.formName}</p>
+          <p>${res.request}</p>
+          <p>WAITING FOR ANSWER....</p>
+          </div>
+          `
+        }
+      })
+      document.getElementById("userdata").innerHTML = htmlTemplate;
+    }
+
+    UpdateStates(requests, userID) {
+      this.completedRequestPath.once('value', (snapshot) => {
+        let objComp = snapshot.val();
+        let objPend = requests.val();
+        let ArrayCompleted, ArrayPending;
+        if (snapshot.exists()) {
+        ArrayCompleted = Object.keys(objComp).map((key) => objComp[key]);
+        } else {
+          ArrayCompleted = []
+        }
+        if (requests.exists()) {
+        ArrayPending = Object.keys(objPend).map((key) => objPend[key]);
+      } else {
+        ArrayPending = []
+      }
+        let ArrayMerged = ArrayPending.concat(ArrayCompleted)
+        if (ArrayMerged.length > 0) {
+          this.showRequests(ArrayMerged, userID);
+        } else {
+          document.getElementById("userdata").innerHTML = "ingen ansøgninger"
+        }
+      })
+    } 
+
+
+    navitem() {
+      let Navitem = document.createElement("A")
+      Navitem.innerHTML = "ProfilPage"
+      Navitem.href = "#ProfilPage";
+      this.Navitem = Navitem;
+    }
+
+    load(userID) {
       document.getElementById("userdata").innerHTML = "<p>Loading...</p>"
-      document.getElementById("userdata").innerHTML = await this.databaseContent(userID, userdata)
+      this.onValueChange = this.requestPath.on('value', (snapshot) => {
+        this.UpdateStates(snapshot, userID)
+      })
     }
   
-    init(userID, userdata) {
+    init(userID) {
       document.getElementById("navbar").appendChild(this.Navitem)
       document.getElementById("root").appendChild(this.ContentWrap)
-      this.update(userID, userdata)
+      this.requestPath = firebase.database().ref('/PendingRequests/'+ userID);
+      this.completedRequestPath = firebase.database().ref('/CompletedRequests/'+ userID);
+      this.load(userID)
     }
 
     unInit() {
       document.getElementById("navbar").removeChild(this.Navitem)
       document.getElementById("root").removeChild(this.ContentWrap)
+      this.requestPath.off('value', this.onValueChange);
     }
   }
-  // await userdata.get("user", userID)
-  // .then(res => console.log(res.data))
-
-
-  // ${
-
-  // <p>${testvalue.data}</p>

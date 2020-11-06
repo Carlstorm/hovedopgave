@@ -10,3 +10,16 @@ body {
         margin: 40px;
     }
 }
+
+.requestElement {
+    width: 300px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+    & p {
+        pointer-events: none;
+        max-width: 100%;
+        color: blue;
+    }
+}

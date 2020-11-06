@@ -29,8 +29,6 @@ class Login {
         this.ui.start('#firebaseui-auth-container', this.uiConfig);
     }
     
-
-    // fix så kun sætter værdi når brugeren logger ind for første gang
     login(user) {
         firebase.database().ref('/users/' + user.uid)
         .set({
@@ -40,17 +38,6 @@ class Login {
 
     logout() {
         firebase.auth().signOut()
-    }
-
-
-    isAdmin(user) {
-        return firebase.database().ref('/admins/').once("value")
-        .then(snapshot => {
-            let admins = snapshot.val().split(",")
-            if (admins.includes(user.email)) {
-                return true;
-            }
-        })
     }
 }
 

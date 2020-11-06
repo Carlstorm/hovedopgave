@@ -10,13 +10,12 @@ function style() {
     .pipe(browserSync.stream());
 }
 
-
 function watch() {
     browserSync.init({
-        server: {
-            baseDir: './'
-        }
-    })
+            proxy: "localhost/Sterkperker",
+            port: 8000  
+        });
+
     gulp.watch('./scss/**/*.scss', style);
     gulp.watch('./*html').on('change', browserSync.reload);
     gulp.watch('js/**/**/*.js').on('change', browserSync.reload);
