@@ -15,8 +15,16 @@ export default class PlanPage {
       </header>
 
       <p>TestPage2</p>
-        <section></section>
-        <input id="FormInput"></input>
+        <section class="Abonnoment"></section>
+        <section class="Pakker"></section>
+        <section class="BasisInfo"></section>
+        <section class="AktivitetsNivau"></section>
+        <section class="Goal"></section>
+        <section class="KostPreferencer"></section>
+        <section class="TreaningsPreferencer"></section>
+        <section class="Sygdomme"></section>
+        <section class="Andet"></section>
+        <input id="FormInput">
         <button onclick="SendUserData()">send</button>
       </section>`
   }
