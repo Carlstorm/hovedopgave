@@ -1,6 +1,25 @@
+@import "variables/variabler";
+
 body {
     color: red;
+    background: rgb(247, 247, 247);
     margin: 0;
+}
+
+.content {
+    width: auto;
+
+    padding: 0 100px;
+}
+
+#logo {
+    height: max-content;
+    width: 100px;
+    padding: 18px 0px;
+    & img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 header {
@@ -8,16 +27,71 @@ header {
     width: 100%;
     background: black;
     .tabbar {
+        padding: 0 16px;
         display: flex;
         justify-content: space-between;
         height: 74px;
-        width: 100%;
+        width: calc(100%-32px);
         background: rgb(0, 0, 0);
+
+        &--item {
+            padding: 12px;
+            font-size: 24px;
+        }
     }
     a {
         color: white !important;
         text-decoration: none;
         margin: 0;
+    }
+}
+
+.abonomentWrap {
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    transform: translate(-50%);
+    left: 50%;
+    position: relative;
+    -webkit-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.3);
+
+    &--item {
+        height: 100%;
+        width: 33.33%;
+        background: white;
+        &-golden {
+            z-index: 99;
+            border-left: solid color(C-gold) 1px;
+            border-right: solid color(C-gold) 1px;
+        }
+    }
+
+    &--header {
+        height: 72px;
+        width: 100%;
+        background: black;
+        &-golden {
+            background: color(C-gold);
+            background: gradiant(G-gold);
+        }
+    }
+}
+
+.PakkeWrap {
+    transform: translate(-50%);
+    left: 50%;
+    position: relative;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    &--item {
+        background: red;
+        margin: 12px;
+        height: 200px;
+        width: 200px;
     }
 }
 

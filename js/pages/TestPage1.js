@@ -9,11 +9,11 @@ export default class TestPage1 {
 
       <header>
       <nav class="tabbar" id="navbar">
-        <div id="logo"></div>
-        <div>
+      <div id="logo"><img src="./assets/logo/main.png"></div>
+      <div>
         <a class="tabbar--item" href="#TestPage1">TestPage1</a>
-        <a href="#Plan">Plan</a>
-        </div>
+        <a class="tabbar--item" href="#Plan">Plan</a>
+      </div>
       </nav>
       </header>
 

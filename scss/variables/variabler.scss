@@ -1,0 +1,29 @@
+$colors: (
+    C-gold: #a38435,
+);
+
+$gradiants: (
+    G-gold: linear-gradient(138deg, rgba(163,132,53,1) 0%, rgba(233,198,109,1) 25%, rgba(163,132,53,1) 50%, rgba(233,198,109,1) 75%, rgba(163,132,53,1) 100%),
+);
+
+@function color($colors-name) {
+  @return map-get($colors, $colors-name)
+};
+
+@function gradiant($gradiants-name) {
+    @return map-get($gradiants, $gradiants-name)
+  };
+  
+
+$FontSize: (
+    T-1: 12px,  
+    T-2: 11px,
+    T-3: 10px,
+    T-4: 24px,
+    T-5: 38px,
+);
+
+@function FontSize($FontSize-name) {
+  @return map-get($FontSize, $FontSize-name)
+};
+
