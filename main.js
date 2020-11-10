@@ -1,7 +1,7 @@
 
 // import Pages
 import TestPage1 from "./js/pages/TestPage1.js";
-import TestPage2 from "./js/pages/TestPage2.js";
+import PlanPage from "./js/pages/PlanPage.js";
 import ProfilPage from "./js/pages/ProfilPage.js"
 import AdminPage from "./js/pages/AdminPage.js";
 
@@ -20,7 +20,7 @@ let IsAdmin = null;
 // inits 
     // Main pages
     let testpage1 = new TestPage1();
-    let testpage2 = new TestPage2();
+    let planPage = new PlanPage();
     let profilPage = new ProfilPage();
     let adminPage = new AdminPage();
 
@@ -33,7 +33,7 @@ let IsAdmin = null;
 
 
 // calls
-window.SendUserData = () => userdata.send(Currentuser, testpage2.GetValue())
+window.SendUserData = () => userdata.send(Currentuser, planPage.GetValue())
 window.pageChange = () => spaService.pageChange();
 window.logout = () => login.logout();
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
