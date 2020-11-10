@@ -18,21 +18,24 @@ body {
 header {
   height: 750px;
   width: 100%;
-  background: black; }
+  background: #0d1112; }
   header .tabbar {
     padding: 0 16px;
     display: flex;
     justify-content: space-between;
     height: 74px;
-    width: calc(100%-32px);
-    background: black; }
+    width: calc(100%-32px); }
     header .tabbar--item {
+      position: relative;
+      top: 12px;
       padding: 12px;
-      font-size: 24px; }
-  header a {
-    color: white !important;
-    text-decoration: none;
-    margin: 0; }
+      font-size: 24px;
+      color: white !important;
+      text-decoration: none; }
+    header .tabbar .active {
+      background: linear-gradient(138deg, #a38435 0%, #e9c66d 25%, #a38435 50%, #e9c66d 75%, #a38435 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; }
 
 .abonomentWrap {
   height: 420px;
@@ -56,7 +59,7 @@ header {
   .abonomentWrap--header {
     height: 72px;
     width: 100%;
-    background: black; }
+    background: #0d1112; }
     .abonomentWrap--header-golden {
       background: #a38435;
       background: linear-gradient(138deg, #a38435 0%, #e9c66d 25%, #a38435 50%, #e9c66d 75%, #a38435 100%); }
@@ -69,10 +72,22 @@ header {
   display: flex;
   justify-content: center; }
   .PakkeWrap--item {
-    background: red;
+    background: linear-gradient(138deg, #a38435 0%, #e9c66d 25%, #a38435 50%, #e9c66d 75%, #a38435 100%);
     margin: 12px;
     height: 200px;
     width: 200px; }
+
+.BasisInfoWrap {
+  transform: translateX(-50%);
+  left: 50%;
+  position: relative;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center; }
+  .BasisInfoWrap input {
+    width: 40%;
+    margin: 1% 3%; }
 
 .requestElement {
   width: 300px;
