@@ -127,7 +127,8 @@ export default class AdminPage {
   }
 
   init(admins) {
-    document.getElementById("navbar").appendChild(this.Navitem)
+    document.getElementsByClassName("navbarItems")[0].appendChild(this.Navitem)
+    document.getElementsByClassName("navbarItems")[1].appendChild(this.Navitem)
     document.getElementById("root").appendChild(this.ContentWrap)
     this.requestPath = firebase.database().ref('/PendingRequests/');
     this.CompletedrequestPath = firebase.database().ref('/CompletedRequests/');
