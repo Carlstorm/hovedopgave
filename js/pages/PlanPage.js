@@ -43,7 +43,21 @@ export default class PlanPage {
           <div class="PakkeWrap--item"></div>
         </div>
         </section>
-        <section class="BasisInfo"></section>
+
+        //ajjw
+        <section class="BasisInfo">
+        <h3>USER INFO</h3>
+        <div class="BasisInfoWrap">
+          <input>
+          <input>
+          <input>
+          <input>
+          <input>
+          <input>
+        </div>
+        </section>
+
+
         <section class="AktivitetsNivau"></section>
         <section class="Goal"></section>
         <section class="KostPreferencer"></section>

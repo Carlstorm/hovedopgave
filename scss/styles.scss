@@ -8,7 +8,6 @@ body {
 
 .content {
     width: auto;
-
     padding: 0 100px;
 }
 
@@ -25,24 +24,29 @@ body {
 header {
     height: 750px;
     width: 100%;
-    background: black;
+    background: #0d1112;
     .tabbar {
         padding: 0 16px;
         display: flex;
         justify-content: space-between;
         height: 74px;
         width: calc(100%-32px);
-        background: rgb(0, 0, 0);
 
         &--item {
+            position: relative;
+            top: 12px;
             padding: 12px;
             font-size: 24px;
+            color: white !important;
+            text-decoration: none;
         }
-    }
-    a {
-        color: white !important;
-        text-decoration: none;
-        margin: 0;
+
+        .active {
+            // color: color(C-gold) !important;
+            background:  gradiant(G-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
@@ -72,7 +76,7 @@ header {
     &--header {
         height: 72px;
         width: 100%;
-        background: black;
+        background: #0d1112;
         &-golden {
             background: color(C-gold);
             background: gradiant(G-gold);
@@ -88,10 +92,26 @@ header {
     display: flex;
     justify-content: center;
     &--item {
-        background: red;
+        background: gradiant(G-gold);
         margin: 12px;
         height: 200px;
         width: 200px;
+    }
+}
+
+
+.BasisInfoWrap {
+    transform: translateX(-50%);
+    left: 50%;
+    position: relative;
+    width: 80%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+
+    input {
+        width: 40%;
+        margin: 1% 3%;
     }
 }
 
