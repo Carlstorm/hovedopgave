@@ -12,7 +12,7 @@ function style() {
 
 function watch() {
     browserSync.init({
-            proxy: "localhost/hovedopgave",
+            proxy: "localhost/sterperkerTESTING",
             port: 8000  
         });
 

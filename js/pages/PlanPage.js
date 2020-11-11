@@ -1,6 +1,7 @@
 export default class PlanPage {
   constructor() {
     this.template();
+    this.slidepercentage
   }
 
   template() {
@@ -57,7 +58,40 @@ export default class PlanPage {
         </section>
 
 
-        <section class="AktivitetsNivau"></section>
+        <section class="AktivitetsNivau">
+          <h3>AktivitetsNivau</h3>
+          <div class="AktivitetsNivauWrap">
+          <div class="AktivitetsNivauWrap--item slider">
+            <div class="slider--mainText">
+            <p>Text Text sometext dkow dk owkd wokd  dkow kdw</p>
+            </div>
+            <div class="slider--secondaryText">
+            <p>low</p>
+            <p>heigh</p>
+            </div>
+            <div class="slider--barWrap">
+              <div class="slider--bar" id="sliderBar"></div>
+              <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="AktivitetsNivauWrap">
+          <div class="AktivitetsNivauWrap--item slider">
+            <div class="slider--mainText">
+            <p>Text Text sometext dkow dk owkd wokd  dkow kdw</p>
+            </div>
+            <div class="slider--secondaryText">
+            <p>low</p>
+            <p>heigh</p>
+            </div>
+            <div class="slider--barWrap">
+              <div class="slider--bar" id="sliderBar"></div>
+              <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
+            </div>
+          </div>
+          </div>
+        </section>
 
 
         <h3>Mål</h3>
@@ -127,9 +161,42 @@ export default class PlanPage {
     return document.getElementById("FormInput").value;
   }
 
-  OnInput() {}
+  OnInput() {
+
+  }
+
+
+
+  AddsliderController() {
+    let barthing = event.target;
+    barthing.style.transition = "left 0s"
+    let moveEvent = () => {
+      this.movemouse(barthing)
+    }
+    let upEvent = () => {
+      window.removeEventListener("mousemove", moveEvent)
+      window.removeEventListener("mouseup", upEvent)
+      barthing.style.transition = "left 0.6s"
+      let da = Math.round(this.slidepercentage / 10) * 10
+      barthing.style.left = ""+da+"%"
+    }
+    window.addEventListener("mousemove", moveEvent)
+    window.addEventListener("mouseup", upEvent) 
+  }
+
+  movemouse(barthing) {
+    let max = document.getElementById("sliderBar").clientWidth
+    let difference = ((window.innerWidth) - max)/2
+    let percentage = 50;
+      percentage = (((event.clientX-difference)+8) / (max))*100
+    if (percentage > 100) {
+      percentage = 100
+    } else if (percentage < 0) {
+      percentage = 0;
+    }
+    this.slidepercentage = percentage;
+    barthing.style.left = `${percentage}%`
+  }
 }
-
-
 
 
