@@ -92,6 +92,52 @@ header {
     width: 40%;
     margin: 1% 3%; }
 
+.AktivitetsNivauWrap {
+  transform: translate(-50%);
+  left: 50%;
+  position: relative;
+  width: 80%; }
+  .AktivitetsNivauWrap .slider {
+    height: 180px;
+    background: black;
+    color: white; }
+    .AktivitetsNivauWrap .slider--mainText {
+      height: 72px;
+      width: 100%;
+      background: red;
+      text-align: center; }
+    .AktivitetsNivauWrap .slider--secondaryText {
+      height: 32px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background: #415800; }
+    .AktivitetsNivauWrap .slider--barWrap {
+      width: 100%;
+      height: 40px;
+      background: #00354e; }
+    .AktivitetsNivauWrap .slider--bar {
+      transform: translateY(-50%);
+      top: 50%;
+      height: 8px;
+      background-color: white;
+      width: 100%;
+      position: relative; }
+    .AktivitetsNivauWrap .slider--barThing {
+      height: 20px;
+      width: 20px;
+      border-radius: 20px;
+      background: yellow;
+      border: solid black 2px;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      top: 12px;
+      left: 50%;
+      position: relative;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-app-region: no-drag; }
+
 .requestElement {
   width: 300px;
   -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
@@ -166,3 +212,22 @@ header {
     height: 30vh; }
   .AndetWrapper--item {
     width: 100%; }
+
+.BasisInfoWrap {
+  transform: translateX(-50%);
+  left: 50%;
+  position: relative;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center; }
+  .BasisInfoWrap input {
+    width: 40%;
+    margin: 1% 3%; }
+
+.requestElement {
+  width: 300px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer; }
