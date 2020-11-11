@@ -4,7 +4,7 @@ export default class PlanPage {
   }
 
   template() {
-      document.getElementById("root").innerHTML += /*html*/ `
+    document.getElementById("root").innerHTML += /*html*/ `
       <section id="Plan" class="page">
 
       <header>
@@ -35,7 +35,6 @@ export default class PlanPage {
           </div>
         </section>
 
-        //ajjw
         <section class="Pakker">
         <h3>Pakker</h3>
         <div class="PakkeWrap">
@@ -59,23 +58,78 @@ export default class PlanPage {
 
 
         <section class="AktivitetsNivau"></section>
-        <section class="Goal"></section>
-        <section class="KostPreferencer"></section>
+
+
+        <h3>Mål</h3>
+        <section class="Goal">
+         <div class="GoalWrapper">
+             <div class="GoalWrapper--item" >
+              	<h2> Skriv lidt om dine mål </h2>
+               <textarea> </textarea>
+            </div>
+                <div class="GoalWrapper--item">
+                   <h2> vægttabsmål </h2>
+                   <input>
+                </div>      
+         </div>
+        </section>
+
+
+        <h3>KostPreferencer</h3>
+        <section class="KostPreferencer">
+          <div class="KostPreferencerWrapper">
+            <div class="KostPreferencerWrapper--item">
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+              <div class="KostPreferencerWrapper--item--inner"></div>
+           </div>
+           <div class="KostPreferencerWrapper--item">
+          	<h2> Skriv lidt om dine mål </h2>
+               <textarea> </textarea>
+               </div>
+          </div>
+        </section>
+
+
+
         <section class="TreaningsPreferencer"></section>
-        <section class="Sygdomme"></section>
-        <section class="Andet"></section>
+
+      <section class="Sygdomme">
+        <div class="SygdommeWrapper">
+          <div class ="SygdommeWrapper--item">
+              <h2> Er du syg spasser </h2>
+             <textarea></textarea>
+           </div>
         </div>
+      </section>
+
+      <section class="Andet">
+          <div class="AndetWrapper">
+           <div class="AndetWrapper--item">
+             <h2> Har du noget andet smukke?</h2>
+              <textarea> </textarea>
+          </div>
+        </div>
+      </section>
+     
 
         <input id="FormInput">
         <button onclick="SendUserData()">send</button>
-      </section>`
+      </section>`;
   }
 
   GetValue() {
     return document.getElementById("FormInput").value;
   }
 
-  OnInput() {
-
-  }
+  OnInput() {}
 }
+
+
+
+
