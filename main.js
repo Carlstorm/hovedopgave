@@ -39,6 +39,12 @@ window.logout = () => login.logout();
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 window.AddsliderController = () => planPage.AddsliderController();
 
+<<<<<<< HEAD
+=======
+
+window.setObjectValues = (val, type) => planPage.setObjectValues(val, type);
+
+>>>>>>> carl
 
 // Watchers --> after login specifiks
 firebase.auth().onAuthStateChanged(user => {
