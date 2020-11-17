@@ -1,11 +1,19 @@
 $colors: (
     C-gold: #a38435,
+    C-goldLight: #d0b85e, 
+    C-BgWhite: #fbfaf8,
 );
 
 $gradiants: (
-    G-gold: linear-gradient(138deg, rgba(163,132,53,1) 0%, rgba(233,198,109,1) 25%, rgba(163,132,53,1) 50%, rgba(233,198,109,1) 75%, rgba(163,132,53,1) 100%),
+    G-gold: radial-gradient(at bottom right, #f1d07a 0%, #d1b05a 10%, #b39442 20%, #d1b05a 30%, #f1d07a 40%, #d1b05a 50%, #b39442 60%, #d1b05a 70%, #f1d07a 80%, #d1b05a 90%, #b39442 100%),
+    G-golddarker: radial-gradient(at bottom right, #ebc565 0%, #b1903f 10%, #b39442 20%, #b1903f 30%, #ebc565 40%, #b1903f 50%, #b39442 60%, #b1903f 70%, #ebc565 80%, #b1903f 90%, #b39442 100%)
 );
 
+$textures: (
+    T-gold: url("../assets/textures/gold.jpg"),
+    T-black: url("../assets/imgs/bg.jpg")
+);
+    // G-gold: radial-gradient(at bottom right, #f1d07a 0%, #d1b05a 10%, #b39442 20%, #d1b05a 30%, #f1d07a 40%, #d1b05a 50%, #b39442 60%, #d1b05a 70%, #f1d07a 80%, #d1b05a 90%, #b39442 100%)
 @function color($colors-name) {
   @return map-get($colors, $colors-name)
 };
@@ -13,7 +21,10 @@ $gradiants: (
 @function gradiant($gradiants-name) {
     @return map-get($gradiants, $gradiants-name)
   };
-  
+
+  @function texture($textures-name) {
+    @return map-get($textures, $textures-name)
+  };
 
 $FontSize: (
     T-1: 12px,  
