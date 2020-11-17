@@ -2,11 +2,8 @@ export default class PlanPage {
   constructor() {
     this.template();
     this.slidepercentage
-<<<<<<< HEAD
-=======
     this.formData = new Object();
     this.prefArray = new Array();
->>>>>>> carl
   }
 
   template() {
@@ -66,16 +63,10 @@ export default class PlanPage {
         <section class="AktivitetsNivau">
           <h3>AktivitetsNivau</h3>
           <div class="AktivitetsNivauWrap">
-<<<<<<< HEAD
-          <div class="AktivitetsNivauWrap--item slider">
-            <div class="slider--mainText">
-            <p>Text Text sometext dkow dk owkd wokd  dkow kdw</p>
-=======
           <div slider-type="aktivitetErhverv" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
             <p>aktivitet i arbejde?</p>
             <p data-text="text1,text2,text3,text4,text5">Some value</p>
->>>>>>> carl
             </div>
             <div class="slider--secondaryText">
             <p>low</p>
@@ -89,16 +80,10 @@ export default class PlanPage {
           </div>
 
           <div class="AktivitetsNivauWrap">
-<<<<<<< HEAD
-          <div class="AktivitetsNivauWrap--item slider">
-            <div class="slider--mainText">
-            <p>Text Text sometext dkow dk owkd wokd  dkow kdw</p>
-=======
           <div slider-type="aktivitetFritid" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
             <p>aktivitiet i din fritid?</p>
             <p data-text="text1,text2,text3,text4,text9">Some value</p>
->>>>>>> carl
             </div>
             <div class="slider--secondaryText">
             <p>low</p>
