@@ -33,11 +33,16 @@ let IsAdmin = null;
 
 
 // calls
-window.SendUserData = () => userdata.send(Currentuser, planPage.GetValue())
+window.SendUserData = () => {
+    userdata.send(Currentuser, planPage.GetValue()) 
+    userdata.sendemail(Currentuser, planPage.GetValue())
+} 
+
 window.pageChange = () => spaService.pageChange();
 window.logout = () => login.logout();
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 window.AddsliderController = () => planPage.AddsliderController();
+
 
 
 window.setObjectValues = (val, type) => planPage.setObjectValues(val, type);

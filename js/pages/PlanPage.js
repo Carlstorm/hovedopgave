@@ -50,12 +50,11 @@ export default class PlanPage {
         <section class="BasisInfo">
         <h3>USER INFO</h3>
         <div class="BasisInfoWrap">
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-1'))">
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-2'))">
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-3'))">
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-4'))">
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-5'))">
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-6'))">
+          <input onkeyup="(setObjectValues(this.value, 'navn'))">
+          <input onkeyup="(setObjectValues(this.value, 'køn'))">
+          <input onkeyup="(setObjectValues(this.value, 'fødselsår'))">
+          <input onkeyup="(setObjectValues(this.value, 'by'))">
+          <input onkeyup="(setObjectValues(this.value, 'adresse'))">
         </div>
         </section>
 
@@ -98,18 +97,6 @@ export default class PlanPage {
         </section>
 
 
-<<<<<<< HEAD
-        <h3>Mål</h3>
-        <section class="Goal">
-         <div class="GoalWrapper">
-             <div class="GoalWrapper--item" >
-              	<h2> Skriv lidt om dine mål </h2>
-               <textarea> </textarea>
-            </div>
-                <div class="GoalWrapper--item">
-                   <h2> vægttabsmål </h2>
-                   <input>
-=======
         <section class="Goal">
         <h3>Mål</h3>
          <div class="GoalWrapper">
@@ -120,30 +107,11 @@ export default class PlanPage {
                 <div class="GoalWrapper--item">
                    <h2> vægttabsmål </h2>
                    <input onkeyup="(setObjectValues(this.value, 'goalWeight'))">
->>>>>>> carl
                 </div>      
          </div>
         </section>
 
 
-<<<<<<< HEAD
-        <h3>KostPreferencer</h3>
-        <section class="KostPreferencer">
-          <div class="KostPreferencerWrapper">
-            <div class="KostPreferencerWrapper--item">
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-              <div class="KostPreferencerWrapper--item--inner"></div>
-           </div>
-           <div class="KostPreferencerWrapper--item">
-          	<h2> Skriv lidt om dine mål </h2>
-               <textarea> </textarea>
-=======
         <section class="KostPreferencer">
         <h3>KostPreferencer</h3>
           <div class="KostPreferencerWrapper">
@@ -160,35 +128,12 @@ export default class PlanPage {
            <div class="KostPreferencerWrapper--item">
           	<h2> Mere om din kost? </h2>
                <textarea onkeyup="(setObjectValues(this.value, 'prefExtra'))"> </textarea>
->>>>>>> carl
                </div>
           </div>
         </section>
 
 
 
-<<<<<<< HEAD
-        <section class="TreaningsPreferencer"></section>
-
-      <section class="Sygdomme">
-        <div class="SygdommeWrapper">
-          <div class ="SygdommeWrapper--item">
-              <h2> Er du syg spasser </h2>
-             <textarea></textarea>
-           </div>
-        </div>
-      </section>
-
-      <section class="Andet">
-          <div class="AndetWrapper">
-           <div class="AndetWrapper--item">
-             <h2> Har du noget andet smukke?</h2>
-              <textarea> </textarea>
-          </div>
-        </div>
-      </section>
-     
-=======
         <section class="TreaningsPreferencer">
         <h3>Treanings Preferencer</h3>
         <div class="AktivitetsNivauWrap">
@@ -242,7 +187,6 @@ export default class PlanPage {
            </div>
         </div>
       </section>
->>>>>>> carl
 
       <section class="Andet">
       <h3>Andet</h3>
@@ -274,7 +218,6 @@ export default class PlanPage {
     } else {
       this.formData[type] = val;
     }
-  
     console.log(this.formData)
   }
 
@@ -331,42 +274,7 @@ export default class PlanPage {
     this.slidepercentage = percentage;
     barthing.style.left = `${percentage}%`
   }
-<<<<<<< HEAD
-
-
-
-  AddsliderController() {
-    let barthing = event.target;
-    barthing.style.transition = "left 0s"
-    let moveEvent = () => {
-      this.movemouse(barthing)
-    }
-    let upEvent = () => {
-      window.removeEventListener("mousemove", moveEvent)
-      window.removeEventListener("mouseup", upEvent)
-      barthing.style.transition = "left 0.6s"
-      let da = Math.round(this.slidepercentage / 10) * 10
-      barthing.style.left = ""+da+"%"
-    }
-    window.addEventListener("mousemove", moveEvent)
-    window.addEventListener("mouseup", upEvent) 
-  }
-
-  movemouse(barthing) {
-    let max = document.getElementById("sliderBar").clientWidth
-    let difference = ((window.innerWidth) - max)/2
-    let percentage = 50;
-      percentage = (((event.clientX-difference)+8) / (max))*100
-    if (percentage > 100) {
-      percentage = 100
-    } else if (percentage < 0) {
-      percentage = 0;
-    }
-    this.slidepercentage = percentage;
-    barthing.style.left = `${percentage}%`
-  }
-=======
->>>>>>> carl
 }
+
 
 

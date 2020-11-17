@@ -1,3 +1,5 @@
+
+
 class UserData {
     constructor() {
         this.formType = "Kostplan"
@@ -6,32 +8,34 @@ class UserData {
     }
 
     send(user, data, formNr) {
-        if (!formNr) {
-            formNr = "";
+      if (!formNr) {
+        formNr = "";
+      }
+      let date = new Date();
+      let formName = `${this.formType}-${date.getFullYear()}${formNr}`;
+      this.sendPath = firebase
+        .database()
+        .ref("/PendingRequests/" + user.uid + `/${formName}/`);
+      this.sendPath.once("value", (snapshot) => {
+        if (snapshot.exists()) {
+          this.formNr++;
+          let formNrNew = `(${this.formNr})`;
+          this.send(user, data, formNrNew);
+        } else {
+          this.formNr = 1;
+          this.sendPath.set({
+            formName: formName,
+            date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+            Type: `${this.formType}`,
+            request: data,
+            name: user.displayName,
+            email: user.email,
+            id: user.uid,
+            responseState: false,
+          });
+          this.UpdateUserForms(true, user);
         }
-        let date = new Date();
-        let formName = `${this.formType}-${date.getFullYear()}${formNr}`
-        this.sendPath = firebase.database().ref('/PendingRequests/' + user.uid + `/${formName}/`)
-        this.sendPath.once('value', (snapshot) => {
-            if (snapshot.exists()) {
-                this.formNr++
-                let formNrNew = `(${this.formNr})`
-                this.send(user, data, formNrNew);
-            } else {
-                this.formNr = 1;
-                this.sendPath.set({
-                    formName: formName,
-                    date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
-                    Type: `${this.formType}`,
-                    request: data,
-                    name: user.displayName,
-                    email: user.email,
-                    id: user.uid,
-                    responseState: false,
-                })
-                this.UpdateUserForms(true, user);
-            }
-        })
+      });
     }
 
     UpdateUserForms(state, user) {
@@ -107,6 +111,111 @@ class UserData {
             responseState: state,
         });
     }
+
+
+
+/////////php kald me fra userdata onlick på plan siden
+
+
+
+ sendemail(user, formData)
+{
+
+
+formData.usernavn = user.navn;
+formData.email = user.email;
+
+console.log(formData);
+
+  var jsonObj =  "form=" + (JSON.stringify(formData));
+
+  ////////////stringfy object
+    // var emailData = new FormData();
+    var xhttp = new XMLHttpRequest();
+    // emailData.append("email", user.email);
+    // emailData.append("navn", user.navn);
+ 
+    // Set POST method and ajax file path
+    xhttp.open("POST", "php/kvitteringKunde.php", true);
+
+    //xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    // call on request changes state
+    xhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+         var response = this.responseText;
+        console.log(response);
+         if(response == 1){
+            alert("Email sendt");
+            
+         }else{
+            alert("Woops en fejl");
+            
+         }
+       }
+       
+    };
+    
+    // Send request with data
+    //xhttp.send(emailData, jsonObj);
+    xhttp.send(jsonObj);
+    console.log(jsonObj)
+    this.sendAdminPlan(user, formData)
+    
+    }
+
+
+
+    sendAdminPlan(user, formData)
+    {
+    
+    formData.usernavn = user.navn;
+    formData.email = user.email;
+    
+    console.log(formData);
+    
+      var jsonObj =  "form=" + (JSON.stringify(formData));
+    
+        var xhttp = new XMLHttpRequest();
+        // Set POST method and ajax file path
+        xhttp.open("POST", "php/adminPlanMail.php", true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        
+        // call on request changes state
+        xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+             var response = this.responseText;
+            console.log(response);
+             if(response == 2){
+                alert("Email sendt");
+                
+             }else{
+                alert("Woops en fejl");
+                
+             }
+           }
+        };
+        
+        xhttp.send(jsonObj);
+        console.log(jsonObj)
+        
+        }
+
+
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
   export default UserData;
