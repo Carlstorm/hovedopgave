@@ -175,15 +175,15 @@ export default class PlanPage {
         <h3 class="standardHeading">USER INFO</h3>
         <div class="BasisInfoWrap">
           <span>Navn:</span>
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-1'))">
+          <input onkeyup="(setObjectValues(this.value, 'navn'))">
           <span>Køn:</span>
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-2'))">
+          <input onkeyup="(setObjectValues(this.value, 'køn'))">
           <span>Fødselsår:</span>
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-3'))">
+          <input onkeyup="(setObjectValues(this.value, 'fødselsår'))">
           <span>By:</span>
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-4'))">
+          <input onkeyup="(setObjectValues(this.value, 'by'))">
           <span>Adresse:</span>
-          <input onkeyup="(setObjectValues(this.value, 'UserInfo-5'))">
+          <input onkeyup="(setObjectValues(this.value, 'adresse'))">
         </div>
         </section>
 
