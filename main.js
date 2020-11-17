@@ -40,9 +40,16 @@ window.SendUserData = () => {
 
 window.pageChange = () => spaService.pageChange();
 window.logout = () => login.logout();
+window.login = () => login.login();
+window.closeLogin = () => 
+    {
+        if (event.target == document.getElementById("loginScreen")) {
+        login.closeLogin();
+        }
+    }
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 window.AddsliderController = () => planPage.AddsliderController();
-
+window.setActive = (nr) => planPage.setActive(nr);
 
 
 window.setObjectValues = (val, type) => planPage.setObjectValues(val, type);
@@ -53,7 +60,19 @@ firebase.auth().onAuthStateChanged(user => {
     // logged in
     if (user) {
         Currentuser = user;
-        login.login(user)
+
+        // let admins = firebase.database().ref('/users/' + user.uid);
+        // admins.once('value', (snapshot) => {
+        //     if (!snapshot) {
+        //         console.log("first time")
+        //         login.FirstTimelogin(user)
+        //     } else {
+        //         console.log("old boi time")
+        //     }
+        // })
+
+        document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="logout()">Log ud</a>`
+        login.closeLogin();
 
         let admins = firebase.database().ref('/admins/');
         admins.once('value', (snapshot) => {
@@ -67,6 +86,9 @@ firebase.auth().onAuthStateChanged(user => {
         })
     // ikke logged in
     } else {
+
+        document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="login()">log in</a>`
+
         login.startAuthUI();
         if (Currentuser) {
             profilPage.unInit()
