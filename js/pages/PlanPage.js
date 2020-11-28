@@ -9,196 +9,67 @@ export default class PlanPage {
   template() {
     document.getElementById("root").innerHTML += /*html*/ `
       <section id="Plan" class="page">
-      <div class="hero">
-        <div id="logo"><img src="./assets/logo/main.png"></div>
-      </div>
-      <div class="content">
-        <section class="Abonnoment">
-        <h3 class="standardHeading">Abonnoment</h3>
-          <div class="forløbWrap">
-            <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1500kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 1200 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost/trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            </div>
 
-            <div class="forløbWrap">
-            <div class="forløbWrap-small">
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>500kr</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost</span>
-                <span class="forløbWrap--header-norm">Engangs køb</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              </div>
+      <header>
+      
+      <nav class="tabbar" id="navbar">
+      <div id="logo"><img src="./assets/logo/main.png"></div>
+      <div class="navbarItems">
+        <a class="tabbar--item" href="#TestPage1">TestPage1</a>
+        <a class="tabbar--item" href="#Plan">Plan</a>
+      </div>
+      </nav>
+      </header>
+
+      <div class="content">
+      &{//ABONOMENT}
+        <section class="Abonnoment">
+        <h3>Abonnoment</h3>
+          <div class="abonomentWrap">
+            <div class="abonomentWrap--item" onclick="(setObjectValues('kost abonnoment', 'planType'))">
+              <div class="abonomentWrap--header"></div>
             </div>
+            <div class="abonomentWrap--item abonomentWrap--item-golden" onclick="(setObjectValues('kost/trænning abonnoment', 'planType'))">
+              <div class="abonomentWrap--header abonomentWrap--header-golden"></div>
             </div>
-            <div class="forløbWrap-small">
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>500kr</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Trænning</span>
-                <span class="forløbWrap--header-norm">Engangs køb</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              </div>
+            <div class="abonomentWrap--item" onclick="(setObjectValues('trænning abonnoment', 'planType'))">
+              <div class="abonomentWrap--header"></div>
             </div>
-            </div>
-            </div>
-            
+          </div>
         </section>
 
+        <section class="Pakker">
+        <h3>Pakker</h3>
+        <div class="PakkeWrap">
+          <div class="PakkeWrap--item" onclick="(setObjectValues('kost plan', 'planType'))"> </div>
+          <div class="PakkeWrap--item" onclick="(setObjectValues('træning plan', 'planType'))"> </div>
+        </div>
+        </section>
+
+        //ajjw
         <section class="BasisInfo">
-        <h3 class="standardHeading">USER INFO</h3>
+        <h3>USER INFO</h3>
         <div class="BasisInfoWrap">
-          <span>Navn:</span>
           <input onkeyup="(setObjectValues(this.value, 'navn'))">
-          <span>Køn:</span>
           <input onkeyup="(setObjectValues(this.value, 'køn'))">
-          <span>Fødselsår:</span>
           <input onkeyup="(setObjectValues(this.value, 'fødselsår'))">
-          <span>By:</span>
           <input onkeyup="(setObjectValues(this.value, 'by'))">
-          <span>Adresse:</span>
           <input onkeyup="(setObjectValues(this.value, 'adresse'))">
         </div>
         </section>
 
 
         <section class="AktivitetsNivau">
-          <h3 class="standardHeading">AktivitetsNivau</h3>
+          <h3>AktivitetsNivau</h3>
           <div class="AktivitetsNivauWrap">
           <div slider-type="aktivitetErhverv" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
-            <p>Aktivitet i arbejde?</p>
-            <p class="slider--changeText" data-text="text1,text2,text3,text4,text5">Some value</p>
+            <p>aktivitet i arbejde?</p>
+            <p data-text="text1,text2,text3,text4,text5">Some value</p>
             </div>
             <div class="slider--secondaryText">
-            <p>Lidt</p>
-            <p>Meget</p>
+            <p>low</p>
+            <p>heigh</p>
             </div>
             <div class="slider--barWrap">
               <div class="slider--bar" id="sliderBar"></div>
@@ -210,12 +81,12 @@ export default class PlanPage {
           <div class="AktivitetsNivauWrap">
           <div slider-type="aktivitetFritid" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
-            <p>Aktivitiet i din fritid?</p>
-            <p class="slider--changeText" data-text="text1,text2,text3,text4,text9">Some value</p>
+            <p>aktivitiet i din fritid?</p>
+            <p data-text="text1,text2,text3,text4,text9">Some value</p>
             </div>
             <div class="slider--secondaryText">
-            <p>Lidt</p>
-            <p>Meget</p>
+            <p>low</p>
+            <p>heigh</p>
             </div>
             <div class="slider--barWrap">
               <div class="slider--bar" id="sliderBar"></div>
@@ -227,14 +98,14 @@ export default class PlanPage {
 
 
         <section class="Goal">
-        <h3 class="standardHeading">Mål</h3>
+        <h3>Mål</h3>
          <div class="GoalWrapper">
              <div class="GoalWrapper--item" >
-              	<h4 class="smallerHeading">Skriv lidt om dine mål</h4>
+              	<h2> Skriv lidt om dine mål </h2>
                <textarea onkeyup="(setObjectValues(this.value, 'goal'))"> </textarea>
             </div>
                 <div class="GoalWrapper--item">
-                <h4 class="smallerHeading">Vægttabsmål</h4>
+                   <h2> vægttabsmål </h2>
                    <input onkeyup="(setObjectValues(this.value, 'goalWeight'))">
                 </div>      
          </div>
@@ -242,21 +113,20 @@ export default class PlanPage {
 
 
         <section class="KostPreferencer">
-        <h3 class="standardHeading">KostPreferencer</h3>
+        <h3>KostPreferencer</h3>
           <div class="KostPreferencerWrapper">
-          <h4 class="smallerHeading">Din kost:</h4>
-            <div class="KostPreferencerWrapper--itemflex">
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('Ingen fisk', 'pref'))"><p>Ingen fisk</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('Ingen æg', 'pref'))"><p>Ingen æg</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('Ingen skaldyr', 'pref'))"><p>Ingen skaldyr</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('Ingen gluten', 'pref'))"><p>Ingen gluten</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('Ingen gris', 'pref'))"><p>Ingen gris</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('Ingen lactose', 'pref'))"><p>Ingen lactose</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('vegetar', 'pref'))"><p>vegetar</p></div>
-              <div class="KostPreferencerWrapper--itemflex--inner" onclick="(setObjectValues('veganer', 'pref'))"><p>veganer</p></div>
+            <div class="KostPreferencerWrapper--item">
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('Ingen fisk', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('Ingen æg', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('Ingen skaldyr', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('Ingen gluten', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('Ingen gris', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('Ingen lactose', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('vegetar', 'pref'))"></div>
+              <div class="KostPreferencerWrapper--item--inner" onclick="(setObjectValues('veganer', 'pref'))"></div>
            </div>
-           <h4 class="smallerHeading">Andet?:</h4>
            <div class="KostPreferencerWrapper--item">
+          	<h2> Mere om din kost? </h2>
                <textarea onkeyup="(setObjectValues(this.value, 'prefExtra'))"> </textarea>
                </div>
           </div>
@@ -265,17 +135,16 @@ export default class PlanPage {
 
 
         <section class="TreaningsPreferencer">
-
-        <h3 class="standardHeading">AktivitetsNivau</h3>
+        <h3>Treanings Preferencer</h3>
         <div class="AktivitetsNivauWrap">
-        <div slider-type="aktivitetErhverv" class="AktivitetsNivauWrap--item slider">
+        <div slider-type="experienceTraining" class="AktivitetsNivauWrap--item slider">
           <div class="slider--mainText">
-          <p>Trænings erfaring?</p>
-          <p class="slider--changeText" data-text="text1,text2,text3,text4,text5">Some value</p>
+          <p>trænings erfaring?</p>
+          <p data-text="text1,text2,text3,text4,text9">Some value</p>
           </div>
           <div class="slider--secondaryText">
-          <p>Lidt</p>
-          <p>Meget</p>
+          <p>low</p>
+          <p>heigh</p>
           </div>
           <div class="slider--barWrap">
             <div class="slider--bar" id="sliderBar"></div>
@@ -285,14 +154,14 @@ export default class PlanPage {
         </div>
 
         <div class="AktivitetsNivauWrap">
-        <div slider-type="aktivitetFritid" class="AktivitetsNivauWrap--item slider">
+        <div slider-type="amountTraining" class="AktivitetsNivauWrap--item slider">
           <div class="slider--mainText">
-          <p>Hvor ofte træner du?</p>
-          <p class="slider--changeText" data-text="text1,text2,text3,text4,text9">Some value</p>
+          <p>hvor ofte træner du?</p>
+          <p data-text="text1,text2,text3,text4,text9">Some value</p>
           </div>
           <div class="slider--secondaryText">
-          <p>Lidt</p>
-          <p>Meget</p>
+          <p>low</p>
+          <p>heigh</p>
           </div>
           <div class="slider--barWrap">
             <div class="slider--bar" id="sliderBar"></div>
@@ -300,35 +169,36 @@ export default class PlanPage {
           </div>
         </div>
         </div>
+
         <div class="SygdommeWrapper">
           <div class ="SygdommeWrapper--item">
-              <h4 class="smallerHeading">Mere daglig motions informaton?</h4>
+              <h2>Mere daglig motions informaton?</h2>
              <textarea onkeyup="(setObjectValues(this.value, 'aktivitetExtra'))"></textarea>
            </div>
         </div>
         </section>
 
       <section class="Sygdomme">
-      <h3 class="standardHeading">Sygdomme</h3>
+      <h3>Sygdomme</h3>
         <div class="SygdommeWrapper">
           <div class ="SygdommeWrapper--item">
-              <h4 class="smallerHeading">Er du syg spasser</h4>
+              <h2> Er du syg spasser </h2>
              <textarea onkeyup="(setObjectValues(this.value, 'Sygdomme'))"></textarea>
            </div>
         </div>
       </section>
 
       <section class="Andet">
-      <h3 class="standardHeading">Andet</h3>
+      <h3>Andet</h3>
           <div class="AndetWrapper">
            <div class="AndetWrapper--item">
-             <h4 class="smallerHeading">Har du noget andet smukke?</h4>
+             <h2> Har du noget andet smukke?</h2>
               <textarea onkeyup="(setObjectValues(this.value, 'Andet'))"></textarea>
           </div>
         </div>
       </section>
      
-        <button onclick="SendUserData()" class="SENDPLANBUTT">send</button>
+        <button onclick="SendUserData()">send</button>
       </section>`;
   }
 
@@ -339,7 +209,6 @@ export default class PlanPage {
 
   setObjectValues(val, type) {
     if (type == "pref") {
-      event.target.classList.toggle("KostPreferencerWrapper--itemflex--inner-active")
       if (!this.prefArray.includes(val)) {
         this.prefArray.push(val)
         this.formData[type] =  this.prefArray
@@ -351,6 +220,7 @@ export default class PlanPage {
     }
     console.log(this.formData)
   }
+
 
   setSliderText(breakpointsArray, breakpoints, custTExt, textvalues, sliderType) {
     for (let i = 0; i<breakpointsArray.length; i++) {
@@ -392,7 +262,7 @@ export default class PlanPage {
   }
 
   movemouse(barthing) {
-    let max = (document.getElementById("sliderBar").clientWidth)
+    let max = document.getElementById("sliderBar").clientWidth
     let difference = ((window.innerWidth) - max)/2
     let percentage = 50;
       percentage = (((event.clientX-difference)+8) / (max))*100
@@ -400,18 +270,11 @@ export default class PlanPage {
       percentage = 100
     } else if (percentage < 0) {
       percentage = 0;
-    } else {
-
     }
     this.slidepercentage = percentage;
     barthing.style.left = `${percentage}%`
   }
-
-setActive(nr) {
-  for (let i = 0; i<document.getElementsByClassName("forløbWrap--item").length; i++) {
-  document.getElementsByClassName("forløbWrap--item")[i].classList.remove("forløbWrap--item-active")
-  }
-  event.target.classList.add("forløbWrap--item-active")
-  }
 }
+
+
 

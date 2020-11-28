@@ -43,7 +43,7 @@ export default class AdminPage {
 
   PendingRequest(requestData, index) {
     let htmlTemplate = `
-      <div id="${requestData.id}" class="requestElement">
+    <div id="${requestData.id}" class="requestElement">
       <p>${requestData.Type}</p>
       <p>${requestData.date}</p>
       <p>${requestData.name}</p>
@@ -128,6 +128,7 @@ export default class AdminPage {
 
   init(admins) {
     document.getElementsByClassName("navbarItems")[0].appendChild(this.Navitem)
+    document.getElementsByClassName("navbarItems")[1].appendChild(this.Navitem)
     document.getElementById("root").appendChild(this.ContentWrap)
     this.requestPath = firebase.database().ref('/PendingRequests/');
     this.CompletedrequestPath = firebase.database().ref('/CompletedRequests/');

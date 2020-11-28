@@ -6,20 +6,18 @@ export default class TestPage1 {
   template() {
       document.getElementById("root").innerHTML += /*html*/ `
       <section id="TestPage1" class="page">
-      <div class="hero"></div>
-      <p>TestPage1</p>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
 
+      <header>
+      <nav class="tabbar" id="navbar">
+      <div id="logo"><img src="./assets/logo/main.png"></div>
+      <div class="navbarItems">
+        <a class="tabbar--item" href="#TestPage1">TestPage1</a>
+        <a class="tabbar--item" href="#Plan">Plan</a>
+      </div>
+      </nav>
+      </header>
+
+      <p>TestPage1</p>
       </section>`
   }
 }

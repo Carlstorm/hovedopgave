@@ -29,26 +29,12 @@ class Login {
         this.ui.start('#firebaseui-auth-container', this.uiConfig);
     }
     
-    FirstTimelogin(user) {
+    login(user) {
         firebase.database().ref('/users/' + user.uid)
         .set({
             email: user.email,
-            // navn: user.name
+            navn: user.displayName
         });
-    }
-
-    login() {
-        document.getElementById("loginScreen").style.opacity = 1;
-        document.getElementById("loginScreen").style.pointerEvents = "inherit";
-    }
-
-    closeLogin() {
-        // if (event.target == document.getElementById("loginScreen")) {
-        //     document.getElementById("loginScreen").style.opacity = 0;
-        //     document.getElementById("loginScreen").style.pointerEvents = "none";
-        // }
-        document.getElementById("loginScreen").style.opacity = 0;
-        document.getElementById("loginScreen").style.pointerEvents = "none";
     }
 
     logout() {
