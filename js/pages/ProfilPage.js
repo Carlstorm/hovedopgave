@@ -195,14 +195,9 @@ export default class ProfilPage {
     })
   }
 
-<<<<<<< HEAD
-  init(userID) {
+  init(user) {
     document.getElementsByClassName("navbarItems")[0].insertBefore(this.Navitem, document.getElementsByClassName("navbarItems")[0].children[3])
     console.log(this.Navitem, document.getElementsByClassName("navbarItems")[0])
-=======
-  init(user) {
-    document.getElementsByClassName("navbarItems")[0].appendChild(this.Navitem)
->>>>>>> Kevin
     document.getElementById("root").appendChild(this.ContentWrap)
     this.requestPath = firebase.database().ref('/PendingRequests/'+ user.uid);
     this.completedRequestPath = firebase.database().ref('/CompletedRequests/'+ user.uid);

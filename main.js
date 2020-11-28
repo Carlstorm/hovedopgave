@@ -113,7 +113,7 @@ firebase.auth().onAuthStateChanged(user => {
                 adminPage.init(admins)
                 IsAdmin = true;
             }
-            profilPage.init(user.uid)
+            profilPage.init(user)
             spaService.init();
         })
     // ikke logged in
