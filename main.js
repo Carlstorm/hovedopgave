@@ -33,14 +33,18 @@ let IsAdmin = null;
 
 
 // calls
-window.SendUserData = () => {
-    userdata.send(Currentuser, planPage.GetValue()) 
-    userdata.sendemail(Currentuser, planPage.GetValue())
-} 
-
-window.pageChange = () => spaService.pageChange();
+window.SendUserData = () => userdata.send(Currentuser, planPage.GetValue())
+window.pageChange = () => {
+    spaService.pageChange();
+    if (window.location.hash != "#AdminPage" && window.location.hash != "#ProfilPage") {
+        document.getElementById("navbar").classList.remove("tabbar-black")
+    } else {
+        document.getElementById("navbar").classList.add("tabbar-black")
+    }
+}
 window.logout = () => login.logout();
 window.login = () => login.login();
+window.toggleShowHide = () => adminPage.toggleShowHide();
 window.closeLogin = () => 
     {
         if (event.target == document.getElementById("loginScreen")) {
@@ -51,8 +55,19 @@ window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, For
 window.AddsliderController = () => planPage.AddsliderController();
 window.setActive = (nr) => planPage.setActive(nr);
 
+window.setObjectValues = (val, type, abonnement) => planPage.setObjectValues(val, type, abonnement);
 
-window.setObjectValues = (val, type) => planPage.setObjectValues(val, type);
+
+
+window.acceptRequest = (userID, FormName) => adminPage.acceptRequest(userID, FormName, userdata);
+
+
+window.popupForm = (index) => adminPage.popupForm(index);
+window.removePopupForm = () => adminPage.removePopupForm();
+
+
+
+window.changeChosenFIle = (da) => adminPage.changeChosenFIle(da);
 
 
 // Watchers --> after login specifiks
@@ -70,6 +85,8 @@ firebase.auth().onAuthStateChanged(user => {
         //         console.log("old boi time")
         //     }
         // })
+
+        document.getElementById("horizontalBLhidden").classList.add("horizontalBreakLine")
 
         document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="logout()">Log ud</a>`
         login.closeLogin();

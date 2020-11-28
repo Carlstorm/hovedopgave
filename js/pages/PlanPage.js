@@ -4,7 +4,13 @@ export default class PlanPage {
     this.slidepercentage
     this.formData = new Object();
     this.prefArray = new Array();
+    this.brugerData = new Object();
+    this.Aktivitet = new Object();
+    this.Mål = new Object();
+    this.Pref = new Object();
+    this.Trænning = new Object();
   }
+  
 
   template() {
     document.getElementById("root").innerHTML += /*html*/ `
@@ -13,11 +19,12 @@ export default class PlanPage {
         <div id="logo"><img src="./assets/logo/main.png"></div>
       </div>
       <div class="content">
+        <div class="kvitering"></div>
         <section class="Abonnoment">
         <h3 class="standardHeading">Abonnoment</h3>
           <div class="forløbWrap">
             <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
+            <div class="forløbWrap--item" onclick="setObjectValues('Kost', 'plan', 'Abonnement'); setActive();">
               <div class="forløbWrap--header">
                 <div class="forløbWrap--priswrap">
                 <div class="forløbWrap--priswrap-goldBox">
@@ -51,7 +58,7 @@ export default class PlanPage {
             </div>
             </div>
             <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
+            <div class="forløbWrap--item" onclick="setObjectValues('Kost&Trænning', 'plan', 'Abonnement'); setActive();">
               <div class="forløbWrap--header">
                 <div class="forløbWrap--priswrap">
                 <div class="forløbWrap--priswrap-goldBox">
@@ -85,7 +92,7 @@ export default class PlanPage {
             </div>
             </div>
             <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
+            <div class="forløbWrap--item" onclick="setObjectValues('Trænning', 'plan', 'Abonnement'); setActive();">
               <div class="forløbWrap--header">
                 <div class="forløbWrap--priswrap">
                 <div class="forløbWrap--priswrap-goldBox">
@@ -122,7 +129,7 @@ export default class PlanPage {
 
             <div class="forløbWrap">
             <div class="forløbWrap-small">
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
+            <div class="forløbWrap--item" onclick="setObjectValues('Kost', 'plan', 'Plan'); setActive();">
               <div class="forløbWrap--header">
                 <div class="forløbWrap--priswrap">
                 <div class="forløbWrap--priswrap-goldBox">
@@ -145,7 +152,7 @@ export default class PlanPage {
             </div>
             </div>
             <div class="forløbWrap-small">
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
+            <div class="forløbWrap--item" onclick="setObjectValues('Trænning', 'plan', 'Plan'); setActive();">
               <div class="forløbWrap--header">
                 <div class="forløbWrap--priswrap">
                 <div class="forløbWrap--priswrap-goldBox">
@@ -174,24 +181,37 @@ export default class PlanPage {
         <section class="BasisInfo">
         <h3 class="standardHeading">USER INFO</h3>
         <div class="BasisInfoWrap">
+        <div id="BrugerData">
           <span>Navn:</span>
-          <input onkeyup="(setObjectValues(this.value, 'navn'))">
+          <input onkeyup="(setObjectValues(this.value, 'Navn'))">
+        </div>
+        <div id="BrugerData">
           <span>Køn:</span>
-          <input onkeyup="(setObjectValues(this.value, 'køn'))">
+          <input onkeyup="(setObjectValues(this.value, 'Køn'))">
+        </div>
+        <div id="BrugerData">
           <span>Fødselsår:</span>
-          <input onkeyup="(setObjectValues(this.value, 'fødselsår'))">
+          <input onkeyup="(setObjectValues(this.value, 'Alder'))">
+        </div>
+        <div id="BrugerData">
           <span>By:</span>
-          <input onkeyup="(setObjectValues(this.value, 'by'))">
+          <input onkeyup="(setObjectValues(this.value, 'By'))">
+        </div>
+        <div id="BrugerData">
           <span>Adresse:</span>
-          <input onkeyup="(setObjectValues(this.value, 'adresse'))">
+          <input onkeyup="(setObjectValues(this.value, 'Adresse'))">
+        </div>
+        <div id="BrugerData">
+          <span>Tlf: (valgfrit)</span>
+          <input onkeyup="(setObjectValues(this.value, 'Tlf'))">
         </div>
         </section>
 
 
-        <section class="AktivitetsNivau">
+        <section class="AktivitetsNivau" id="Aktivitet">
           <h3 class="standardHeading">AktivitetsNivau</h3>
           <div class="AktivitetsNivauWrap">
-          <div slider-type="aktivitetErhverv" class="AktivitetsNivauWrap--item slider">
+          <div slider-type="AktivitetErhverv" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
             <p>Aktivitet i arbejde?</p>
             <p class="slider--changeText" data-text="text1,text2,text3,text4,text5">Some value</p>
@@ -207,8 +227,8 @@ export default class PlanPage {
           </div>
           </div>
 
-          <div class="AktivitetsNivauWrap">
-          <div slider-type="aktivitetFritid" class="AktivitetsNivauWrap--item slider">
+          <div class="AktivitetsNivauWrap" id="Aktivitet">
+          <div slider-type="AktivitetFritid" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
             <p>Aktivitiet i din fritid?</p>
             <p class="slider--changeText" data-text="text1,text2,text3,text4,text9">Some value</p>
@@ -223,19 +243,25 @@ export default class PlanPage {
             </div>
           </div>
           </div>
+          <div class="SygdommeWrapper">
+          <div class="SygdommeWrapper--item">
+              <h4 class="smallerHeading">Mere daglig motions informaton?</h4>
+             <textarea onkeyup="(setObjectValues(this.value, 'AktivitetAndet'))"></textarea>
+           </div>
+        </div>
         </section>
 
 
-        <section class="Goal">
-        <h3 class="standardHeading">Mål</h3>
+        <section class="mål">
+        <h3 class="standardHeading">goal</h3>
          <div class="GoalWrapper">
              <div class="GoalWrapper--item" >
               	<h4 class="smallerHeading">Skriv lidt om dine mål</h4>
-               <textarea onkeyup="(setObjectValues(this.value, 'goal'))"> </textarea>
+               <textarea onkeyup="(setObjectValues(this.value, 'Mål'))"> </textarea>
             </div>
                 <div class="GoalWrapper--item">
                 <h4 class="smallerHeading">Vægttabsmål</h4>
-                   <input onkeyup="(setObjectValues(this.value, 'goalWeight'))">
+                   <input onkeyup="(setObjectValues(this.value, 'MålVægt'))">
                 </div>      
          </div>
         </section>
@@ -266,9 +292,9 @@ export default class PlanPage {
 
         <section class="TreaningsPreferencer">
 
-        <h3 class="standardHeading">AktivitetsNivau</h3>
+        <h3 class="standardHeading">Trænning</h3>
         <div class="AktivitetsNivauWrap">
-        <div slider-type="aktivitetErhverv" class="AktivitetsNivauWrap--item slider">
+        <div slider-type="TrænningErfaring" class="AktivitetsNivauWrap--item slider">
           <div class="slider--mainText">
           <p>Trænings erfaring?</p>
           <p class="slider--changeText" data-text="text1,text2,text3,text4,text5">Some value</p>
@@ -285,7 +311,7 @@ export default class PlanPage {
         </div>
 
         <div class="AktivitetsNivauWrap">
-        <div slider-type="aktivitetFritid" class="AktivitetsNivauWrap--item slider">
+        <div slider-type="Trænninghyppighed" class="AktivitetsNivauWrap--item slider">
           <div class="slider--mainText">
           <p>Hvor ofte træner du?</p>
           <p class="slider--changeText" data-text="text1,text2,text3,text4,text9">Some value</p>
@@ -299,12 +325,6 @@ export default class PlanPage {
             <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
           </div>
         </div>
-        </div>
-        <div class="SygdommeWrapper">
-          <div class ="SygdommeWrapper--item">
-              <h4 class="smallerHeading">Mere daglig motions informaton?</h4>
-             <textarea onkeyup="(setObjectValues(this.value, 'aktivitetExtra'))"></textarea>
-           </div>
         </div>
         </section>
 
@@ -337,16 +357,44 @@ export default class PlanPage {
     return this.formData;
   }
 
-  setObjectValues(val, type) {
+  setObjectValues(val, type, abonnement) {
+    if (type.includes("pref")) {
     if (type == "pref") {
       event.target.classList.toggle("KostPreferencerWrapper--itemflex--inner-active")
       if (!this.prefArray.includes(val)) {
         this.prefArray.push(val)
-        this.formData[type] =  this.prefArray
       } else {
         this.prefArray.pop(val)
       }
+      this.Pref[type] = this.prefArray;
     } else {
+      this.Pref[type] = val;
+    }
+    this.formData["pref"] =  this.Pref
+
+    } else if (event.target.parentElement.id == "BrugerData") {
+      this.brugerData[type] = val;
+      this.formData["BrugerData"] = this.brugerData;
+
+      
+    } else if (type.includes("Aktivit")) {
+      this.Aktivitet[type] = val;
+      this.formData["Aktivitet"] = this.Aktivitet;
+
+    } else if (type.includes("Mål")) {
+      this.Mål[type] = val;
+      this.formData["Mål"] = this.Mål;
+
+    } else if (type.includes("Trænning")) {
+      this.Trænning[type] = val;
+      this.formData["Trænnings"] = this.Trænning;
+    } else {
+    
+    
+
+      if (abonnement) {
+        this.formData["planType"] = abonnement;
+      }
       this.formData[type] = val;
     }
     console.log(this.formData)

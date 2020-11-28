@@ -92,6 +92,7 @@ export default class ProfilPage {
     let Navitem = document.createElement("A")
     Navitem.innerHTML = "ProfilPage"
     Navitem.href = "#ProfilPage";
+    Navitem.className = "tabbar--item"
     this.Navitem = Navitem;
   }
 
@@ -103,7 +104,8 @@ export default class ProfilPage {
   }
 
   init(userID) {
-    document.getElementsByClassName("navbarItems")[0].appendChild(this.Navitem)
+    document.getElementsByClassName("navbarItems")[0].insertBefore(this.Navitem, document.getElementsByClassName("navbarItems")[0].children[3])
+    console.log(this.Navitem, document.getElementsByClassName("navbarItems")[0])
     document.getElementById("root").appendChild(this.ContentWrap)
     this.requestPath = firebase.database().ref('/PendingRequests/'+ userID);
     this.completedRequestPath = firebase.database().ref('/CompletedRequests/'+ userID);
