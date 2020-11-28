@@ -11,6 +11,7 @@ import Firebase from "./js/services/firebase.js";
 import Login from "./js/services/login.js";
 import UserData from "./js/services/UserData.js"
 import Upload from "./js/services/upload.js"
+import CameraService from "./js/services/cameraservice.js";
 
 // variables
 let Currentuser = null;
@@ -30,6 +31,7 @@ let IsAdmin = null;
     let spaService = new SpaService();
     let upload = new Upload();
     let login = new Login();
+    let cameraService = new CameraService();
 
 
 // calls
@@ -45,6 +47,19 @@ window.pageChange = () => {
 window.logout = () => login.logout();
 window.login = () => login.login();
 window.toggleShowHide = () => adminPage.toggleShowHide();
+window.SendUserData = () => {
+    userdata.send(Currentuser, planPage.GetValue()) 
+    userdata.sendemail(Currentuser, planPage.GetValue())
+
+} 
+window.onclickPlus = () => {profilPage.onclickPlus()}
+window.onclickCross = () => {profilPage.onclickCross()}
+window.onclick = (event) => { profilPage.onclickWindowClose(event)}
+window.Opencamera = () => { cameraService.Opencamera()}
+window.lukcamera = () => {cameraService.lukcamera()}
+window.tagbillede = () => {cameraService.tagbillede()}
+window.acceptbillede = () => {cameraService.acceptbillede(Currentuser)}
+window.previewImage = (file) => {cameraService.uploadFileImg(file,Currentuser)}
 window.closeLogin = () => 
     {
         if (event.target == document.getElementById("loginScreen")) {

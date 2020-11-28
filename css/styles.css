@@ -3,7 +3,12 @@ body {
   color: #363636;
   background: #fbfaf8;
   margin: 0;
+<<<<<<< HEAD
   font-family: "calibri"; }
+=======
+  font-family: "calibri";
+  overflow-x: hidden; }
+>>>>>>> Kevin
 
 .standardHeading {
   text-transform: uppercase;
@@ -71,8 +76,12 @@ textarea {
 header {
   position: absolute;
   right: 0;
+<<<<<<< HEAD
   top: 0;
   width: 100%; }
+=======
+  top: 0; }
+>>>>>>> Kevin
   header .tabbar {
     -webkit-user-select: none;
     /* Safari */
@@ -84,6 +93,7 @@ header {
     /* Standard */
     position: relative;
     padding: 0 16px;
+<<<<<<< HEAD
     height: 58px;
     width: 100%;
     float: right; }
@@ -93,12 +103,26 @@ header {
       width: 1px; }
     header .tabbar .navbarItems {
       float: right;
+=======
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 74px;
+    width: calc(100%-32px); }
+    header .tabbar .horizontalBreakLine {
+      margin: 4px 8px;
+      height: 24px;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.603); }
+    header .tabbar .navbarItems {
+>>>>>>> Kevin
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
       height: max-content;
       width: max-content;
       margin-top: 12px; }
+<<<<<<< HEAD
       header .tabbar .navbarItems svg {
         height: 20px; }
       header .tabbar .navbarItems a {
@@ -116,12 +140,18 @@ header {
         background: rgba(0, 0, 0, 0.5); }
       header .tabbar-black .navbarItems svg g {
         fill: rgba(0, 0, 0, 0.75) !important; }
+=======
+>>>>>>> Kevin
     header .tabbar--item {
       display: inline-block;
       margin: 0px 22px;
       font-size: 24px;
       font-style: italic;
       font-weight: bold;
+<<<<<<< HEAD
+=======
+      color: white !important;
+>>>>>>> Kevin
       text-decoration: none;
       opacity: 0.8;
       transition: opacity 0.1s;
@@ -299,9 +329,12 @@ header {
   display: flex;
   justify-content: center;
   padding-top: 4px; }
+<<<<<<< HEAD
   .BasisInfoWrap div {
     width: 100%;
     margin: 4px 0; }
+=======
+>>>>>>> Kevin
   .BasisInfoWrap span {
     width: 100%;
     font-size: 14px;
@@ -393,6 +426,13 @@ header {
       .AktivitetsNivauWrap .slider--barThing:hover {
         transition: transform 0.1s;
         transform: translate(-50%, -50%) scale(1.1); }
+<<<<<<< HEAD
+=======
+
+.requestElement {
+  width: 100%;
+  cursor: pointer; }
+>>>>>>> Kevin
 
 .GoalWrapper {
   width: 80%;
@@ -550,6 +590,7 @@ header {
   font-weight: bold;
   color: white;
   transform: translateX(-50%);
+<<<<<<< HEAD
   position: relative;
   left: 50%;
   margin: 24px 0 42px 0;
@@ -1049,3 +1090,189 @@ input:-webkit-autofill:active {
     margin-left: 14px; }
   .popupFormWrap #PoprequestWrapContent span {
     font-weight: bold; }
+=======
+  position: relative;
+  left: 50%;
+  margin: 24px 0 42px 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+  outline: none !important; }
+  .SENDPLANBUTT:hover {
+    transform: translateX(-50%) scale(1.05); }
+
+.requestElement {
+  margin: 10%;
+  width: 100%;
+  cursor: pointer; }
+  .requestElement .profilFlex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    /* Modal Content */ }
+    .requestElement .profilFlex--inner {
+      width: 60%;
+      flex: 1;
+      -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      border-radius: 10px;
+      min-width: 650px; }
+    .requestElement .profilFlex--inner-1 {
+      width: 40%;
+      min-width: 275px; }
+      .requestElement .profilFlex--inner-1 .profilImage {
+        background: url(https://i.pinimg.com/236x/ce/2a/95/ce2a95e99faceaf7af19c273b10ebcc1.jpg);
+        height: 40vh;
+        width: 40vh;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+    .requestElement .profilFlex .plusButton {
+      width: 20%;
+      float: right;
+      transform: translateY(440%); }
+    .requestElement .profilFlex #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: black;
+      background-color: rgba(0, 0, 0, 0.4); }
+    .requestElement .profilFlex .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; }
+      .requestElement .profilFlex .modal-content button {
+        margin-top: 1%; }
+      .requestElement .profilFlex .modal-content span {
+        font-size: 40px; }
+
+.loginWrap {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.753);
+  z-index: 999;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s; }
+  .loginWrap--container {
+    position: relative;
+    z-index: 9999;
+    cursor: default;
+    background-image: url("../assets/imgs/bg.jpg");
+    background-color: rgba(255, 255, 255, 0.021);
+    background-blend-mode: overlay;
+    width: max-content;
+    height: max-content;
+    transform: translate(-50%, -50%);
+    padding: 32px 12px;
+    border-radius: 24px;
+    top: 50%;
+    left: 50%;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75); }
+
+.firebaseui-container {
+  background: transparent !important;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0) !important;
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0) !important;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0) !important;
+  min-width: 300px !important; }
+  .firebaseui-container h1 {
+    color: white; }
+  .firebaseui-container a {
+    color: white !important; }
+  .firebaseui-container p {
+    color: white; }
+  .firebaseui-container .mdl-button--primary {
+    color: #d0b85e !important; }
+  .firebaseui-container .mdl-button--colored {
+    text-shadow: 1px 1px 4px #000000a2;
+    color: white !important;
+    background: url("../assets/textures/gold.jpg") !important;
+    background-size: 260% !important; }
+
+.firebaseui-label {
+  color: rgba(255, 255, 255, 0.548) !important; }
+  .firebaseui-label:after {
+    background-color: #d0b85e !important; }
+
+.firebaseui-input {
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.548) !important; }
+  .firebaseui-input-invalid {
+    color: rgba(255, 255, 255, 0.568) !important; }
+
+.firebaseui-id-page-sign-in, .firebaseui-id-page-password-sign-up, .firebaseui-id-page-password-sign-in {
+  min-width: 382px !important; }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important; }
+
+.is-focused label {
+  color: white !important; }
+
+.firebaseui-input-toggle-on {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/1x/visibility_white_24dp.png") !important; }
+
+.firebaseui-input-toggle-off {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/1x/visibility_off_white_24dp.png") !important; }
+
+.mdl-textfield.is-invalid {
+  border-color: #ff4e4e !important; }
+
+.profilCard {
+  margin: 1%;
+  box-sizing: border-box; }
+
+.buttonFlex {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline; }
+  .buttonFlex--inner {
+    width: 33%; }
+    .buttonFlex--inner .buttonKontakt {
+      transform: translateX(15vw);
+      height: 6vh;
+      width: 100px;
+      background: url("../assets/textures/gold.jpg");
+      background-size: cover;
+      border-radius: 10px;
+      font-size: auto;
+      font-weight: bold; }
+    .buttonFlex--inner .buttonPending {
+      width: 100px;
+      transform: translateX(-9vw);
+      background: #fb2020;
+      border-radius: 10px;
+      height: 6vh;
+      font-size: auto;
+      font-weight: bold; }
+
+#profileimagePreview {
+  background-position: center !important;
+  background-size: cover !important; }
+>>>>>>> Kevin
