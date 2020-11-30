@@ -23,9 +23,9 @@ class Upload {
             var response = this.responseText;
             if(response == 1){
                alert("Upload successfully.");
-               userdata.MoveForm(userId, formName)
+               userdata.MoveForm(userId, formName, '/AcceptedRequests/')
             }else{
-               alert("File not uploaded.");
+               alert("Fil ikke uploadeded.");
             }
           }
        };
@@ -34,7 +34,7 @@ class Upload {
        xhttp.send(formData);
  
     }else{
-       alert("Please select a file");
+       alert("Ingen Fil valgt");
     }
 }
 }

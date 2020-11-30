@@ -12,18 +12,23 @@ class SpaService {
 
     pageChange() {
       let page = window.location.hash.slice(1);
+      if (page == "AdminPage") {
+        document.getElementsByClassName("logo")[0].style.display = "none"
+      } else {
+        document.getElementsByClassName("logo")[0].style.display = "initial"
+      }
       this.showPage(page);
     }
   
     showPage(pageId) {
       this.hideAllPages();
-      document.querySelector(`#${pageId}`).style.display = "block";
+      document.querySelector(`#${pageId}`).classList.add("pageActive")
       this.setActiveTab(pageId);
     }
 
     hideAllPages() {
       for (let page of this.pages) {
-        page.style.display = "none";
+        page.classList.remove("pageActive")
       }
     }
   

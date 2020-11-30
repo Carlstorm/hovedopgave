@@ -11,6 +11,7 @@ import Firebase from "./js/services/firebase.js";
 import Login from "./js/services/login.js";
 import UserData from "./js/services/UserData.js"
 import Upload from "./js/services/upload.js"
+import CameraService from "./js/services/cameraservice.js";
 
 // variables
 let Currentuser = null;
@@ -30,13 +31,41 @@ let IsAdmin = null;
     let spaService = new SpaService();
     let upload = new Upload();
     let login = new Login();
+    let cameraService = new CameraService();
 
 
 // calls
+
+window.formdataPreset = () => planPage.formdataPreset();
+window.confirmCheck = () => adminPage.confirmCheck();
+window.SletAnsøgning = () => adminPage.SletAnsøgning();
+
+
 window.SendUserData = () => userdata.send(Currentuser, planPage.GetValue())
-window.pageChange = () => spaService.pageChange();
+window.pageChange = () => {
+    spaService.pageChange();
+    if (window.location.hash != "#AdminPage" && window.location.hash != "#ProfilPage") {
+        document.getElementById("navbar").classList.remove("tabbar-black")
+    } else {
+        document.getElementById("navbar").classList.add("tabbar-black")
+    }
+}
 window.logout = () => login.logout();
 window.login = () => login.login();
+window.toggleShowHide = () => adminPage.toggleShowHide();
+window.SendUserData = () => {
+    userdata.send(Currentuser, planPage.GetValue()) 
+    userdata.sendemail(Currentuser, planPage.GetValue())
+
+} 
+window.onclickPlus = () => {profilPage.onclickPlus()}
+window.onclickCross = () => {profilPage.onclickCross()}
+window.onclick = (event) => { profilPage.onclickWindowClose(event)}
+window.Opencamera = () => { cameraService.Opencamera()}
+window.lukcamera = () => {cameraService.lukcamera()}
+window.tagbillede = () => {cameraService.tagbillede()}
+window.acceptbillede = () => {cameraService.acceptbillede(Currentuser)}
+window.previewImage = (file) => {cameraService.uploadFileImg(file,Currentuser)}
 window.closeLogin = () => 
     {
         if (event.target == document.getElementById("loginScreen")) {
@@ -47,7 +76,19 @@ window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, For
 window.AddsliderController = () => planPage.AddsliderController();
 window.setActive = (nr) => planPage.setActive(nr);
 
-window.setObjectValues = (val, type) => planPage.setObjectValues(val, type);
+window.setObjectValues = (val, type, abonnement) => planPage.setObjectValues(val, type, abonnement);
+
+
+
+window.acceptRequest = (userID, FormName) => adminPage.acceptRequest(userID, FormName, userdata);
+
+
+window.popupForm = (index) => adminPage.popupForm(index);
+window.removePopupForm = () => adminPage.removePopupForm();
+
+
+
+window.changeChosenFIle = (da) => adminPage.changeChosenFIle(da);
 
 
 // Watchers --> after login specifiks
@@ -66,6 +107,7 @@ firebase.auth().onAuthStateChanged(user => {
         //     }
         // })
 
+
         document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="logout()">Log ud</a>`
         login.closeLogin();
 
@@ -76,8 +118,9 @@ firebase.auth().onAuthStateChanged(user => {
                 adminPage.init(admins)
                 IsAdmin = true;
             }
-            profilPage.init(user.uid)
+            profilPage.init(user)
             spaService.init();
+            document.getElementById("horizontalBLhidden").classList.add("horizontalBreakLine")
         })
     // ikke logged in
     } else {

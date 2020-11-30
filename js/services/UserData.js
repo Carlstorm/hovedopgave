@@ -10,7 +10,7 @@ class UserData {
             formNr = "";
         }
         let date = new Date();
-        let formName = `${this.formType}-${date.getFullYear()}${formNr}`
+        let formName = `${data.plan}${data.planType}${date.getFullYear()}${formNr}`
         this.sendPath = firebase.database().ref('/PendingRequests/' + user.uid + `/${formName}/`)
         this.sendPath.once('value', (snapshot) => {
             if (snapshot.exists()) {
@@ -22,7 +22,8 @@ class UserData {
                 this.sendPath.set({
                     formName: formName,
                     date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
-                    Type: `${this.formType}`,
+                    plan: `${data.plan}`,
+                    Type: `${data.planType}`,
                     request: data,
                     name: user.displayName,
                     email: user.email,
@@ -41,15 +42,24 @@ class UserData {
         });
     }
 
-    MoveForm(userId, formName) {
-        let currentPath = firebase.database().ref('/PendingRequests/' + userId + `/${formName}/`)
+    MoveForm(userId, formName, whereFrom) {
+        let currentPath = firebase.database().ref(whereFrom + userId + `/${formName}/`)
+        let whereTo
+        console.log(whereFrom)
+        if (whereFrom == '/PendingRequests/') {
+            whereTo = '/AcceptedRequests/'
+        } else {
+            whereTo = '/CompletedRequests/'
+        }
         currentPath.once('value', (snapshot) => {
-            this.MoveFormToCompleted(userId, snapshot.val(), formName);
+            console.log(userId, snapshot.val(), formName, null, whereTo);
+            this.MoveFormToCompleted(userId, snapshot.val(), formName, null, whereTo);
             currentPath.remove();
        })
     }
 
-    MoveFormToCompleted(userId, formdata, formName, formNr) {
+    MoveFormToCompleted(userId, formdata, formName, formNr, whereTo) {
+        console.log(whereTo)
         if (!formNr) {
             formNr = "";
         }
@@ -61,12 +71,12 @@ class UserData {
         } else {
             newFormName = formName+formNr
         }
-        this.sendPath = firebase.database().ref('/CompletedRequests/' + userId + `/${newFormName}/`)
+        this.sendPath = firebase.database().ref(whereTo + userId + `/${newFormName}/`)
         this.sendPath.once('value', (snapshot) => {
             if (snapshot.exists()) {
                 this.formNr++
                 let formNrNew = `(${this.formNr})`
-                this.MoveFormToCompleted(userId, formdata, newFormName, formNrNew);
+                this.MoveFormToCompleted(userId, formdata, newFormName, formNrNew, whereTo);
             } else {
                 this.formNr = 1;
                 let newFormData = formdata;

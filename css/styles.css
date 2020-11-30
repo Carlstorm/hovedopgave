@@ -1,9 +1,35 @@
 @charset "UTF-8";
+.page {
+  display: none; }
+
+.pageActive {
+  display: block; }
+  .pageActive .anies {
+    animation: animOpacity 0.3s forwards ease-out; }
+  .pageActive .anies-slide {
+    animation: animSlide 0.2s forwards ease-out; }
+
+.directanies {
+  animation: mymove 0.3s forwards ease-out; }
+
+@keyframes animOpacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 100; } }
+
+@keyframes animSlide {
+  from {
+    left: -300px; }
+  to {
+    left: 0; } }
+
 body {
   color: #363636;
   background: #fbfaf8;
   margin: 0;
-  font-family: "calibri"; }
+  font-family: "calibri";
+  overflow-x: hidden; }
 
 .standardHeading {
   text-transform: uppercase;
@@ -52,15 +78,22 @@ textarea {
   position: relative;
   left: 50%; }
 
-#logo {
+.logo {
   height: max-content;
   width: 100px;
-  padding: 18px 0px; }
-  #logo img {
-    width: 100%;
-    height: auto; }
+  padding: 16px 20px; }
+  .logo .LogoSvg {
+    width: 108px; }
+    .logo .LogoSvg image {
+      width: 100%; }
+
+#testdadaada {
+  background: green;
+  height: 200px;
+  width: 200px; }
 
 .hero {
+  opacity: 1 !important;
   height: 750px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.541);
@@ -71,7 +104,9 @@ textarea {
 header {
   position: absolute;
   right: 0;
-  top: 0; }
+  top: 0;
+  width: 100%;
+  z-index: 9; }
   header .tabbar {
     -webkit-user-select: none;
     /* Safari */
@@ -82,31 +117,46 @@ header {
     user-select: none;
     /* Standard */
     position: relative;
-    padding: 0 16px;
+    height: 58px;
+    width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    height: 74px;
-    width: calc(100%-32px); }
+    flex-direction: row-reverse;
+    justify-content: space-between; }
     header .tabbar .horizontalBreakLine {
       margin: 4px 8px;
       height: 24px;
-      width: 1px;
-      background: rgba(255, 255, 255, 0.603); }
+      width: 1px; }
     header .tabbar .navbarItems {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
       height: max-content;
       width: max-content;
-      margin-top: 12px; }
+      margin-top: 12px;
+      margin-right: 12px; }
+      header .tabbar .navbarItems svg {
+        height: 20px; }
+      header .tabbar .navbarItems a {
+        color: white !important; }
+      header .tabbar .navbarItems .horizontalBreakLine {
+        background: rgba(255, 255, 255, 0.555); }
+    header .tabbar-black {
+      background: white;
+      -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15); }
+      header .tabbar-black .navbarItems a {
+        color: rgba(0, 0, 0, 0.75) !important; }
+      header .tabbar-black .navbarItems .horizontalBreakLine {
+        background: rgba(0, 0, 0, 0.5); }
+      header .tabbar-black .navbarItems svg g {
+        fill: rgba(0, 0, 0, 0.75) !important; }
     header .tabbar--item {
       display: inline-block;
       margin: 0px 22px;
       font-size: 24px;
       font-style: italic;
       font-weight: bold;
-      color: white !important;
       text-decoration: none;
       opacity: 0.8;
       transition: opacity 0.1s;
@@ -284,6 +334,9 @@ header {
   display: flex;
   justify-content: center;
   padding-top: 4px; }
+  .BasisInfoWrap div {
+    width: 100%;
+    margin: 4px 0; }
   .BasisInfoWrap span {
     width: 100%;
     font-size: 14px;
@@ -377,10 +430,7 @@ header {
         transform: translate(-50%, -50%) scale(1.1); }
 
 .requestElement {
-  width: 300px;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 100%;
   cursor: pointer; }
 
 .GoalWrapper {
@@ -555,12 +605,251 @@ header {
   .SENDPLANBUTT:hover {
     transform: translateX(-50%) scale(1.05); }
 
-.requestElement {
+.PendingRequestElementWrap {
+  width: 262px;
+  height: 200px; }
+
+.PendingRequestElement {
+  transition: 0.2s ease-out;
+  width: 95%;
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden; }
+  .PendingRequestElement:hover {
+    transform: translate(-50%, -50%) scale(1.025);
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2); }
+  .PendingRequestElement > div {
+    pointer-events: none; }
+  .PendingRequestElement-heading1 {
+    font-weight: bold;
+    font-size: 20px; }
+  .PendingRequestElement-heading2 {
+    font-size: 18px; }
+  .PendingRequestElement-heading3 {
+    font-size: 14px;
+    padding: 0;
+    opacity: 0.7;
+    position: absolute;
+    right: 12px;
+    top: 10px; }
+  .PendingRequestElement-button1 {
+    background: url("../assets/textures/gold.jpg");
+    background-size: 100%;
+    height: 24px;
+    border-radius: 4px;
+    margin: 4px;
+    text-shadow: 1px 1px 4px black; }
+    .PendingRequestElement-button1 p {
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      position: relative;
+      text-align: center; }
+  .PendingRequestElement-button2 {
+    height: 24px;
+    border-radius: 4px;
+    margin: 4px;
+    width: 82px;
+    border: solid 1px white; }
+    .PendingRequestElement-button2 p {
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      position: relative;
+      text-align: center; }
+  .PendingRequestElement--header {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background: url("../assets/imgs/bg.jpg"); }
+    .PendingRequestElement--header > div {
+      padding: 8px 12px; }
+      .PendingRequestElement--header > div p {
+        margin: 0; }
+  .PendingRequestElement-text {
+    height: 38px;
+    background: white; }
+    .PendingRequestElement-text p, .PendingRequestElement-text label, .PendingRequestElement-text input {
+      padding: 0px 14px;
+      margin: 0;
+      transform: translateY(-50%);
+      position: relative;
+      top: 50%; }
+  .PendingRequestElement-text2 {
+    height: 38px;
+    background: #fbfaf8; }
+    .PendingRequestElement-text2 p {
+      padding: 0px 14px;
+      margin: 0;
+      transform: translateY(-50%);
+      position: relative;
+      top: 50%; }
+  .PendingRequestElement-contentWrap {
+    min-height: 112px;
+    background: white; }
+  .PendingRequestElement label {
+    border: solid 1px black;
+    display: inline-block;
+    color: black;
+    padding: 4px 8px;
+    margin: 4px 4px 0 14px;
+    border-radius: 4px;
+    cursor: pointer; }
+  .PendingRequestElement #file-chosen {
+    top: 3px;
+    position: relative; }
+
+.AcceptedRequestElement {
   width: 300px;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin: 24px;
+  -webkit-box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden; }
+  .AcceptedRequestElement-heading1 {
+    font-weight: bold;
+    font-size: 24px; }
+  .AcceptedRequestElement-heading2 {
+    font-size: 16px; }
+  .AcceptedRequestElement-heading3 {
+    opacity: 0.7;
+    padding-top: 12px;
+    font-size: 14px;
+    white-space: nowrap; }
+  .AcceptedRequestElement-button1 {
+    background: url("../assets/textures/gold.jpg");
+    background-size: 100%;
+    height: 24px;
+    border-radius: 4px;
+    margin: 4px;
+    text-shadow: 1px 1px 4px black; }
+    .AcceptedRequestElement-button1 p {
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      position: relative;
+      text-align: center; }
+  .AcceptedRequestElement-button2 {
+    height: 24px;
+    border-radius: 4px;
+    margin: 4px;
+    width: 82px;
+    border: solid 1px white; }
+    .AcceptedRequestElement-button2 p {
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      position: relative;
+      text-align: center; }
+  .AcceptedRequestElement--header {
+    height: 94px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background: url("../assets/imgs/bg.jpg"); }
+    .AcceptedRequestElement--header > div {
+      padding: 8px 12px; }
+      .AcceptedRequestElement--header > div p {
+        margin: 0; }
+  .AcceptedRequestElement-text {
+    height: 38px;
+    background: white; }
+    .AcceptedRequestElement-text p, .AcceptedRequestElement-text label, .AcceptedRequestElement-text input {
+      padding: 0px 14px;
+      margin: 0;
+      transform: translateY(-50%);
+      position: relative;
+      top: 50%; }
+  .AcceptedRequestElement-text2 {
+    height: 38px;
+    background: #fbfaf8; }
+    .AcceptedRequestElement-text2 p {
+      padding: 0px 14px;
+      margin: 0;
+      transform: translateY(-50%);
+      position: relative;
+      top: 50%; }
+  .AcceptedRequestElement-contentWrap {
+    min-height: 142px;
+    background: white; }
+  .AcceptedRequestElement label {
+    border: solid 1px black;
+    display: inline-block;
+    color: black;
+    padding: 4px 8px;
+    margin: 4px 4px 0 14px;
+    border-radius: 4px;
+    cursor: pointer; }
+  .AcceptedRequestElement #file-chosen {
+    top: 3px;
+    position: relative; }
+
+.requestElement {
+  margin: 10%;
+  width: 100%;
   cursor: pointer; }
+  .requestElement .profilFlex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    /* Modal Content */ }
+    .requestElement .profilFlex--inner {
+      width: 60%;
+      flex: 1;
+      -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+      border-radius: 10px;
+      min-width: 650px; }
+    .requestElement .profilFlex--inner-1 {
+      width: 40%;
+      min-width: 275px; }
+      .requestElement .profilFlex--inner-1 .profilImage {
+        background: url(https://i.pinimg.com/236x/ce/2a/95/ce2a95e99faceaf7af19c273b10ebcc1.jpg);
+        height: 40vh;
+        width: 40vh;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
+    .requestElement .profilFlex .plusButton {
+      width: 20%;
+      float: right;
+      transform: translateY(440%); }
+    .requestElement .profilFlex #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: black;
+      background-color: rgba(0, 0, 0, 0.4); }
+    .requestElement .profilFlex .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; }
+      .requestElement .profilFlex .modal-content button {
+        margin-top: 1%; }
+      .requestElement .profilFlex .modal-content span {
+        font-size: 40px; }
 
 .loginWrap {
   height: 100%;
@@ -642,3 +931,421 @@ input:-webkit-autofill:active {
 
 .mdl-textfield.is-invalid {
   border-color: #ff4e4e !important; }
+
+.adminstration--pageWrap {
+  position: relative;
+  top: 58px;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  z-index: 999; }
+
+.adminstration--siderbar {
+  z-index: 9999;
+  width: 300px;
+  height: 100%; }
+
+.adminstration--siderbarforshow {
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  background: url("../assets/imgs/bg.jpg");
+  background-size: 1200px;
+  width: 300px;
+  height: 100%;
+  -webkit-box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.7); }
+  .adminstration--siderbarforshow h2 {
+    margin: 34px 0 16px 20px;
+    background-image: radial-gradient(at bottom right, #f1d07a 0%, #d1b05a 10%, #b39442 20%, #d1b05a 30%, #f1d07a 40%, #d1b05a 50%, #b39442 60%, #d1b05a 70%, #f1d07a 80%, #d1b05a 90%, #b39442 100%);
+    background-size: 20px 60px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #bdb16c91;
+    font-size: 26px; }
+  .adminstration--siderbarforshow .sideHline {
+    width: 100%;
+    height: 1px;
+    background: url("../assets/textures/gold.jpg"); }
+  .adminstration--siderbarforshow .sidebarButt {
+    height: 64px;
+    width: 100%;
+    cursor: pointer; }
+    .adminstration--siderbarforshow .sidebarButt:hover {
+      background: rgba(255, 255, 255, 0.1); }
+      .adminstration--siderbarforshow .sidebarButt:hover p {
+        color: rgba(255, 255, 255, 0.9); }
+    .adminstration--siderbarforshow .sidebarButt p {
+      pointer-events: none;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0;
+      padding: 20px 0 0 28px;
+      font-size: 18px; }
+
+.adminstration--contentWrap {
+  margin: 100px 0;
+  padding: 0 42px;
+  flex: 1; }
+
+.adminstration--contentContainer {
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+  display: none;
+  flex-wrap: wrap; }
+  .adminstration--contentContainer-shown {
+    display: flex; }
+
+.adminstration--headerwrap {
+  margin: 0 0 13px 0;
+  opacity: 0.7;
+  cursor: pointer; }
+  .adminstration--headerwrap-shown img {
+    transform: rotate(90deg); }
+  .adminstration--headerwrap div {
+    pointer-events: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */ }
+  .adminstration--headerwrap h3 {
+    margin: 0 0 0 2px; }
+  .adminstration--headerwrap-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .adminstration--headerwrap-main div {
+      min-width: 12px; }
+    .adminstration--headerwrap-main img {
+      margin-right: 4px;
+      opacity: 0.5;
+      transition: transform 0.2s ease-out;
+      height: 100%;
+      width: auto; }
+  .adminstration--headerwrap-bottomBar {
+    width: 100%;
+    height: 1px;
+    background: black;
+    margin: 4px 0; }
+
+.popupFormWrap {
+  pointer-events: none;
+  opacity: 0;
+  height: 100%;
+  width: calc(100% - 300px);
+  background: rgba(0, 0, 0, 0.418);
+  transition: opacity 0.2s ease-out;
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+  left: 300px;
+  cursor: pointer; }
+  .popupFormWrap h2 {
+    margin-top: 72px; }
+  .popupFormWrap--content {
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    height: 80%;
+    width: 80%;
+    border-radius: 12px;
+    background: white;
+    transform: translate(-50%, -50%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    overflow: hidden;
+    cursor: default;
+    z-index: 9999999; }
+  .popupFormWrap--main {
+    height: calc(100% - 84px);
+    flex: 1;
+    background: #fbfaf8;
+    overflow-y: auto; }
+    .popupFormWrap--main-content {
+      margin: 42px;
+      width: calc(100% - 84px);
+      height: calc(100% - 84px); }
+  .popupFormWrap--side {
+    height: 100%;
+    width: 242px;
+    border-right: solid 1px rgba(0, 0, 0, 0.247); }
+  .popupFormWrap--imgWrap {
+    height: 224px; }
+    .popupFormWrap--imgWrap--image {
+      height: 160px;
+      width: 160px;
+      position: relative;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      background: #5e5e5e; }
+  .popupFormWrap--userinfWrap {
+    border-top: solid 1px rgba(0, 0, 0, 0.116);
+    margin: 0;
+    height: max-content; }
+    .popupFormWrap--userinfWrap p {
+      margin-left: 32px; }
+  .popupFormWrap-shown {
+    pointer-events: initial;
+    opacity: 1; }
+  .popupFormWrap--bottom {
+    border-top: solid 1px rgba(0, 0, 0, 0.247);
+    width: 100%;
+    flex: 1;
+    position: absolute;
+    bottom: 0;
+    background: white;
+    height: 82px;
+    display: flex;
+    justify-content: center; }
+    .popupFormWrap--bottom .uploadwrap {
+      width: 120px;
+      margin: 0 14px; }
+    .popupFormWrap--bottom label {
+      height: 42px;
+      width: 120px;
+      border-radius: 40px;
+      border: solid 1px black;
+      display: inline-block;
+      color: black;
+      margin: 20px 0px 0 0px;
+      cursor: pointer; }
+      .popupFormWrap--bottom label:hover {
+        background: rgba(0, 0, 0, 0.034);
+        opacity: 1; }
+      .popupFormWrap--bottom label p {
+        pointer-events: none;
+        position: relative;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: max-content;
+        margin: 0; }
+    .popupFormWrap--bottom #file-chosen {
+      top: -31px;
+      position: relative;
+      left: 130px; }
+  .popupFormWrap--button {
+    height: 42px;
+    width: 120px;
+    background: url("../assets/textures/gold.jpg");
+    background-size: 100%;
+    border-radius: 24px;
+    margin: 20px 14px 0 14px;
+    cursor: pointer;
+    opacity: 0.95;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5); }
+    .popupFormWrap--button:hover {
+      opacity: 1;
+      -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.6);
+      -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.6);
+      box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.6); }
+    .popupFormWrap--button p {
+      pointer-events: none;
+      font-size: 18px;
+      text-shadow: 1px 1px 4px black;
+      color: white;
+      font-weight: bold;
+      transform: translate(-50%, -50%);
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin: 0;
+      width: max-content; }
+  .popupFormWrap--button-style2 {
+    text-decoration: none;
+    height: 42px;
+    width: 120px;
+    border-radius: 24px;
+    border: 1px solid black;
+    margin: 20px 14px 0 14px;
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    opacity: 0.9; }
+    .popupFormWrap--button-style2:hover {
+      background: rgba(0, 0, 0, 0.034);
+      opacity: 1; }
+    .popupFormWrap--button-style2 p {
+      pointer-events: none;
+      font-size: 18px;
+      color: black;
+      font-weight: normal;
+      transform: translate(-50%, -50%);
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin: 0;
+      width: max-content; }
+  .popupFormWrap #PoprequestWrapContent h3 {
+    margin: 42px 0px 8px 4px; }
+  .popupFormWrap #PoprequestWrapContent p {
+    margin-left: 14px; }
+  .popupFormWrap #PoprequestWrapContent span {
+    font-weight: bold; }
+
+.profilCard {
+  margin: 1%;
+  box-sizing: border-box; }
+
+.buttonFlex {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline; }
+  .buttonFlex--inner {
+    width: 33%; }
+    .buttonFlex--inner .buttonKontakt {
+      transform: translateX(15vw);
+      height: 6vh;
+      width: 100px;
+      background: url("../assets/textures/gold.jpg");
+      background-size: cover;
+      border-radius: 10px;
+      font-size: auto;
+      font-weight: bold; }
+    .buttonFlex--inner .buttonPending {
+      width: 100px;
+      transform: translateX(-9vw);
+      background: #fb2020;
+      border-radius: 10px;
+      height: 6vh;
+      font-size: auto;
+      font-weight: bold; }
+
+#profileimagePreview {
+  background-position: center !important;
+  background-size: cover !important; }
+
+.RequestTable {
+  border-collapse: collapse;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+  margin: 20px 8px; }
+  .RequestTable .TableHeader {
+    background: url("../assets/imgs/bg.jpg");
+    background-size: 100%;
+    border: 1px solid white; }
+    .RequestTable .TableHeader th {
+      padding-left: 14px;
+      font-size: 18px;
+      border: none !important;
+      font-weight: bold;
+      color: white; }
+  .RequestTable tr:nth-child(even) {
+    background-color: white; }
+  .RequestTable tr, .RequestTable th {
+    height: 42px;
+    text-align: left;
+    border: 1px solid silver !important; }
+  .RequestTable th {
+    padding-left: 12px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.616); }
+  .RequestTable .buttonCell {
+    width: max-content;
+    width: 1px;
+    padding: 0 8px 0 8px; }
+    .RequestTable .buttonCell div {
+      border-radius: 20px;
+      height: 28px;
+      width: 112px;
+      color: black;
+      text-align: center;
+      border: solid 1px black;
+      background-size: 100%;
+      opacity: 0.65;
+      cursor: pointer; }
+      .RequestTable .buttonCell div:hover {
+        opacity: 0.85; }
+      .RequestTable .buttonCell div p {
+        pointer-events: none;
+        margin: 0;
+        position: relative;
+        transform: translateY(-50%);
+        top: 48%; }
+
+.admincontainer {
+  background: white;
+  border-radius: 20px;
+  border: solid black 1px;
+  margin: 8px; }
+  .admincontainer p {
+    margin: 8px 12px; }
+
+.popUpconfirmWrap {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0; }
+  .popUpconfirmWrap-show {
+    pointer-events: initial;
+    opacity: 1; }
+  .popUpconfirmWrap--content {
+    height: 112px;
+    width: 324px;
+    background: white;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: relative;
+    border-radius: 8px; }
+    .popUpconfirmWrap--content p {
+      text-align: center;
+      padding: 14px 20px;
+      margin: 0;
+      pointer-events: none; }
+  .popUpconfirmWrap--butWrap {
+    display: flex;
+    justify-content: center; }
+    .popUpconfirmWrap--butWrap-but2 {
+      text-decoration: none;
+      height: 32px;
+      width: 84px;
+      border-radius: 24px;
+      border: 1px solid black;
+      margin: 20px 14px 0 14px;
+      background: rgba(0, 0, 0, 0);
+      cursor: pointer;
+      opacity: 0.9; }
+      .popUpconfirmWrap--butWrap-but2 p {
+        pointer-events: none;
+        padding: 6px 0; }
+      .popUpconfirmWrap--butWrap-but2:hover {
+        background: rgba(0, 0, 0, 0.034);
+        opacity: 1; }
+    .popUpconfirmWrap--butWrap-but1 {
+      text-decoration: none;
+      height: 32px;
+      width: 84px;
+      margin: 20px 14px 0 14px;
+      background: url("../assets/textures/gold.jpg");
+      background-size: 100%;
+      border-radius: 24px;
+      cursor: pointer;
+      opacity: 0.95;
+      -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5); }
+      .popUpconfirmWrap--butWrap-but1:hover {
+        opacity: 1;
+        -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.6);
+        box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.6); }
+      .popUpconfirmWrap--butWrap-but1 p {
+        pointer-events: none;
+        padding: 6px 0; }
