@@ -80,6 +80,7 @@ window.closeLogin = () =>
         login.closeLogin();
         }
     }
+window.gembillede = () => {cameraService.Gemurl(Currentuser)}
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 window.AddsliderController = () => planPage.AddsliderController();
 window.setActive = (nr) => planPage.setActive(nr);
