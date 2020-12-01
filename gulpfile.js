@@ -12,8 +12,8 @@ function style() {
 
 function watch() {
     browserSync.init({
-            proxy: "localhost/sterperkerTESTING",
-            port: 8000  
+            proxy: "localhost/hovedopgave",
+            port: 8001
         });
 
     gulp.watch('./scss/*.scss', style);

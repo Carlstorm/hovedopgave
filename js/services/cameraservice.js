@@ -81,27 +81,39 @@ class CameraService {
 
 
 
-  lukcamera() {
+  lukcamera(img) {
+
+
 
     this.htmlTemplate = `
     <div id="imagePreview" class="image-preview">
       <span onclick="onclickCross();" class="close">&times;</span>
       <div id="camereholderDiv"></div>
   <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0])">
-  <div id="profileimagePreview" class="image-preview"></div>
+  <div id="profileimagePreview" class="image-preview" style="hieght:400px"></div>
   <button type="button" name="button" onclick="Opencamera()">
     Tag med Webcam
-  </button>`;
+  </button>
+
+  <button type="button" name="button" onclick="gembillede();">
+  Gem!
+ </button>`;
 
     document.getElementById("modal-content").innerHTML = this.htmlTemplate;
+
+    document.getElementById("profileimagePreview").style.background = "url(" + img + ")";
+    document.getElementById("profileimagePreview").style.height = "400px";
 
     this.videoStream.getTracks().forEach(function(track) {
 
       track.stop();
 
+
     });
 
   }
+
+ 
 
 
 
@@ -121,12 +133,13 @@ class CameraService {
       canvas.height = this.video.videoHeight;
 
       canvas.getContext("2d").drawImage(this.video, 0, 0);
+      this.savedimgurl = canvas.toDataURL("image/webp")
 
       for (let i = 0; i < imagePreview.length; i++) {
 
         imagePreview[0].style.background =
 
-          "url(" + canvas.toDataURL("image/webp") + ")";
+          "url(" + this.savedimgurl + ")";
 
       }
 
@@ -144,7 +157,6 @@ class CameraService {
 
       this.takepicmode = 1;
 
-      console.log(canvas);
 
       return canvas;
 
@@ -167,7 +179,9 @@ class CameraService {
   }
 
 
-  acceptbillede(userId, canvas) {
+  acceptbillede(canvas) {
+
+
     canvas = document.getElementById("canvas");
 
     this.profileimagePreviewFunk(canvas.toDataURL("image/webp"));
@@ -179,11 +193,20 @@ class CameraService {
 
     });
 
-    this.lukcamera();
-    this.saveImg(canvas.toDataURL("image/webp"), userId);
-    console.log(canvas + "saved file");
+   
+    this.lukcamera(canvas.toDataURL("image/webp"));
+    
+
+    return  this.savedimgurl;
+    
+  
+
+  
 
   }
+
+
+
 
 
 
@@ -193,10 +216,8 @@ class CameraService {
     let reader = new FileReader();
 
     reader.onload = () => {
-
       this.savedimgurl = reader.result;
-      console.log(this.savedimgurl);
-      this.profileimagePreviewFunk(this.savedimgurl);
+      this.profileimagePreviewFunk();
 
     };
 
@@ -212,29 +233,52 @@ class CameraService {
 
 
 
-
-  profileimagePreviewFunk(dispic) {
+  profileimagePreviewFunk() {
 
     
 
     for (let i = 0; i < imagePreview.length; i++) {
 
-      imagePreview[i].style.background = "url(" + dispic + ")";
-
-
+      document.getElementById("profileimagePreview").style.background = "url(" + this.savedimgurl + ")";
 
     }
 
   }
 
 
+  
+  Gemurl(userId){
 
-  saveImg(profileImage, user){
+        this.saveImg(userId);
+      }
+
+
+
+  saveImg(user){
+
+    console.log(user.uid);
+
 
     alert("billede gemt")
 
+console.log(this.savedimgurl);
     
-    firebase.database().ref('/users/' + user.uid).update({img: profileImage});
+
+//update billede
+    firebase.database().ref('/users/' + user.uid).update({img: this.savedimgurl});
+
+    //hent nye billede
+
+
+    firebase.database().ref('/users/' + user.uid).once("value", (snapShot) => {snapShot.img
+
+      let userImg =  snapShot.val();
+
+      document.getElementById("profilImage").style.background = "url(" + userImg.img + ")";
+
+
+    });
+
 
 
   }
