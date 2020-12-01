@@ -1,4 +1,5 @@
 @import "variables/variabler";
+@import "./forside.scss";
 
 
 .page {
@@ -1038,6 +1039,52 @@ textarea {
   &-contentWrap {
     min-height: 112px;
     background: white;
+
+    &-special {
+      padding: 8px 14px 10px 14px;
+      display: flex;
+      pointer-events: initial !important;
+
+      .butbut {
+        opacity: 0.75;
+        height: 32px;
+        border-radius: 4px;
+        border: solid 1px black;
+        margin: 6px;
+        flex: 1;
+        p {
+          pointer-events: none;
+          position: relative;
+          transform: translateY(-50%);
+          top: 48%;
+          color: black;
+          font-size: 16px;
+          font-style: normal;
+          text-align: center;
+          margin: 0;
+        }
+        &:hover {
+          opacity: 1;
+          transform: scale(1.025);
+        }
+      }
+
+      img {
+        opacity: 0.75;
+        height: 38px;
+      }
+      p {
+        opacity: 0.75;
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        margin: 2px 0px 0 14px;
+        color: #d49230;
+      }
+      .greem {
+        color: #8dd430 !important;
+      }
+    }
   }
 
     label {
@@ -1184,25 +1231,25 @@ textarea {
     width: 100%;
    
     cursor: pointer;
-}
+
     
- 
+.profilFlex{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
 
-#profilImage{
-  background: url(https://i.pinimg.com/236x/ce/2a/95/ce2a95e99faceaf7af19c273b10ebcc1.jpg);
-  height: 35vh;
-  width: 35vh;
-  border-radius: 50%;
-  background-repeat: no-repeat!important;
-  background-position: center!important;
-  background-size:cover!important;
-
+&--inner{
+width: 60%;
+flex: 1;
+-webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+-moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+border-radius: 10px;
+min-width: 650px;
 }
-
-.plusButton{
-display: block;
-transform: translate(180px,190px);
-width: 20%;
+&--inner-1{
+width: 40%;
+min-width: 275px;
 
 }
 
@@ -1239,8 +1286,8 @@ width: 20%;
   }
 }
 
-
-
+}
+}
 
   
   
@@ -1424,7 +1471,7 @@ input:-webkit-autofill:active {
   }
 
   &--contentWrap {
-    margin: 100px 0;
+    margin: 32px 0;
     padding: 0 42px;
     flex: 1;
   }
@@ -1493,19 +1540,61 @@ input:-webkit-autofill:active {
 
 .popupFormWrap {
 
+  &--takOgLuk {
+    display: none;
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    background: white;
+    transform: translate(-50%, -50%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 112px;
+    padding: 24px;
+    p {
+      margin: 0;
+      width: 100%;
+      padding: 4px 0 0 4px;
+      text-align: center;
+    }
+
+    &-bigtext {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 0 !important;
+    }
+    div {
+      margin: 0;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 72%;
+      position: absolute;
+      p {
+        padding: 0;
+      }
+    }
+  }
+
+  &-forAdmin {
+    width: calc(100% - 300px);
+    left: 300px;
+  }
+
   h2 {
     margin-top: 72px;
   }
   pointer-events: none;
   opacity: 0;
   height: 100%;
-  width: calc(100% - 300px);
+  width: 100%;
   background: rgba(0, 0, 0, 0.418);
   transition: opacity 0.2s ease-out;
   position: fixed;
   top: 0;
   z-index: 999999;
-  left: 300px;
   cursor: pointer;
 
   &--content {
@@ -1514,6 +1603,7 @@ input:-webkit-autofill:active {
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
     height: 80%;
     width: 80%;
+    max-width: 1000px;
     border-radius: 12px;
     background: white;
     transform: translate(-50%, -50%);
@@ -1703,18 +1793,8 @@ input:-webkit-autofill:active {
 ///
 
 .profilCard{
-  margin-top: 10%;
-  margin-left: 10%;
+  margin:1%;
   box-sizing: border-box;
-  border-radius: 24px;
-  border: 3px solid black;
-  max-width: 750px;
-  background: rgba(62, 62, 62, 0.034) ; 
-
-  &--inner{
-
-    margin:1%;
-  }
 }
 
 .buttonFlex{
@@ -1754,7 +1834,6 @@ align-items: baseline;
 
 
 #profileimagePreview{
-  height: 400px;
   background-position: center !important;
   background-size: cover !important;
 }
@@ -1913,5 +1992,147 @@ align-items: baseline;
       padding: 6px 0;
     }
   }
+  }
+}
+
+#LoginExtraText {
+  z-index: 0000000;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  top: calc(50% - 174px);
+  left: 50%;
+  font-style: italic;
+  font-weight: bold;
+  display: none;
+}
+
+.PlanPageOverlay {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.438);
+  position: fixed;
+  z-index: 999;
+  // opacity: 0;
+  // pointer-events: "none";
+}
+
+#profilImage{
+  border: solid 4px color(C-goldLight);
+  margin: 32px 40px;
+  background: url(https://i.pinimg.com/236x/ce/2a/95/ce2a95e99faceaf7af19c273b10ebcc1.jpg);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+  background-size:cover!important;
+  -webkit-box-shadow: 0px 1px 4px 8px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 4px 8px rgba(0, 0, 0, 0.4);
+
+}
+
+.plusButton{
+border-radius: 50%;
+background: texture(T-gold);
+background-size: 200%;
+position: relative;
+transform: translate(-50%, -50%);
+top: 85%;
+left: 85%;
+width: 42px;
+height: 42px;
+cursor: pointer;
+p {
+  opacity: 0.85;
+  pointer-events: none;
+  font-size: 58px;
+  margin: 0;
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 43%;
+  left: 50%;
+  text-align: center;
+}
+&:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+}
+
+//////////modal
+
+#imageModal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+
+  button{
+    margin-top: 1%;
+  }
+
+  span{
+    font-size: 40px;
+  }
+}
+///
+
+.profilCard{
+  margin-top: 10%;
+  margin-left: 10%;
+  box-sizing: border-box;
+  border-radius: 24px;
+  border: 3px solid black;
+  max-width: 750px;
+  background: rgba(62, 62, 62, 0.034) ; 
+
+  &--inner{
+
+    margin:1%;
+  }
+}
+#profileimagePreview{
+  height: 400px;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.siderUserInfo {
+  opacity: 0.8;
+  text-align: center;
+  width: 95%;
+  p {
+    color: white;
+    font-size: 18px;
+  }
+}
+
+.addPhoneNr {
+  height: 24px;
+  position: relative;
+  transform: translate(8px, 5.5px);
+  opacity: 0.7;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+    transform: translate(8px, 5.5px) scale(1.05); 
   }
 }

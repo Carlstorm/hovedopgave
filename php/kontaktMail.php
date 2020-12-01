@@ -9,6 +9,7 @@ $response = 1;
 $formData = json_decode($form, true);
 // print $formData["køn"];
 // print $formData["navn"];
+print $email;
 
 $testemail = $formData["email"];
 

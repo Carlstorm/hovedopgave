@@ -7,8 +7,9 @@ $response = 2;
 
 /////
 $formData = json_decode($form, true);
-// print $formData["køn"];
-// print $formData["navn"];
+//echo $formData;
+//print $formData['navn'];
+
 
 $testemail = $formData["email"];
 

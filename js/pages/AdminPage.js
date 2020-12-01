@@ -35,7 +35,7 @@ export default class AdminPage {
     </div>
     <div class="adminstration--contentWrap anies">
 
-    <div class="popupFormWrap" id="popupForm" onclick="removePopupForm()">
+    <div class="popupFormWrap popupFormWrap-forAdmin" id="popupForm1" onclick="removePopupForm()">
       <div class="popupFormWrap--content">
 
         <div id="popUpconfirmWrap" class="popUpconfirmWrap" onclick="confirmCheck()">
@@ -60,7 +60,6 @@ export default class AdminPage {
         </div>
         <div class="popupFormWrap--main"> 
           <div class="popupFormWrap--main-content" id="PoprequestWrap">
-            <h2>Loading...</h2>
             <div id="PoprequestWrapContent"></div>
           </div>
         
@@ -108,11 +107,13 @@ export default class AdminPage {
     </div>
     <div class="adminstration--contentContainer" id="CompletedRequests">
       <table id="completedRequestTable" class="RequestTable">
-        <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Age</th>
-        </tr>
+      <tr class="TableHeader">
+        <th>Dato</th>
+        <th>Plan</th>
+        <th>Navn</th>
+        <th>Email</th>
+        <th>Detaljer</th>
+      </tr>
       </table>
     </div> 
     </div>
@@ -150,11 +151,11 @@ export default class AdminPage {
 
     let htmlTemplate = `
     <div class="PendingRequestElementWrap">
-      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement a" onclick="popupForm()">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
       <div class="PendingRequestElement--header">
         <div>
-        <p class="PendingRequestElement-heading1">${requestData.plan.replace('&', '/')}</p>
-        <p class="PendingRequestElement-heading2">${requestData.Type}</p>
+        <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
+        <p class="PendingRequestElement-heading2">${requestData.request.type}</p>
         <p class="PendingRequestElement-heading3">${requestData.date}</p>
         </div>
         </div>
@@ -178,8 +179,8 @@ export default class AdminPage {
       <div id="${requestData.id}/${requestData.formName}/" class="AcceptedRequests PendingRequestElement" onclick="popupForm(${index})">
       <div class="PendingRequestElement--header">
         <div>
-        <p class="PendingRequestElement-heading1">${requestData.plan.replace('&', '/')}</p>
-        <p class="PendingRequestElement-heading2">${requestData.Type}</p>
+        <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
+        <p class="PendingRequestElement-heading2">${requestData.request.type}</p>
         <p class="PendingRequestElement-heading3">${requestData.date}</p>
         </div>
         </div>
@@ -202,7 +203,7 @@ export default class AdminPage {
     let htmlTemplate = `
     <tr>
       <th>${requestData.date}</th>
-      <th>${requestData.plan} - ${requestData.Type}</th>
+      <th>${requestData.request.plan} - ${requestData.request.type}</th>
       <th>${requestData.name}</th>
       <th>${requestData.email}</th>
       <th class="buttonCell"><div class="CompletedRequests" id="${requestData.id}/${requestData.formName}/" onclick="popupForm()"><p>Se ansøgning</p></div></th>
@@ -343,8 +344,6 @@ export default class AdminPage {
     this.onCompletedValueChange = this.CompletedrequestPath.on('value', (snapshot) => {
       if (snapshot.exists()) {
         this.UpdateRequestsCOMPLETED(snapshot)
-      } else {
-        document.getElementById("CompletedRequests").innerHTML = "<p>Ingen Færdige Ansøginger</p>"
       }
     })
     this.AdminControls(admins);
@@ -360,7 +359,7 @@ export default class AdminPage {
   }
 
   unInit() {
-    document.getElementById("navbar").removeChild(this.Navitem)
+    document.getElementById("navbar").children[0].removeChild(this.Navitem)
     document.getElementById("root").removeChild(this.ContentWrap)
     this.PendingrequestPath.off('value', this.onPendingValueChange);
     this.AcceptedrequestPath.off('value', this.onAcceptedValueChange);
@@ -369,14 +368,15 @@ export default class AdminPage {
 
 
   popupForm(index) {
-    document.getElementById("popupForm").classList.add("popupFormWrap-shown")
+    document.getElementById("popupForm1").classList.add("popupFormWrap-shown")
     this.fillpopup(event.target, index);
+    console.log(event.target, index)
   }
 
   removePopupForm() {
     console.log(event.target)
-    if (event.target.id == "popupForm" || event.target.id.includes("popupForm")) {
-      document.getElementById("popupForm").classList.remove("popupFormWrap-shown")
+    if (event.target.id == "popupForm1" || event.target.id.includes("popupForm")) {
+      document.getElementById("popupForm1").classList.remove("popupFormWrap-shown")
     }
   }
 
@@ -391,88 +391,62 @@ export default class AdminPage {
   SletAnsøgning() {
     console.log("slet")
     firebase.database().ref(this.selectedPath).remove()
-    document.getElementById("popupForm").classList.remove("popupFormWrap-shown")
+    document.getElementById("popupForm1").classList.remove("popupFormWrap-shown")
   }
+
 
 
   fillpopup(element, index) {
     this.selectedPath = `/${element.classList[0]}/${element.id}`
     firebase.database().ref(this.selectedPath).once('value', (snapshot) => {
-      let requestObject = snapshot.val();
-      console.log(requestObject)
-      document.getElementById("PopprofileWrap").innerHTML = `
-      <p>${requestObject.name}</p>
-      <p>${requestObject.email}</p>
-      <p>${requestObject.email}</p>
-      `
-
-      // 
-      document.getElementById("PoprequestWrap").children[0].innerHTML = `
-      ${requestObject.plan.replace('&', '/')} - ${requestObject.Type}
-      `
+    let requestObject = snapshot.val();
+    document.getElementById("PopprofileWrap").innerHTML = `
+    <p>${requestObject.name}</p>
+    <p>${requestObject.email}</p>
+    <p>${requestObject.email}</p>
+    `
       let HtTEMP = ""
-      requestObject.request.BrugerData
-      HtTEMP += `<h3>BrugerData:</h3>
-      <p><span>Navn:</span> ${requestObject.request.BrugerData.Navn}</p>
-      <p><span>Køn:</span> ${requestObject.request.BrugerData.Køn}</p>
-      <p><span>Alder:</span> ${requestObject.request.BrugerData.Alder}</p>
-      <p><span>By:</span> ${requestObject.request.BrugerData.By}</p>
-      <p><span>Adresse:</span> ${requestObject.request.BrugerData.Adresse}</p>
+      HtTEMP += `<h2>${requestObject.request.plan} - ${requestObject.request.type} </h2>`
+      for (let [key, value] of Object.entries(requestObject.request)) {
+        if (key != "plan" && key != "type" && key != "Sygdomme" && key != "Andet") {
+        HtTEMP += `<h2>${key}</h2>`
+        for (let [key2, value2] of Object.entries(value)) {
+          HtTEMP += `<p><span>${key2}:</span> ${value2}</p>`
+        }
 
-      <h3>Aktivitet:</h3>
-      <p><span>Aktivitet i arbejde:</span> ${requestObject.request.Aktivitet.AktivitetErhverv}</p>
-      <p><span>Aktivitet i fritid:</span> ${requestObject.request.Aktivitet.AktivitetFritid}</p>
-      <p><span>Andet:</span> ${requestObject.request.Aktivitet.AktivitetAndet}</p>
+        } else if (key == "Sygdomme" || key == "Andet") {
+          HtTEMP += `<h2>${key}</h2>`
+          HtTEMP += `<p>${value}</p>`
+      }
+    }
 
-      <h3>Mål:</h3>
-      <p><span>Mål:</span> ${requestObject.request.Mål.Mål}</p>
-      <p><span>Mål i vægt:</span> ${requestObject.request.Mål.MålVægt}</p>
-      
-      
-      <h3>KOSTPREFERENCER:</h3>
-      <p><span>Kost Krav:</span> ${requestObject.request.pref.pref.join(', ')}</p>
-      <p><span>Andet:</span> ${requestObject.request.pref.prefExtra}</p>
-      
-      <h3>trænning:</h3>
-      <p><span>Kost Krav:</span> ${requestObject.request.Trænnings.TrænningErfaring}</p>
-      <p><span>Andet:</span> ${requestObject.request.Trænnings.Trænninghyppighed}</p>
-      
-      <h3>Sygdomme:</h3>
-      <p>${requestObject.request.Sygdomme}</p>
+    if (element.classList.contains("AcceptedRequests")) {
 
-      <h3>Andet:</h3>
-      <p>${requestObject.request.Andet}</p>
+      document.getElementById("popupFormWrap--bottom").innerHTML = `
+      <div class="popupFormWrap--button" id="popupForm-button" onclick="uploadPDF('${requestObject.id}', '${requestObject.formName}', 'file${index}')"><p>Send</p></div>
+      <div class="uploadwrap">
+      <input class="uploadinput" type="file" name="file" id="file${index}" onchange="changeChosenFIle(${`file${index}`})" hidden>
+        <label for="file${index}"><p>Vælg fil</p></label>
+        <span id="file-chosen">No file chosen</span>
+      </div>
+      `
+    } else if (element.classList.contains("PendingRequests")) {
 
-      <div style="height: 180px"></div>
+      document.getElementById("popupFormWrap--bottom").innerHTML = `
+      <div class="popupFormWrap--button" id="popupForm-button" onclick="acceptRequest('${requestObject.id}', '${requestObject.formName}')"><p>Godkend</p></div>
+      <div class="popupFormWrap--button-style2" onclick="confirmCheck()"><p>Afslag</p></div>
       `
 
-      console.log(element)
-      if (element.classList.contains("AcceptedRequests")) {
+    } else {
+      let newpath = element.id.slice(0,element.id.indexOf('/'))
+      console.log(newpath)
+      document.getElementById("popupFormWrap--bottom").innerHTML = `
+      <a class="popupFormWrap--button-style2" href="./UserForms/${newpath}/${requestObject.formName}.pdf" download="${requestObject.formName}"><p>Download</p></a>
+      <a class="popupFormWrap--button-style2" href="./UserForms/${newpath}/${requestObject.formName}.pdf" target="_blank"><p>Se PDF!</p></a>
+      `
+    }
 
-        document.getElementById("popupFormWrap--bottom").innerHTML = `
-        <div class="popupFormWrap--button" id="popupForm-button" onclick="uploadPDF('${requestObject.id}', '${requestObject.formName}', 'file${index}')"><p>Send</p></div>
-        <div class="uploadwrap">
-        <input class="uploadinput" type="file" name="file" id="file${index}" onchange="changeChosenFIle(${`file${index}`})" hidden>
-          <label for="file${index}"><p>Vælg fil</p></label>
-          <span id="file-chosen">No file chosen</span>
-        </div>
-        `
-      } else if (element.classList.contains("PendingRequests")) {
-
-        document.getElementById("popupFormWrap--bottom").innerHTML = `
-        <div class="popupFormWrap--button" id="popupForm-button" onclick="acceptRequest('${requestObject.id}', '${requestObject.formName}')"><p>Godkend</p></div>
-        <div class="popupFormWrap--button-style2" onclick="confirmCheck()"><p>Afslag</p></div>
-        `
-
-      } else {
-        let newpath = element.id.slice(0,element.id.indexOf('/'))
-        console.log(newpath)
-        document.getElementById("popupFormWrap--bottom").innerHTML = `
-        <a class="popupFormWrap--button-style2" href="./UserForms/${newpath}/${requestObject.formName}.pdf" download="${requestObject.formName}"><p>Download</p></a>
-        <a class="popupFormWrap--button-style2" href="./UserForms/${newpath}/${requestObject.formName}.pdf" target="_blank"><p>Se PDF!</p></a>
-        `
-      }
-      document.getElementById("PoprequestWrap").children[1].innerHTML = HtTEMP;
+      document.getElementById("PoprequestWrap").children[0].innerHTML = HtTEMP;
     })
   }
 }

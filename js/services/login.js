@@ -33,7 +33,7 @@ class Login {
         firebase.database().ref('/users/' + user.uid)
         .set({
             email: user.email,
-            // navn: user.name
+            navn: user.displayName
         });
     }
 
@@ -47,12 +47,14 @@ class Login {
         //     document.getElementById("loginScreen").style.opacity = 0;
         //     document.getElementById("loginScreen").style.pointerEvents = "none";
         // }
+        document.getElementById("LoginExtraText").style.display = "none";
         document.getElementById("loginScreen").style.opacity = 0;
         document.getElementById("loginScreen").style.pointerEvents = "none";
     }
 
-    logout() {
+    logout(planPage) {
         firebase.auth().signOut()
+        planPage.SetloginIsPending(false)
     }
 }
 

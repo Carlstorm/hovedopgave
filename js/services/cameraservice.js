@@ -256,12 +256,12 @@ class CameraService {
 
   saveImg(user){
 
-    console.log(user.uid);
+    //console.log(user.uid);
 
 
     alert("billede gemt")
 
-console.log(this.savedimgurl);
+//console.log(this.savedimgurl);
     
 
 //update billede
