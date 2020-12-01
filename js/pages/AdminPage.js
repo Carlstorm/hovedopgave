@@ -107,11 +107,13 @@ export default class AdminPage {
     </div>
     <div class="adminstration--contentContainer" id="CompletedRequests">
       <table id="completedRequestTable" class="RequestTable">
-        <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Age</th>
-        </tr>
+      <tr class="TableHeader">
+        <th>Dato</th>
+        <th>Plan</th>
+        <th>Navn</th>
+        <th>Email</th>
+        <th>Detaljer</th>
+      </tr>
       </table>
     </div> 
     </div>
@@ -201,7 +203,7 @@ export default class AdminPage {
     let htmlTemplate = `
     <tr>
       <th>${requestData.date}</th>
-      <th>${requestData.plan} - ${requestData.request.type}</th>
+      <th>${requestData.request.plan} - ${requestData.request.type}</th>
       <th>${requestData.name}</th>
       <th>${requestData.email}</th>
       <th class="buttonCell"><div class="CompletedRequests" id="${requestData.id}/${requestData.formName}/" onclick="popupForm()"><p>Se ansøgning</p></div></th>
@@ -342,8 +344,6 @@ export default class AdminPage {
     this.onCompletedValueChange = this.CompletedrequestPath.on('value', (snapshot) => {
       if (snapshot.exists()) {
         this.UpdateRequestsCOMPLETED(snapshot)
-      } else {
-        document.getElementById("CompletedRequests").innerHTML = "<p>Ingen Færdige Ansøginger</p>"
       }
     })
     this.AdminControls(admins);
@@ -359,7 +359,7 @@ export default class AdminPage {
   }
 
   unInit() {
-    document.getElementById("navbar").removeChild(this.Navitem)
+    document.getElementById("navbar").children[0].removeChild(this.Navitem)
     document.getElementById("root").removeChild(this.ContentWrap)
     this.PendingrequestPath.off('value', this.onPendingValueChange);
     this.AcceptedrequestPath.off('value', this.onAcceptedValueChange);

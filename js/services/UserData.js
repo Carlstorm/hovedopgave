@@ -10,7 +10,7 @@ class UserData {
             formNr = "";
         }
         let date = new Date();
-        let formName = `${data.plan}${data.Type}${date.getFullYear()}${formNr}`
+        let formName = `${data.plan}${data.type}${date.getFullYear()}${formNr}`
         this.sendPath = firebase.database().ref('/PendingRequests/' + user.uid + `/${formName}/`)
         this.sendPath.once('value', (snapshot) => {
             if (snapshot.exists()) {

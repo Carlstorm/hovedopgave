@@ -19,7 +19,14 @@ export default class ProfilPage {
     <div class="adminstration--siderbar">
       <div class="adminstration--siderbarforshow anies-slide">
     <div id="profilImage">
-    <img class="plusButton" onclick="onclickPlus();" src="./assets/icons/plus.svg"></img>
+      <div class="plusButton" onclick="onclickPlus();" >
+       <p>+</p>
+      </div>
+    </div>
+    <div class="siderUserInfo">
+    <p id="SideDisplayName">Navn</p>
+    <p id="SideDisplayEmail">Email</p>
+    <p id="SideDisplayTlf">Tlf:</p>
     </div>
     <div id="imageModal" class="modal">
       <div class="modal-content" id="modal-content">
@@ -39,10 +46,48 @@ export default class ProfilPage {
       </div>
     </div>
     <div class="adminstration--contentWrap anies">
-    <div id="PendingRequest"></div>
-    <div id="AcceptedRequest"></div>
-    <div id="CompletedRequest"></div>
 
+
+    <div>
+    <div class="adminstration--headerwrap adminstration--headerwrap-shown" onclick="toggleShowHide()">
+    <div class="adminstration--headerwrap-main">
+    <h3 id="PendingRequestsHeading">Planer</h3>
+    <div><img src="./assets/icons/arrow.svg" ></div> 
+    </div>
+    <div class="adminstration--headerwrap-bottomBar" ></div>
+    </div>
+    <div class="adminstration--contentContainer adminstration--contentContainer-shown" id="CompletedRequest"></div> 
+    </div>
+    <br>
+
+
+    <div>
+    <div class="adminstration--headerwrap adminstration--headerwrap-shown" onclick="toggleShowHide()">
+    <div class="adminstration--headerwrap-main">
+    <h3 id="AcceptedRequestsHeading">Godkendte Ansøgninger</h3>
+    <div><img src="./assets/icons/arrow.svg" ></div> 
+    </div>
+    <div class="adminstration--headerwrap-bottomBar" ></div>
+    </div>
+    <div class="adminstration--contentContainer adminstration--contentContainer-shown" id="AcceptedRequest"></div> 
+    </div>
+    <br>
+
+
+    <div>
+    <div class="adminstration--headerwrap adminstration--headerwrap-shown" onclick="toggleShowHide()">
+    <div class="adminstration--headerwrap-main">
+    <h3 id="AcceptedRequestsHeading">Ansøgninger</h3>
+    <div><img src="./assets/icons/arrow.svg" ></div> 
+    </div>
+    <div class="adminstration--headerwrap-bottomBar" ></div>
+    </div>
+    <div class="adminstration--contentContainer adminstration--contentContainer-shown" id="PendingRequest"></div> 
+    </div>
+    <br>
+    </div>
+
+    
     </div>
     `
     ContentWrap.setAttribute("id", "ProfilPage");
@@ -51,109 +96,164 @@ export default class ProfilPage {
   }
 
   PendingRequest(requestData,user) {
-
     let htmlTemplate = `
-    <div class="RequestProfile">
-     
-<div class="profilCard">
-<div class="profilCard--inner">
-<h3>Her kan du se din ${requestData.plan} plan!</h3>
-<hr>
-<p>${requestData.formName}</p>
-<button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-<br>
-<button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-<p>Mvh. Easyfit</p>
-
-<hr>
-<div class="buttonFlex"> 
-<div class="buttonFlex--inner">
-<p> <b> Status:</b></p>
-</div>
-<div class="buttonFlex--inner">
-<button  style = "background:yellow"class="buttonPending">pending</button>
-</div>
-<div class="buttonFlex--inner">
-<button class="buttonKontakt">Kontakt</button>
-</div>
-</div>
-</div>
-</div>
+    <div class="PendingRequestElementWrap">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
+      <div class="PendingRequestElement--header">
+        <div>
+        <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
+        <p class="PendingRequestElement-heading2">${requestData.request.type}</p>
+        <p class="PendingRequestElement-heading3">${requestData.date}</p>
+        </div>
+        </div>
+        <div class="PendingRequestElement-contentWrap-special">
+            <img src="./assets/icons/clock.svg">
+            <p>Afventer svar</p>
+        </div>
+      </div>
+    </div>
   </div>
   `
   return htmlTemplate;
+
+//     let htmlTemplate = `
+//     <div class="RequestProfile">
+     
+// <div class="profilCard">
+// <div class="profilCard--inner">
+// <h3>Her kan du se din ${requestData.plan} plan!</h3>
+// <hr>
+// <p>${requestData.formName}</p>
+// <button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
+// <br>
+// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
+// <p>Mvh. Easyfit</p>
+
+// <hr>
+// <div class="buttonFlex"> 
+// <div class="buttonFlex--inner">
+// <p> <b> Status:</b></p>
+// </div>
+// <div class="buttonFlex--inner">
+// <button  style = "background:yellow"class="buttonPending">pending</button>
+// </div>
+// <div class="buttonFlex--inner">
+// <button class="buttonKontakt">Kontakt</button>
+// </div>
+// </div>
+// </div>
+// </div>
+//   </div>
+//   `
+//   return htmlTemplate;
   }
 
   AcceptedRequest(requestData,user) {
     let htmlTemplate = `
-    <div class="RequestProfile">
-    
-<div class="profilCard">
-<div class="profilCard--inner">
-<h3>Her kan du se DIN ${requestData.Type}!</h3>
-<hr>
-<p>${requestData.formName}</p>
-<button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-<br>
-<button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-<p>Mvh. Easyfit</p>
-
-<hr>
-<div class="buttonFlex"> 
-<div class="buttonFlex--inner">
-<p> <b> Status:</b></p>
-</div>
-<div class="buttonFlex--inner">
-<button  style = "background:orange"class="buttonPending">Accepted</button>
-</div>
-<div class="buttonFlex--inner">
-<button class="buttonKontakt">Kontakt</button>
-</div>
-</div>
-</div>
-</div>
- </div>
- </div>
+    <div class="PendingRequestElementWrap">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
+      <div class="PendingRequestElement--header">
+        <div>
+        <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
+        <p class="PendingRequestElement-heading2">${requestData.request.type}</p>
+        <p class="PendingRequestElement-heading3">${requestData.date}</p>
+        </div>
+        </div>
+        <div class="PendingRequestElement-contentWrap-special">
+            <img src="./assets/icons/check.svg">
+            <p class="greem">Godkendt</p>
+        </div>
+    </div>
+  </div>
   `
   return htmlTemplate;
+//     let htmlTemplate = `
+//     <div class="RequestProfile">
+    
+// <div class="profilCard">
+// <div class="profilCard--inner">
+// <h3>Her kan du se DIN ${requestData.Type}!</h3>
+// <hr>
+// <p>${requestData.formName}</p>
+// <button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
+// <br>
+// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
+// <p>Mvh. Easyfit</p>
+
+// <hr>
+// <div class="buttonFlex"> 
+// <div class="buttonFlex--inner">
+// <p> <b> Status:</b></p>
+// </div>
+// <div class="buttonFlex--inner">
+// <button  style = "background:orange"class="buttonPending">Accepted</button>
+// </div>
+// <div class="buttonFlex--inner">
+// <button class="buttonKontakt">Kontakt</button>
+// </div>
+// </div>
+// </div>
+// </div>
+//  </div>
+//  </div>
+//   `
+//   return htmlTemplate;
   }
 
 
   CompletedRequest(requestData,user) {
-    
     let htmlTemplate = `
-    <div class="RequestProfile">
-    
-<div class="profilCard">
-<div class="profilCard--inner">
-<h2>Hej navn</h2>
-<h3>Her kan du se DIN ${requestData.Type}!</h3>
-<hr>
-<p>${requestData.formName}</p>
-<button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-<br>
-<button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-<p>Mvh. Easyfit</p>
-
-<hr>
-<div class="buttonFlex"> 
-<div class="buttonFlex--inner">
-<p> <b> Status:</b></p>
-</div>
-<div class="buttonFlex--inner">
-<button  style = "background:green"class="buttonPending">completed</button>
-</div>
-<div class="buttonFlex--inner">
-<button class="buttonKontakt">Kontakt</button>
-</div>
-</div>
-</div>
-</div>
- </div>
- </div>
+    <div class="PendingRequestElementWrap">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
+      <div class="PendingRequestElement--header">
+        <div>
+        <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
+        <p class="PendingRequestElement-heading2">${requestData.request.type}</p>
+        <p class="PendingRequestElement-heading3">${requestData.date}</p>
+        </div>
+        </div>
+        <div class="PendingRequestElement-contentWrap-special">
+            <div class="butbut"><p>Se PdF</p></div>
+            <div class="butbut"><p>Download</p></div>
+        </div>
+    </div>
+  </div>
   `
-
   return htmlTemplate;
+    
+//     let htmlTemplate = `
+//     <div class="RequestProfile">
+    
+// <div class="profilCard">
+// <div class="profilCard--inner">
+// <h2>Hej navnDADADA</h2>
+// <h3>Her kan du se DIN ${requestData.type}!</h3>
+// <hr>
+// <p>${requestData.formName}</p>
+// <button style="width:200px;"> <a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
+// <br>
+// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
+// <p>Mvh. Easyfit</p>
+
+// <hr>
+// <div class="buttonFlex"> 
+// <div class="buttonFlex--inner">
+// <p> <b> Status:</b></p>
+// </div>
+// <div class="buttonFlex--inner">
+// <button  style = "background:green"class="buttonPending">completed</button>
+// </div>
+// <div class="buttonFlex--inner">
+// <button class="buttonKontakt">Kontakt</button>
+// </div>
+// </div>
+// </div>
+// </div>
+//  </div>
+//  </div>
+//   `
+
+//   return htmlTemplate;
   }
 
 
@@ -251,12 +351,9 @@ let dataObject = requests.val();
     })
 
       // accepted
-    document.getElementById("AcceptedRequests").innerHTML = "<p>Loading...</p>"
     this.onAcceptedValueChange = this.AcceptedrequestPath.on('value', (snapshot) => {
       if (snapshot.exists()) {
       this.UpdateRequestsAccepted(snapshot,user)
-      } else {
-        document.getElementById("AcceptedRequests").innerHTML = "<p>Ingen aktive ansøgninger lige nu</p>"
       }
     })
 
@@ -264,8 +361,6 @@ let dataObject = requests.val();
     this.onCompletedValueChange = this.CompletedrequestPath.on('value', (snapshot) => {
       if (snapshot.exists()) {
         this.UpdateRequestsCOMPLETED(snapshot,user)
-      } else {
-        document.getElementById("CompletedRequests").innerHTML = "<p>Ingen Færdige Ansøginger</p>"
       }
     })
  
@@ -279,19 +374,32 @@ let dataObject = requests.val();
     this.AcceptedrequestPath = firebase.database().ref('/AcceptedRequests/'+ user.uid);
     this.CompletedrequestPath = firebase.database().ref('/CompletedRequests/'+ user.uid);
     this.load(user);
+    this.updateUserDataShow(user);
   }
 
   unInit() {
-    document.getElementById("navbar").removeChild(this.Navitem)
+    document.getElementById("navbar").children[0].removeChild(this.Navitem)
     document.getElementById("root").removeChild(this.ContentWrap)
     this.PendingrequestPath.off('value', this.onPendingValueChange);
     this.AcceptedrequestPath.off('value', this.onAcceptedValueChange);
     this.CompletedrequestPath.off('value', this.onCompletedValueChange);
   }
 
+  updateUserDataShow(user) {
+    firebase.database().ref('/users/'+ user.uid).once('value', (snapshot) => {
+      let userObject = snapshot.val();
+      document.getElementById("SideDisplayName").innerHTML = userObject.navn
+      document.getElementById("SideDisplayEmail").innerHTML = userObject.email
+      if (userObject.Tlf) {
+        document.getElementById("SideDisplayTlf").innerHTML = userObject.Tlf
+      } else {
+        document.getElementById("SideDisplayTlf").innerHTML += "<img class='addPhoneNr' src='./assets/icons/plus.svg'>"
+      }
+      })
+  }
 
 
-
+  
 
 
 

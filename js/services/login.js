@@ -33,7 +33,7 @@ class Login {
         firebase.database().ref('/users/' + user.uid)
         .set({
             email: user.email,
-            // navn: user.name
+            navn: user.displayName
         });
     }
 

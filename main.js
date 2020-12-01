@@ -111,15 +111,8 @@ firebase.auth().onAuthStateChanged(user => {
     if (user) {
         Currentuser = user;
 
-        // let admins = firebase.database().ref('/users/' + user.uid);
-        // admins.once('value', (snapshot) => {
-        //     if (!snapshot) {
-        //         console.log("first time")
-        //         login.FirstTimelogin(user)
-        //     } else {
-        //         console.log("old boi time")
-        //     }
-        // })
+        let Users = firebase.database().ref('/users/' + user.uid);
+        let admins = firebase.database().ref('/admins/');
 
         if (planPage.LoginIsPending()) {
             planPage.Godkend(Currentuser, login)
@@ -128,22 +121,29 @@ firebase.auth().onAuthStateChanged(user => {
         document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="logout()">Log ud</a>`
         login.closeLogin();
 
-        let admins = firebase.database().ref('/admins/');
         admins.once('value', (snapshot) => {
-            let admins = snapshot.val().split(",")
-            if (admins.includes(user.email)) {
-                adminPage.init(admins)
-                IsAdmin = true;
-            }
-            profilPage.init(user)
-            spaService.init(true);
-            document.getElementById("horizontalBLhidden").classList.add("horizontalBreakLine")
+            Users.once('value', (snapshotUser) => {
+                let admins = snapshot.val().split(",")
+                if (admins.includes(user.email)) {
+                    adminPage.init(admins)
+                    IsAdmin = true;
+                }
+                if (!snapshotUser.exists()) {
+                    console.log("first time")
+                    login.FirstTimelogin(user)
+                } else {
+                    console.log("old boi")
+                }
+                profilPage.init(user)
+                spaService.init(true);
+                document.getElementById("horizontalBLhidden").classList.add("horizontalBreakLine")
+            })
         })
     // ikke logged in
     } else {
 
         document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="login()">log in</a>`
-
+        document.getElementById("horizontalBLhidden").classList.remove("horizontalBreakLine")
         login.startAuthUI();
         if (Currentuser) {
             profilPage.unInit()
