@@ -10,7 +10,7 @@ class UserData {
             formNr = "";
         }
         let date = new Date();
-        let formName = `${data.plan}${data.planType}${date.getFullYear()}${formNr}`
+        let formName = `${data.plan}${data.Type}${date.getFullYear()}${formNr}`
         this.sendPath = firebase.database().ref('/PendingRequests/' + user.uid + `/${formName}/`)
         this.sendPath.once('value', (snapshot) => {
             if (snapshot.exists()) {
@@ -22,13 +22,10 @@ class UserData {
                 this.sendPath.set({
                     formName: formName,
                     date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
-                    plan: `${data.plan}`,
-                    Type: `${data.planType}`,
                     request: data,
                     name: user.displayName,
                     email: user.email,
                     id: user.uid,
-                    responseState: false,
                 })
                 this.UpdateUserForms(true, user);
             }

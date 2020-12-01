@@ -41,7 +41,15 @@ window.confirmCheck = () => adminPage.confirmCheck();
 window.SletAnsøgning = () => adminPage.SletAnsøgning();
 
 
-window.SendUserData = () => userdata.send(Currentuser, planPage.GetValue())
+window.SendUserData = () => {
+    userdata.send(Currentuser, planPage.GetValue())
+    planPage.ChangePopUpForm();
+} 
+
+window.Godkend = () => planPage.Godkend(Currentuser, login)
+
+
+
 window.pageChange = () => {
     spaService.pageChange();
     if (window.location.hash != "#AdminPage" && window.location.hash != "#ProfilPage") {
@@ -50,14 +58,14 @@ window.pageChange = () => {
         document.getElementById("navbar").classList.add("tabbar-black")
     }
 }
-window.logout = () => login.logout();
+window.logout = () => login.logout(planPage);
 window.login = () => login.login();
 window.toggleShowHide = () => adminPage.toggleShowHide();
-window.SendUserData = () => {
-    userdata.send(Currentuser, planPage.GetValue()) 
-    userdata.sendemail(Currentuser, planPage.GetValue())
+// window.SendUserData = () => {
+//     userdata.send(Currentuser, planPage.GetValue()) 
+//     userdata.sendemail(Currentuser, planPage.GetValue())
 
-} 
+// } 
 window.onclickPlus = () => {profilPage.onclickPlus()}
 window.onclickCross = () => {profilPage.onclickCross()}
 window.onclick = (event) => { profilPage.onclickWindowClose(event)}
@@ -85,10 +93,15 @@ window.acceptRequest = (userID, FormName) => adminPage.acceptRequest(userID, For
 
 window.popupForm = (index) => adminPage.popupForm(index);
 window.removePopupForm = () => adminPage.removePopupForm();
+window.removePopupForm2 = () => planPage.removePopupForm2();
 
 
 
 window.changeChosenFIle = (da) => adminPage.changeChosenFIle(da);
+
+window.setpage = (page) => spaService.setpage(page)
+
+
 
 
 // Watchers --> after login specifiks
@@ -107,6 +120,9 @@ firebase.auth().onAuthStateChanged(user => {
         //     }
         // })
 
+        if (planPage.LoginIsPending()) {
+            planPage.Godkend(Currentuser, login)
+        }
 
         document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="logout()">Log ud</a>`
         login.closeLogin();
@@ -119,7 +135,7 @@ firebase.auth().onAuthStateChanged(user => {
                 IsAdmin = true;
             }
             profilPage.init(user)
-            spaService.init();
+            spaService.init(true);
             document.getElementById("horizontalBLhidden").classList.add("horizontalBreakLine")
         })
     // ikke logged in

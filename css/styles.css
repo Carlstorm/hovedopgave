@@ -1036,14 +1036,47 @@ input:-webkit-autofill:active {
   pointer-events: none;
   opacity: 0;
   height: 100%;
-  width: calc(100% - 300px);
+  width: 100%;
   background: rgba(0, 0, 0, 0.418);
   transition: opacity 0.2s ease-out;
   position: fixed;
   top: 0;
   z-index: 999999;
-  left: 300px;
   cursor: pointer; }
+  .popupFormWrap--takOgLuk {
+    display: none;
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    background: white;
+    transform: translate(-50%, -50%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 112px;
+    padding: 24px; }
+    .popupFormWrap--takOgLuk p {
+      margin: 0;
+      width: 100%;
+      padding: 4px 0 0 4px;
+      text-align: center; }
+    .popupFormWrap--takOgLuk-bigtext {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 0 !important; }
+    .popupFormWrap--takOgLuk div {
+      margin: 0;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 72%;
+      position: absolute; }
+      .popupFormWrap--takOgLuk div p {
+        padding: 0; }
+  .popupFormWrap-forAdmin {
+    width: calc(100% - 300px);
+    left: 300px; }
   .popupFormWrap h2 {
     margin-top: 72px; }
   .popupFormWrap--content {
@@ -1052,6 +1085,7 @@ input:-webkit-autofill:active {
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
     height: 80%;
     width: 80%;
+    max-width: 1000px;
     border-radius: 12px;
     background: white;
     transform: translate(-50%, -50%);
@@ -1349,3 +1383,22 @@ input:-webkit-autofill:active {
       .popUpconfirmWrap--butWrap-but1 p {
         pointer-events: none;
         padding: 6px 0; }
+
+#LoginExtraText {
+  z-index: 0000000;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  top: calc(50% - 174px);
+  left: 50%;
+  font-style: italic;
+  font-weight: bold;
+  display: none; }
+
+.PlanPageOverlay {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.438);
+  position: fixed;
+  z-index: 999; }

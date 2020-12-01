@@ -4,10 +4,12 @@ class SpaService {
       this.init();
     }
   
-    init() {
+    init(dada) {
       this.pages = document.querySelectorAll(".page");
       this.navItems = document.querySelectorAll(".tabbar a");
-      this.setpage(this.defaultPage);
+      if (!dada) {
+        this.setpage(this.defaultPage);
+      }
     }
 
     pageChange() {
