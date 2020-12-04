@@ -97,8 +97,7 @@ class UserData {
 
     ////email php
 
-    sendemail(user, formData)
-    {
+    sendemail(user, formData) {
     
     
     formData.usernavn = user.navn;
@@ -146,8 +145,7 @@ class UserData {
     
     
     
-        sendAdminPlan(user, formData)
-        {
+        sendAdminPlan(user, formData) {
         
         formData.usernavn = user.navn;
         formData.email = user.email;

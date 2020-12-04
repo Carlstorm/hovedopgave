@@ -60,7 +60,7 @@ export default class PlanPage {
 
 
     
-      <div class="hero">
+      <div class="hero deskSpec">
       </div>
       <div class="content anies">
         <div class="kvitering"></div>
@@ -279,7 +279,7 @@ export default class PlanPage {
             </div>
             <div class="slider--barWrap">
               <div class="slider--bar" id="sliderBar"></div>
-              <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
+              <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()" ontouchstart="AddsliderController(true)"></div>
             </div>
           </div>
           </div>
@@ -296,7 +296,7 @@ export default class PlanPage {
             </div>
             <div class="slider--barWrap">
               <div class="slider--bar" id="sliderBar"></div>
-              <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
+              <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()" ontouchstart="AddsliderController(true)"></div>
             </div>
           </div>
           </div>
@@ -362,7 +362,7 @@ export default class PlanPage {
           </div>
           <div class="slider--barWrap">
             <div class="slider--bar" id="sliderBar"></div>
-            <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
+            <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()" ontouchstart="AddsliderController(true)"></div>
           </div>
         </div>
         </div>
@@ -379,7 +379,7 @@ export default class PlanPage {
           </div>
           <div class="slider--barWrap">
             <div class="slider--bar" id="sliderBar"></div>
-            <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()"></div>
+            <div class="slider--barThing" id="theThing" onmousedown="AddsliderController()" ontouchstart="AddsliderController(true)"></div>
           </div>
         </div>
         </div>
@@ -435,25 +435,29 @@ export default class PlanPage {
         return false;
       }
     } else {
+      let extras = 750;
+      if (window.innerWidth < 800) {
+        extras = 0;
+      }
       for (let i = 0; i<failedInputs.length; i++) {
         if (document.getElementById(`RequiredInput-${failedInputs[i]}`).children.length < 1) {
           document.getElementById(`RequiredInput-${failedInputs[i]}`).innerHTML += '<span style="color:red">*</span>'
         }
         if (invalidUserdata) {
           window.scrollTo({
-            top: document.getElementsByClassName("BasisInfo")[0].offsetTop+750,
+            top: document.getElementsByClassName("BasisInfo")[0].offsetTop+extras,
             left: 0,
             behavior: 'smooth'
           });
         } else if (invalidBMI) {
           window.scrollTo({
-            top: document.getElementsByClassName("BMI")[0].offsetTop+750,
+            top: document.getElementsByClassName("BMI")[0].offsetTop+extras,
             left: 0,
             behavior: 'smooth'
           });
         } else {
           window.scrollTo({
-            top: document.getElementsByClassName("mål")[0].offsetTop+750,
+            top: document.getElementsByClassName("mål")[0].offsetTop+extras,
             left: 0,
             behavior: 'smooth'
           });
@@ -578,7 +582,8 @@ export default class PlanPage {
     }
   }
 
-  AddsliderController() {
+  AddsliderController(phone) {
+    console.log("sup massafasa")
     let barthing = event.target;
     barthing.style.transition = "left 0s"
     let selectedSlider = barthing.parentElement.parentElement
@@ -593,27 +598,50 @@ export default class PlanPage {
       breakpointsArray.push(breakpointBase*i)
     }
 
-    let moveEvent = () => {
-      this.movemouse(barthing)
-      breakpoints = Math.round(this.slidepercentage / breakpointBase) * breakpointBase
-      this.setSliderText(breakpointsArray, breakpoints, custTExt, textvalues, sliderType, groupType)
-    }
+    console.log(phone)
 
-    let upEvent = () => {
-      window.removeEventListener("mousemove", moveEvent)
-      window.removeEventListener("mouseup", upEvent)
-      barthing.style.transition = "left 0.6s"
-      barthing.style.left = ""+breakpoints+"%"
+    if (phone) {
+      let moveEvent = () => {
+        this.movemouse(barthing, phone)
+        breakpoints = Math.round(this.slidepercentage / breakpointBase) * breakpointBase
+        this.setSliderText(breakpointsArray, breakpoints, custTExt, textvalues, sliderType, groupType)
+      }
+  
+      let upEvent = () => {
+        window.removeEventListener("touchmove", moveEvent)
+        window.removeEventListener("touchend", upEvent)
+        barthing.style.transition = "left 0.6s"
+        barthing.style.left = ""+breakpoints+"%"
+      }
+      window.addEventListener("touchmove", moveEvent)
+      window.addEventListener("touchend", upEvent) 
+    } else {
+      let moveEvent = () => {
+        this.movemouse(barthing)
+        breakpoints = Math.round(this.slidepercentage / breakpointBase) * breakpointBase
+        this.setSliderText(breakpointsArray, breakpoints, custTExt, textvalues, sliderType, groupType)
+      }
+  
+      let upEvent = () => {
+        window.removeEventListener("mousemove", moveEvent)
+        window.removeEventListener("mouseup", upEvent)
+        barthing.style.transition = "left 0.6s"
+        barthing.style.left = ""+breakpoints+"%"
+      }
+      window.addEventListener("mousemove", moveEvent)
+      window.addEventListener("mouseup", upEvent) 
     }
-    window.addEventListener("mousemove", moveEvent)
-    window.addEventListener("mouseup", upEvent) 
   }
 
-  movemouse(barthing) {
+  movemouse(barthing, phone) {
     let max = (document.getElementById("sliderBar").clientWidth)
     let difference = ((window.innerWidth) - max)/2
     let percentage = 50;
-      percentage = (((event.clientX-difference)+8) / (max))*100
+      if (phone) {
+        percentage = (((event.touches[0].clientX-difference)+8) / (max))*100
+      } else {
+        percentage = (((event.clientX-difference)+8) / (max))*100
+      }
     if (percentage > 100) {
       percentage = 100
     } else if (percentage < 0) {

@@ -221,7 +221,7 @@ export default class ProfilPage {
   AcceptedRequest(requestData,user) {
     let htmlTemplate = `
     <div class="PendingRequestElementWrap-special">
-      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm3()">
+      <div id="${requestData.id}/${requestData.formName}/" class="AcceptedRequests PendingRequestElement" onclick="popupForm3()">
       <div class="PendingRequestElement--header">
         <div>
         <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
@@ -274,7 +274,7 @@ export default class ProfilPage {
   CompletedRequest(requestData,user) {
     let htmlTemplate = `
     <div class="PendingRequestElementWrap-special">
-      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm3()">
+      <div id="${requestData.id}/${requestData.formName}/" class="CompletedRequests PendingRequestElement" onclick="popupForm3()">
       <div class="PendingRequestElement--header">
         <div>
         <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
@@ -559,7 +559,7 @@ fillpopup(element, index) {
   this.selectedPath = `/${element.classList[0]}/${element.id}`
   firebase.database().ref(this.selectedPath).once('value', (snapshot) => {
   let requestObject = snapshot.val();
-
+  console.log(this.selectedPath, requestObject)
     let HtTEMP = ""
     HtTEMP += `<h2>${requestObject.request.plan} - ${requestObject.request.type} </h2>`
     for (let [key, value] of Object.entries(requestObject.request)) {

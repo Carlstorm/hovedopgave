@@ -8,19 +8,17 @@ export default class ForsidePage {
   }
   
   template() {
-      document.getElementById("root").innerHTML += /*html*/ `
+    document.getElementById("root").innerHTML += /*html*/ `
       <section id="ForsidePage" class="page">
-      <div id="heroimage">
-    <img src="assets/imgs/scott-webb-0DyZE6aLD-8-unsplash.jpg">
-</div>
+        <div class="hero deskSpec">
+        </div>
+      <div class="custominputnew">
+        <input placeholder="DIT KØN">
+        <input placeholder="DIT NAVN">
+        <input  placeholder="DIN EMAIL">
+        <div onclick="forsideForm()"class="booknu"><p>Kontakt os</p></div>
+      </div>
 
-<div id="custominput">
-    <input placeholder="DIT KØN"  id="kønInput"class="inputforside">
-    <input placeholder="DIT NAVN"  id="navnInput" class="inputforside">
-    <input  placeholder="DIN EMAIL"  id="emailInput" class="inputforside">
-
-    <button onclick="forsideForm()"id="booknu">Kontakt os</button>
-</div>
 
 <section class="Abonnoment">
         <h3 class="standardHeading">Bestil et online forløb i dag!</h3>

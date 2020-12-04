@@ -19,15 +19,15 @@ export default class AdminPage {
     let ContentWrap = document.createElement("SECTION")
     ContentWrap.innerHTML = `
     <div class="adminstration--pageWrap">
-    <div class="adminstration--siderbar">
-      <div class="adminstration--siderbarforshow anies-slide">
+    <div class="adminstration--siderbar adminstration--siderbar-admin">
+      <div class="adminstration--siderbarforshow adminstration--siderbarforshow-admin anies-slide">
       <h2>Adminstration</h2>
         <div class="sideHline"></div>
-        <div class="sidebarButt">
+        <div class="sidebarButt sidebarButt-admin">
         <p>PLANERARAR</p>
         </div>
         <div class="sideHline"></div>
-        <div class="sidebarButt">
+        <div class="sidebarButt sidebarButt-admin2">
         <p>STatestics</p>
         </div>
         <div class="sideHline"></div>
@@ -97,7 +97,7 @@ export default class AdminPage {
     <br>
 
 
-    <div>
+    <div class="deskSpec">
     <div class="adminstration--headerwrap" onclick="toggleShowHide()">
     <div class="adminstration--headerwrap-main">
     <h3 id="RequestHeading">Færdige Ansøgninger</h3>
@@ -375,7 +375,7 @@ export default class AdminPage {
 
   removePopupForm() {
     console.log(event.target)
-    if (event.target.id == "popupForm1" || event.target.id.includes("popupForm")) {
+    if (event.target.id == "popupForm1" || event.target.id.includes("popupForm") || event.target.id == "lukKnap") {
       document.getElementById("popupForm1").classList.remove("popupFormWrap-shown")
     }
   }
@@ -427,14 +427,16 @@ export default class AdminPage {
       <div class="uploadwrap">
       <input class="uploadinput" type="file" name="file" id="file${index}" onchange="changeChosenFIle(${`file${index}`})" hidden>
         <label for="file${index}"><p>Vælg fil</p></label>
-        <span id="file-chosen">No file chosen</span>
+        <span class="deskSpec" id="file-chosen">No file chosen</span>
       </div>
+      <div class="popupFormWrap--button-style2" id="lukKnap" onclick="removePopupForm()"><p>Luk</p></div>
       `
     } else if (element.classList.contains("PendingRequests")) {
 
       document.getElementById("popupFormWrap--bottom").innerHTML = `
       <div class="popupFormWrap--button" id="popupForm-button" onclick="acceptRequest('${requestObject.id}', '${requestObject.formName}')"><p>Godkend</p></div>
       <div class="popupFormWrap--button-style2" onclick="confirmCheck()"><p>Afslag</p></div>
+      <div class="popupFormWrap--button-style2" id="lukKnap" onclick="removePopupForm()"><p>Luk</p></div>
       `
 
     } else {

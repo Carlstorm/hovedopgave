@@ -44,14 +44,17 @@ window.SletAnsøgning = () => adminPage.SletAnsøgning();
 window.SendUserData = () => {
     userdata.send(Currentuser, planPage.GetValue())
     planPage.ChangePopUpForm();
-    userdata.sendemail(Currentuser, planPage.GetValue())
-} 
+    // userdata.sendemail(Currentuser, planPage.GetValue())
+}
 
 window.Godkend = () => planPage.Godkend(Currentuser, login)
 
 
 
 window.pageChange = () => {
+    if (window.innerWidth < 800) {
+        toggleBrugermenuFunk();
+    }
     spaService.pageChange();
     if (window.location.hash != "#AdminPage" && window.location.hash != "#ProfilPage") {
         document.getElementById("navbar").classList.remove("tabbar-black")
@@ -84,7 +87,7 @@ window.closeLogin = () =>
     }
 window.gembillede = () => {cameraService.Gemurl(Currentuser)}
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
-window.AddsliderController = () => planPage.AddsliderController();
+window.AddsliderController = (phone) => planPage.AddsliderController(phone);
 window.setActive = (nr) => planPage.setActive(nr);
 
 window.setObjectValues = (val, type, abonnement) => planPage.setObjectValues(val, type, abonnement);
@@ -115,9 +118,12 @@ window.setpage = (page) => spaService.setpage(page)
 
 
 window.toggleBrugermenu = () => {
-    document.getElementById("navbar").classList.toggle("tabbar-active")
+    toggleBrugermenuFunk();
 }
 
+function toggleBrugermenuFunk() {
+    document.getElementById("navbar").classList.toggle("tabbar-active")
+}
 
 // Watchers --> after login specifiks
 firebase.auth().onAuthStateChanged(user => {

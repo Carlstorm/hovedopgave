@@ -369,7 +369,7 @@ textarea {
 .content {
   width: 80%;
   min-width: 860px;
-  max-width: 1000px;
+  max-width: 1200px;
   transform: translate(-50%);
   position: relative;
   left: 50%; }
@@ -1984,11 +1984,21 @@ input:-webkit-autofill:active {
   display: none; }
 
 @media only screen and (max-width: 870px) {
+  #Plan {
+    padding-top: 62px; }
   .deskSpec {
     display: none; }
   .content {
     min-width: 0;
-    max-width: 100vw; }
+    max-width: 100vw;
+    width: 100%; }
+    .content .BasisInfoWrap, .content .SygdommeWrapper, .content .GoalWrapper, .content .KostPreferencerWrapper, .content .AndetWrapper {
+      width: calc(100% - 64px);
+      left: calc(50% - 8px); }
+    .content .standardHeading {
+      margin: 42px 0 12px 0; }
+    .content .KostPreferencerWrapper--itemflex--inner {
+      width: calc(50% - 16px); }
   .Abonnoment {
     display: none; }
   .mobileSpec {
@@ -2060,7 +2070,7 @@ input:-webkit-autofill:active {
       color: black !important; }
       .tabbar .navbarItems a {
         color: black !important;
-        margin: 0 8px; }
+        margin: 2px 8px; }
       .tabbar .navbarItems path {
         fill: rgba(0, 0, 0, 0.795); }
     .tabbar-active .navbarItems {
@@ -2076,4 +2086,140 @@ input:-webkit-autofill:active {
     background: rgba(0, 0, 0, 0.2) !important;
     height: 1px !important;
     width: 90% !important;
-    margin: 12px 0 !important; } }
+    margin: 12px 0 !important; }
+  .adminstration--siderbar {
+    z-index: -1;
+    width: 100%;
+    height: 128px; }
+  .adminstration--siderbarforshow {
+    width: 100%;
+    height: 128px;
+    position: relative;
+    animation: none !important; }
+    .adminstration--siderbarforshow #profilImage {
+      position: relative;
+      top: 16px;
+      left: 24px;
+      margin: 0;
+      height: 82px;
+      width: 82px; }
+    .adminstration--siderbarforshow .siderUserInfo {
+      top: 18px;
+      right: 26px;
+      position: absolute;
+      max-width: calc(100% - 120px);
+      width: max-content;
+      margin: 0;
+      text-align: left; }
+      .adminstration--siderbarforshow .siderUserInfo p {
+        margin: 4px; }
+    .adminstration--siderbarforshow h2 {
+      display: none !important; }
+    .adminstration--siderbarforshow .sideHline {
+      display: none; }
+  .popupFormWrap {
+    width: 100vw;
+    z-index: 1;
+    left: 0; }
+  .adminstration--pageWrap {
+    z-index: 0;
+    flex-direction: column; }
+  .popupFormWrap--ImageContent {
+    max-width: 80vw;
+    top: calc(50% + 29px); }
+  .popupFormWrap--side {
+    display: none; }
+  .popupFormWrap--content {
+    top: calc(50% + 29px);
+    width: 90vw; }
+  .popupFormWrap--PhoneContent {
+    max-width: 80vw; }
+  .adminstration--siderbar-admin {
+    height: 62px; }
+  .adminstration--siderbarforshow-admin {
+    height: 62px; }
+  .sidebarButt-admin {
+    width: 50% !important;
+    position: absolute;
+    text-align: center; }
+    .sidebarButt-admin p {
+      padding: 20px 0 0 0px !important; }
+  .sidebarButt-admin2 {
+    width: 50% !important;
+    position: absolute;
+    right: 0;
+    text-align: center; }
+    .sidebarButt-admin2 p {
+      padding: 20px 0 0 0px !important; }
+  .adminstration--contentWrap {
+    padding: 0 18px; }
+  .PendingRequestElementWrap-special {
+    width: 100%; }
+  .PendingRequestElementWrap {
+    width: 100%;
+    height: 82px; }
+    .PendingRequestElementWrap div {
+      border-radius: 4px !important; }
+  .PendingRequestElement-contentWrap {
+    display: none; }
+  .popupFormWrap--button-style2 {
+    margin: 0;
+    width: 90%;
+    margin: 8px 5% 0 5%;
+    border-radius: 4px; }
+  .popupFormWrap--bottom {
+    height: max-content;
+    flex-direction: column;
+    padding-bottom: 8px; }
+    .popupFormWrap--bottom .popupFormWrap--button {
+      margin: 0;
+      width: 90%;
+      margin: 8px 5% 0 5%;
+      border-radius: 4px; }
+    .popupFormWrap--bottom .uploadwrap {
+      margin: 0;
+      width: 90%;
+      margin: 8px 5% 0 5%; }
+      .popupFormWrap--bottom .uploadwrap label {
+        margin: 0;
+        border-radius: 4px;
+        width: 100%; } }
+
+.custominputnew {
+  width: 382px;
+  height: max-content;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 400px;
+  left: 67%; }
+  .custominputnew input {
+    color: rgba(255, 255, 255, 0.795);
+    font-size: 18px !important;
+    height: 40px;
+    border-radius: 4px;
+    outline: none !important;
+    border: solid 1px #a38435;
+    width: 100%;
+    margin: 2px 0px 18px 0;
+    padding-left: 12px;
+    background: none; }
+    .custominputnew input:focus {
+      border: solid 1px #d0b85e; }
+  .custominputnew .booknu {
+    background: url("../assets/textures/gold.jpg");
+    background-size: 100%;
+    height: 38px;
+    width: 112px;
+    border-radius: 4px;
+    margin: 0px !important;
+    text-shadow: 1px 1px 4px black; }
+    .custominputnew .booknu p {
+      pointer-events: none;
+      border-radius: 40px;
+      transform: translate(-50%, -50%);
+      top: 48%;
+      left: 50%;
+      position: relative;
+      text-align: center;
+      margin: 0;
+      font-weight: bold; }
