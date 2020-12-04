@@ -251,6 +251,19 @@ export default class PlanPage {
         </div>
         </section>
 
+        <section class="BMI">
+        <h3 class="standardHeading">BMI</h3>
+        <div class="BasisInfoWrap">
+        <div id="BrugerData">
+          <span id="RequiredInput-Højde">Højde:</span>
+          <input value="" onkeyup="(setObjectValues(this.value, 'Højde', 'BMI'))">
+        </div>
+        <div id="BrugerData">
+          <span id="RequiredInput-Vægt">Vægt:</span>
+          <input value="" onkeyup="(setObjectValues(this.value, 'Vægt', 'BMI'))">
+        </div>
+        </section>
+
 
         <section class="AktivitetsNivau" id="Aktivitet">
           <h3 class="standardHeading">AktivitetsNivau</h3>
@@ -402,12 +415,15 @@ export default class PlanPage {
   Formvalid(user, login) {
     let FormIsValid = true;
     let invalidUserdata = false;
+    let invalidBMI = false;
     let failedInputs = [];
     if (!this.formData.UserData.Navn != "") {FormIsValid = false; invalidUserdata = true; failedInputs.push("Name")}
     if (!this.formData.UserData.Køn != "") {FormIsValid = false; invalidUserdata = true; failedInputs.push("Køn")}
     if (!this.formData.UserData.By != "") {FormIsValid = false; invalidUserdata = true; failedInputs.push("By")}
     if (!this.formData.UserData.Adresse != "") {FormIsValid = false; invalidUserdata = true; failedInputs.push("Adresse")}
     if (!this.formData.UserData.Alder != "") {FormIsValid = false; invalidUserdata = true; failedInputs.push("Alder")}
+    if (!this.formData.BMI.Højde != "") {FormIsValid = false; invalidBMI = true; failedInputs.push("Højde")}
+    if (!this.formData.BMI.Vægt != "") {FormIsValid = false; invalidBMI = true; failedInputs.push("Vægt")}
     if (!this.formData.Mål.Mål != "") {FormIsValid = false; failedInputs.push("Mål")}
     if (FormIsValid) {
       if (user) {
@@ -426,6 +442,12 @@ export default class PlanPage {
         if (invalidUserdata) {
           window.scrollTo({
             top: document.getElementsByClassName("BasisInfo")[0].offsetTop+750,
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else if (invalidBMI) {
+          window.scrollTo({
+            top: document.getElementsByClassName("BMI")[0].offsetTop+750,
             left: 0,
             behavior: 'smooth'
           });
@@ -478,11 +500,19 @@ export default class PlanPage {
       this.formData["UserData"] = new Object();
     }
 
+    if (!this.formData["BMI"]) {
+      this.formData["BMI"] = new Object();
+    }
+
     this.formData.UserData["Navn"] = "";
     this.formData.UserData["Køn"] = "";
     this.formData.UserData["By"] = "";
     this.formData.UserData["Adresse"] = "";
     this.formData.UserData["Alder"] = "";
+
+
+    this.formData.BMI["Højde"] = "";
+    this.formData.BMI["Vægt"] = "";
 
 
     if (!this.formData["Mål"]) {
@@ -607,7 +637,7 @@ setActive() {
   SpecifikFormShows(e) {
     let TypeToShow = e.getAttribute("plan-contentType")
     this.Type = TypeToShow;
-   // console.log(TypeToShow)
+    console.log(TypeToShow)
     let kostSpecifiks = document.getElementsByClassName("KostSpecifiks");
     let TræningSpecifiks = document.getElementsByClassName("TræningSpecifiks");
     if (TypeToShow.includes("Kost")) {

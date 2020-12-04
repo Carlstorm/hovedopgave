@@ -2,7 +2,6 @@
 
 let imagePreview = [];
 
-imagePreview = document.getElementsByClassName("image-preview");
 
 
 
@@ -21,32 +20,25 @@ class CameraService {
   // CAMERA
 
   Opencamera() {
- 
+    document.getElementById("video").style.display = "block";
+
+    document.getElementById("btn-change").innerHTML = "";
 
     this.htmlTemplate = `
-  
+    <div class="uploadwrap">
+    <input class="uploadinput" type="file" name="file" id="img" accept="image/*" onchange="previewImage(this.files[0])" hidden>
+      <label for="img"><p>Vælg fil</p></label>
+    </div>
+    <button class="popupFormWrap--ImageContent-Kamerabut" id="tagbilledeknap" onclick="tagbillede()">Tag billede</button>
+    </div>
+    <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
 
-  <section id="camerawrap">
-  <canvas id="canvas" style="height:0px"></canvas>
-  <video autoplay></video>
 
-  <div id="butwrapcamera">
 
-    <button id="stopcaneraknap" onclick="lukcamera()">Luk</button>
-
-    <button id="tagbilledeknap" onclick="tagbillede()">Tag billede</button>
-
-    <button id="accepterbilledeknap" style="display:none;" onclick="acceptbillede()">Accepter billede</button>
-
-  </div>
-
-  <div id="darkbg"></div>
-
-</section>
 
   `;
 
-    document.getElementById("modal-content").innerHTML = this.htmlTemplate;
+    document.getElementById("btn-change").innerHTML = this.htmlTemplate;
 
     this.video = document.querySelector("video");
 
@@ -81,35 +73,43 @@ class CameraService {
 
 
 
-  lukcamera(img) {
+  lukcamera() {
 
-
+document.getElementById("btn-change").innerHTML = "";
 
     this.htmlTemplate = `
-    <div id="imagePreview" class="image-preview">
-      <span onclick="onclickCross();" class="close">&times;</span>
-      <div id="camereholderDiv"></div>
-  <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0])">
-  <div id="profileimagePreview" class="image-preview" style="hieght:400px"></div>
-  <button type="button" name="button" onclick="Opencamera()">
-    Tag med Webcam
-  </button>
+      <div class="uploadwrap">
+      <input class="uploadinput" type="file" name="file" id="img" accept="image/*" onchange="previewImage(this.files[0])" hidden>
+        <label for="img"><p>Vælg fil</p></label>
+      </div>
+      <div onclick="Opencamera()"><p class="popupFormWrap--ImageContent-Kamerabut">Kamera</p></div>
+      </div>
+      <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
+ 
+ 
+ `;
 
-  <button type="button" name="button" onclick="gembillede();">
-  Gem!
- </button>`;
+    
+ document.getElementById("btn-change").innerHTML = this.htmlTemplate;
 
-    document.getElementById("modal-content").innerHTML = this.htmlTemplate;
+    //document.getElementById("profileimagePreview").style.background = "url(" + img + ")";
+    //document.getElementById("profileimagePreview").style.height = "400px";
 
-    document.getElementById("profileimagePreview").style.background = "url(" + img + ")";
-    document.getElementById("profileimagePreview").style.height = "400px";
-
+    
+   //finde video track og stop det hvis det er til stede
+   var element = document.getElementById("video");
+ 
+   if(typeof(element) != 'undefined' && element != null){
+      
     this.videoStream.getTracks().forEach(function(track) {
 
       track.stop();
 
 
     });
+   } 
+
+  
 
   }
 
@@ -120,6 +120,7 @@ class CameraService {
   // var takepicmode
 
   tagbillede(canvas) {
+    let imagePreview = document.getElementsByClassName("image-preview");
 
     canvas = document.getElementById("canvas");
 
@@ -135,9 +136,13 @@ class CameraService {
       canvas.getContext("2d").drawImage(this.video, 0, 0);
       this.savedimgurl = canvas.toDataURL("image/webp")
 
+      this.profileimagePreviewFunk(imagePreview);
+
+    
+
       for (let i = 0; i < imagePreview.length; i++) {
 
-        imagePreview[0].style.background =
+        imagePreview[i].style.background =
 
           "url(" + this.savedimgurl + ")";
 
@@ -149,8 +154,7 @@ class CameraService {
 
       this.tagbiledknap.style.background = "#5e4747";
 
-      //accept knap
-      document.getElementById("accepterbilledeknap").style.display = "inline-block"
+
 
 
       //
@@ -171,32 +175,19 @@ class CameraService {
 
       this.takepicmode = 2;
 
-       //accept knap
-       document.getElementById("accepterbilledeknap").style.display = "none"
+  
 
     }
+   
  
   }
 
 
-  acceptbillede(canvas) {
+  acceptbillede() {
 
-
-    canvas = document.getElementById("canvas");
-
-    this.profileimagePreviewFunk(canvas.toDataURL("image/webp"));
-
-
-    this.videoStream.getTracks().forEach(function(track) {
-
-      track.stop();
-
-    });
-
-   
-    this.lukcamera(canvas.toDataURL("image/webp"));
-    
-
+    this.lukcamera();
+ 
+  
     return  this.savedimgurl;
     
   
@@ -211,13 +202,16 @@ class CameraService {
 
 
   uploadFileImg(file) {
+    
 
-
+    document.getElementById("video").style.display = "none";
+   // console.log(file)
+    let imagePreview = document.getElementsByClassName("image-preview");
     let reader = new FileReader();
 
     reader.onload = () => {
       this.savedimgurl = reader.result;
-      this.profileimagePreviewFunk();
+      this.profileimagePreviewFunk(imagePreview);
 
     };
 
@@ -233,13 +227,12 @@ class CameraService {
 
 
 
-  profileimagePreviewFunk() {
-
+  profileimagePreviewFunk(imagePreview) {
     
 
     for (let i = 0; i < imagePreview.length; i++) {
 
-      document.getElementById("profileimagePreview").style.background = "url(" + this.savedimgurl + ")";
+      imagePreview[i].style.background = "url(" + this.savedimgurl + ")";
 
     }
 
@@ -247,9 +240,10 @@ class CameraService {
 
 
   
-  Gemurl(userId){
-
+  Gemurl(userId)
+  {
         this.saveImg(userId);
+       this.acceptbillede();
       }
 
 
@@ -258,10 +252,9 @@ class CameraService {
 
     //console.log(user.uid);
 
-
     alert("billede gemt")
 
-//console.log(this.savedimgurl);
+console.log(this.savedimgurl);
     
 
 //update billede
@@ -280,10 +273,7 @@ class CameraService {
     });
 
 
-
   }
-
-
 
 
 }

@@ -12,7 +12,6 @@ export default class ProfilPage {
   
 
   contentWrap() {
-    
     let ContentWrap = document.createElement("SECTION")
     ContentWrap.innerHTML = `
     <div class="adminstration--pageWrap">
@@ -28,24 +27,96 @@ export default class ProfilPage {
     <p id="SideDisplayEmail">Email</p>
     <p id="SideDisplayTlf">Tlf:</p>
     </div>
-    <div id="imageModal" class="modal">
-      <div class="modal-content" id="modal-content">
-        <span onclick="onclickCross();" class="close">&times;</span>
-        <div style="height:400px" id="profileimagePreview" class="image-preview"></div>
-        <div id="camereholderDiv"></div>
-    <input type="file" id="img" accept="image/*" onchange="previewImage(this.files[0])">
-    <button type="button" name="button" onclick="Opencamera()">
-      Tag med Webcam
-    </button>
-    <button type="button" name="button" onclick="gembillede()">
-    Gem!
-   </button>
-      </div>
-
     </div>
-      </div>
     </div>
     <div class="adminstration--contentWrap anies">
+
+
+
+    <div class="popupFormWrap popupFormWrap-forAdmin" id="popupForm3" onclick="removePopupForm3()">
+    <div class="popupFormWrap--content popupFormWrap--FormContent popcont">
+
+      <div id="popUpconfirmWrap" class="popUpconfirmWrap" onclick="confirmCheck()">
+        <div class="popUpconfirmWrap--content">
+          <p>Er du sikker på du vil slette ansøgningen?</p>
+          <div class="popUpconfirmWrap--butWrap">
+          <div class="popUpconfirmWrap--butWrap-but1" onclick="SletAnsøgning()"><p>Ja</p></div>
+          <div class="popUpconfirmWrap--butWrap-but2"><p>Nej</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popupFormWrap--main"> 
+        <div class="popupFormWrap--main-content" id="PoprequestWrap3">
+          <div id="PoprequestWrapContent"></div>
+        </div>
+      </div>
+      
+      <div class="popupFormWrap--bottom">
+      <div class="popupFormWrap--button-style2" id="lukKnap2" onclick="removePopupForm3()"><p>Luk</p></div>
+      </div>
+    </div>
+
+    
+
+    <div class="popupFormWrap--PhoneContent popcont">
+    <p>TIlføj Tlf:</p>
+    <div>
+      <input></input>
+      <div onclick="setUserTlf()"><p>Tilføj</p></div>
+    </div>
+    </div>
+
+
+    <div class="popupFormWrap--ImageContent popcont" id="modal-content">
+    <canvas id="canvas" style="height:0px"></canvas>
+      <div class="popupFormWrap--ImageContent-preview image-preview" id="skiftPreview"><video autoplay id="video"></div>
+      <div class="popupFormWrap--ImageContent-br"></div>
+      <div class="popupFormWrap--ImageContent-UButWrap" id="btn-change">
+      <div class="uploadwrap">
+      <input class="uploadinput" type="file" name="file" id="img" accept="image/*" onchange="previewImage(this.files[0])" hidden>
+        <label for="img"><p>Vælg fil</p></label>
+      </div>
+      <div onclick="Opencamera()"><p class="popupFormWrap--ImageContent-Kamerabut">Kamera</p></div>
+      </div>
+      <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
     <div>
@@ -80,7 +151,7 @@ export default class ProfilPage {
     <h3 id="AcceptedRequestsHeading">Ansøgninger</h3>
     <div><img src="./assets/icons/arrow.svg" ></div> 
     </div>
-    <div class="adminstration--headerwrap-bottomBar" ></div>
+    <div class="adminstration--headerwrap-bottomBar"></div>
     </div>
     <div class="adminstration--contentContainer adminstration--contentContainer-shown" id="PendingRequest"></div> 
     </div>
@@ -97,8 +168,8 @@ export default class ProfilPage {
 
   PendingRequest(requestData,user) {
     let htmlTemplate = `
-    <div class="PendingRequestElementWrap">
-      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
+    <div class="PendingRequestElementWrap-special">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm3()">
       <div class="PendingRequestElement--header">
         <div>
         <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
@@ -150,8 +221,8 @@ export default class ProfilPage {
 
   AcceptedRequest(requestData,user) {
     let htmlTemplate = `
-    <div class="PendingRequestElementWrap">
-      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
+    <div class="PendingRequestElementWrap-special">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm3()">
       <div class="PendingRequestElement--header">
         <div>
         <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
@@ -167,44 +238,14 @@ export default class ProfilPage {
   </div>
   `
   return htmlTemplate;
-//     let htmlTemplate = `
-//     <div class="RequestProfile">
-    
-// <div class="profilCard">
-// <div class="profilCard--inner">
-// <h3>Her kan du se DIN ${requestData.Type}!</h3>
-// <hr>
-// <p>${requestData.formName}</p>
-// <button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-// <br>
-// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-// <p>Mvh. Easyfit</p>
 
-// <hr>
-// <div class="buttonFlex"> 
-// <div class="buttonFlex--inner">
-// <p> <b> Status:</b></p>
-// </div>
-// <div class="buttonFlex--inner">
-// <button  style = "background:orange"class="buttonPending">Accepted</button>
-// </div>
-// <div class="buttonFlex--inner">
-// <button class="buttonKontakt">Kontakt</button>
-// </div>
-// </div>
-// </div>
-// </div>
-//  </div>
-//  </div>
-//   `
-//   return htmlTemplate;
   }
 
 
   CompletedRequest(requestData,user) {
     let htmlTemplate = `
-    <div class="PendingRequestElementWrap">
-      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm()">
+    <div class="PendingRequestElementWrap-special">
+      <div id="${requestData.id}/${requestData.formName}/" class="PendingRequests PendingRequestElement" onclick="popupForm3()">
       <div class="PendingRequestElement--header">
         <div>
         <p class="PendingRequestElement-heading1">${requestData.request.plan.replace('&', '/')}</p>
@@ -213,47 +254,14 @@ export default class ProfilPage {
         </div>
         </div>
         <div class="PendingRequestElement-contentWrap-special">
-            <div class="butbut"><p>Se PdF</p></div>
-            <div class="butbut"><p>Download</p></div>
+            <a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank" class="butbut"><p>Se PdF</p></a>
+            <a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}" class="butbut"><p>Download</p></a>
         </div>
     </div>
   </div>
   `
   return htmlTemplate;
-    
-//     let htmlTemplate = `
-//     <div class="RequestProfile">
-    
-// <div class="profilCard">
-// <div class="profilCard--inner">
-// <h2>Hej navnDADADA</h2>
-// <h3>Her kan du se DIN ${requestData.type}!</h3>
-// <hr>
-// <p>${requestData.formName}</p>
-// <button style="width:200px;"> <a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-// <br>
-// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-// <p>Mvh. Easyfit</p>
 
-// <hr>
-// <div class="buttonFlex"> 
-// <div class="buttonFlex--inner">
-// <p> <b> Status:</b></p>
-// </div>
-// <div class="buttonFlex--inner">
-// <button  style = "background:green"class="buttonPending">completed</button>
-// </div>
-// <div class="buttonFlex--inner">
-// <button class="buttonKontakt">Kontakt</button>
-// </div>
-// </div>
-// </div>
-// </div>
-//  </div>
-//  </div>
-//   `
-
-//   return htmlTemplate;
   }
 
 
@@ -390,10 +398,18 @@ let dataObject = requests.val();
       let userObject = snapshot.val();
       document.getElementById("SideDisplayName").innerHTML = userObject.navn
       document.getElementById("SideDisplayEmail").innerHTML = userObject.email
+ 
+      if(userObject.img){
+        document.getElementById("profilImage").style.background = `url(${userObject.img})`
+        document.getElementById("skiftPreview").style.background = `url(${userObject.img})`
+
+      }
+
+
       if (userObject.Tlf) {
-        document.getElementById("SideDisplayTlf").innerHTML = userObject.Tlf
+        document.getElementById("SideDisplayTlf").innerHTML = `${userObject.Tlf} <img onclick='setTlfNr()' class='addPhoneNr' src='./assets/icons/ChangeIcon.svg'>`
       } else {
-        document.getElementById("SideDisplayTlf").innerHTML += "<img class='addPhoneNr' src='./assets/icons/plus.svg'>"
+        document.getElementById("SideDisplayTlf").innerHTML = "Tlf:<img onclick='setTlfNr()' class='addPhoneNr' src='./assets/icons/plus.svg'>"
       }
       })
   }
@@ -410,8 +426,10 @@ let dataObject = requests.val();
 ////modal camera
 
 onclickPlus = function() {
-  var modal = document.getElementById("imageModal");
-  modal.style.display = "block";
+  document.getElementById("popupForm3").classList.add("popupFormWrap-shown")
+  this.popcontent("popupFormWrap--ImageContent")
+  // var modal = document.getElementById("imageModal");
+  // modal.style.display = "block";
 }
 
 
@@ -427,6 +445,88 @@ onclickWindowClose = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
+setUserTlf(user) {
+  let tlfnr = event.target.parentNode.children[0].value;
+  console.log(tlfnr)
+  firebase.database().ref('/users/' + user.uid)
+  .update({
+      Tlf: tlfnr
+  });
+  this.removePopupForm3(true)
+  this.updateUserDataShow(user)
+}
+
+
+
+popcontent(CurrentPopup) {
+  for (let popcont of document.getElementsByClassName("popcont")) {
+    popcont.classList.add("popcont-Hidden")
+  }
+  document.getElementsByClassName(CurrentPopup)[0].classList.remove("popcont-Hidden")
+}
+
+
+setTlfNr() {
+  document.getElementById("popupForm3").classList.add("popupFormWrap-shown")
+  this.popcontent("popupFormWrap--PhoneContent")
+}
+
+
+
+
+
+
+
+popupForm3(index) {
+  if (!event.target.classList.contains("butbut")) {
+    document.getElementById("popupForm3").classList.add("popupFormWrap-shown")
+  this.popcontent("popupFormWrap--FormContent")
+
+  let element = event.target
+  if (event.target.classList.contains("PendingRequestElement-contentWrap-special")) {
+    element = event.target.parentNode
+  }
+  this.fillpopup(element, index);
+  }
+}
+
+removePopupForm3(da) {
+  console.log(event.target)
+  if (event.target.id == "popupForm3" || event.target.id == "lukKnap2" || da) {
+    document.getElementById("popupForm3").classList.remove("popupFormWrap-shown")
+  }
+}
+
+
+fillpopup(element, index) {
+  this.selectedPath = `/${element.classList[0]}/${element.id}`
+  firebase.database().ref(this.selectedPath).once('value', (snapshot) => {
+  let requestObject = snapshot.val();
+
+    let HtTEMP = ""
+    HtTEMP += `<h2>${requestObject.request.plan} - ${requestObject.request.type} </h2>`
+    for (let [key, value] of Object.entries(requestObject.request)) {
+      if (key != "plan" && key != "type" && key != "Sygdomme" && key != "Andet") {
+      HtTEMP += `<h2>${key}</h2>`
+      for (let [key2, value2] of Object.entries(value)) {
+        HtTEMP += `<p><span>${key2}:</span> ${value2}</p>`
+      }
+
+      } else if (key == "Sygdomme" || key == "Andet") {
+        HtTEMP += `<h2>${key}</h2>`
+        HtTEMP += `<p>${value}</p>`
+    }
+  }
+    document.getElementById("PoprequestWrap3").children[0].innerHTML = HtTEMP;
+  })
+}
+
+
+
+
 
 
 
