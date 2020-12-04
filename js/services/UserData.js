@@ -42,25 +42,25 @@ class UserData {
     MoveForm(userId, formName, whereFrom) {
         let currentPath = firebase.database().ref(whereFrom + userId + `/${formName}/`)
         let whereTo
-        console.log(whereFrom)
+     //   console.log(whereFrom)
         if (whereFrom == '/PendingRequests/') {
             whereTo = '/AcceptedRequests/'
         } else {
             whereTo = '/CompletedRequests/'
         }
         currentPath.once('value', (snapshot) => {
-            console.log(userId, snapshot.val(), formName, null, whereTo);
+    //       console.log(userId, snapshot.val(), formName, null, whereTo);
             this.MoveFormToCompleted(userId, snapshot.val(), formName, null, whereTo);
             currentPath.remove();
        })
     }
 
     MoveFormToCompleted(userId, formdata, formName, formNr, whereTo) {
-        console.log(whereTo)
+      //  console.log(whereTo)
         if (!formNr) {
             formNr = "";
         }
-        console.log(Object.keys(formdata))
+      //  console.log(Object.keys(formdata))
         let sliceIndex = formName.indexOf("(");
         let newFormName;
         if (sliceIndex > 1) {
@@ -93,6 +93,97 @@ class UserData {
             responseState: state,
         });
     }
+
+
+    ////email php
+
+    sendemail(user, formData)
+    {
+    
+    
+    formData.usernavn = user.navn;
+    formData.email = user.email;
+    
+    //console.log(formData);
+    
+      var jsonObj =  "form=" + (JSON.stringify(formData));
+    
+      ////////////stringfy object
+        // var emailData = new FormData();
+        var xhttp = new XMLHttpRequest();
+        // emailData.append("email", user.email);
+        // emailData.append("navn", user.navn);
+     
+        // Set POST method and ajax file path
+        xhttp.open("POST", "php/kvitteringKunde.php", true);
+    
+        //xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        
+        // call on request changes state
+        xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+             var response = this.responseText;
+            console.log(response);
+             if(response == 1){
+                alert("Email sendt");
+                
+             }else{
+                alert("Woops en fejl");
+                
+             }
+           }
+           
+        };
+        
+        // Send request with data
+        //xhttp.send(emailData, jsonObj);
+        xhttp.send(jsonObj);
+        console.log(jsonObj)
+        this.sendAdminPlan(user, formData)
+        
+        }
+    
+    
+    
+        sendAdminPlan(user, formData)
+        {
+        
+        formData.usernavn = user.navn;
+        formData.email = user.email;
+        
+        console.log(formData);
+        
+          var jsonObj =  "form=" + (JSON.stringify(formData));
+        
+            var xhttp = new XMLHttpRequest();
+            // Set POST method and ajax file path
+            xhttp.open("POST", "php/adminPlanMail.php", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            
+            // call on request changes state
+            xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200) {
+                 var response = this.responseText;
+                console.log(response);
+                 if(response == 2){
+                    alert("Email sendt");
+                    
+                 }else{
+                    alert("Woops en fejl");
+                    
+                 }
+               }
+            };
+            
+            xhttp.send(jsonObj);
+            console.log(jsonObj)
+            
+            }
+
+
+
+    
 }
 
   export default UserData;

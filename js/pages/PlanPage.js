@@ -565,7 +565,7 @@ export default class PlanPage {
         this.formData[type] = val;
       }
     }
-    console.log(this.formData)
+  //  console.log(this.formData)
   }
 
 

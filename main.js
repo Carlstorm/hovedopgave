@@ -1,6 +1,6 @@
 
 // import Pages
-import TestPage1 from "./js/pages/TestPage1.js";
+import ForsidePage from "./js/pages/ForsidePage.js";
 import PlanPage from "./js/pages/PlanPage.js";
 import ProfilPage from "./js/pages/ProfilPage.js"
 import AdminPage from "./js/pages/AdminPage.js";
@@ -20,7 +20,7 @@ let IsAdmin = null;
 
 // inits 
     // Main pages
-    let testpage1 = new TestPage1();
+    let forsidePage = new ForsidePage();
     let planPage = new PlanPage();
     let profilPage = new ProfilPage();
     let adminPage = new AdminPage();
@@ -44,6 +44,7 @@ window.SletAnsøgning = () => adminPage.SletAnsøgning();
 window.SendUserData = () => {
     userdata.send(Currentuser, planPage.GetValue())
     planPage.ChangePopUpForm();
+    userdata.sendemail(Currentuser, planPage.GetValue())
 } 
 
 window.Godkend = () => planPage.Godkend(Currentuser, login)
@@ -67,6 +68,7 @@ window.toggleShowHide = () => adminPage.toggleShowHide();
 
 // } 
 window.onclickPlus = () => {profilPage.onclickPlus()}
+window.forsideForm = () => {forsidePage.forsideEmailObject(Currentuser)}
 window.onclickCross = () => {profilPage.onclickCross()}
 window.onclick = (event) => { profilPage.onclickWindowClose(event)}
 window.Opencamera = () => { cameraService.Opencamera()}
