@@ -73,7 +73,7 @@ window.Opencamera = () => { cameraService.Opencamera()}
 window.lukcamera = () => {cameraService.lukcamera()}
 window.tagbillede = () => {cameraService.tagbillede()}
 window.acceptbillede = () => {cameraService.acceptbillede(Currentuser)}
-window.previewImage = (file) => {cameraService.uploadFileImg(file,Currentuser)}
+window.previewImage = (file) => {cameraService.uploadFileImg(file)}
 window.closeLogin = () => 
     {
         if (event.target == document.getElementById("loginScreen")) {
@@ -93,9 +93,15 @@ window.acceptRequest = (userID, FormName) => adminPage.acceptRequest(userID, For
 
 
 window.popupForm = (index) => adminPage.popupForm(index);
+window.popupForm3 = (index) => profilPage.popupForm3(index);
 window.removePopupForm = () => adminPage.removePopupForm();
 window.removePopupForm2 = () => planPage.removePopupForm2();
+window.removePopupForm3 = () => profilPage.removePopupForm3();
 
+
+window.setUserTlf = () => profilPage.setUserTlf(Currentuser);
+
+window.setTlfNr = () => profilPage.setTlfNr();
 
 
 window.changeChosenFIle = (da) => adminPage.changeChosenFIle(da);
@@ -103,6 +109,12 @@ window.changeChosenFIle = (da) => adminPage.changeChosenFIle(da);
 window.setpage = (page) => spaService.setpage(page)
 
 
+
+
+
+window.toggleBrugermenu = () => {
+    document.getElementById("navbar").classList.toggle("tabbar-active")
+}
 
 
 // Watchers --> after login specifiks
@@ -141,6 +153,11 @@ firebase.auth().onAuthStateChanged(user => {
         })
     // ikke logged in
     } else {
+
+        for (let page of document.querySelectorAll(".page")) {
+            page.classList.remove("pageActive")
+          }
+          spaService.setActiveTab(location.href)
 
         document.getElementById("loginButtWrap").innerHTML = `<a class="tabbar--item loginButt" onclick="login()">log in</a>`
         document.getElementById("horizontalBLhidden").classList.remove("horizontalBreakLine")

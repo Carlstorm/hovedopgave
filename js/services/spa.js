@@ -14,11 +14,11 @@ class SpaService {
 
     pageChange() {
       let page = window.location.hash.slice(1);
-      if (page == "AdminPage") {
-        document.getElementsByClassName("logo")[0].style.display = "none"
-      } else {
-        document.getElementsByClassName("logo")[0].style.display = "initial"
-      }
+      // if (page == "AdminPage") {
+      //   document.getElementsByClassName("logo")[0].style.display = "none"
+      // } else {
+      //   document.getElementsByClassName("logo")[0].style.display = "initial"
+      // }
       this.showPage(page);
     }
   

@@ -2,7 +2,6 @@
 
 let imagePreview = [];
 
-imagePreview = document.getElementsByClassName("image-preview");
 
 
 
@@ -137,7 +136,7 @@ class CameraService {
 
       for (let i = 0; i < imagePreview.length; i++) {
 
-        imagePreview[0].style.background =
+        imagePreview[i].style.background =
 
           "url(" + this.savedimgurl + ")";
 
@@ -211,13 +210,13 @@ class CameraService {
 
 
   uploadFileImg(file) {
-
-
+    console.log(file)
+    let imagePreview = document.getElementsByClassName("image-preview");
     let reader = new FileReader();
 
     reader.onload = () => {
       this.savedimgurl = reader.result;
-      this.profileimagePreviewFunk();
+      this.profileimagePreviewFunk(imagePreview);
 
     };
 
@@ -233,13 +232,13 @@ class CameraService {
 
 
 
-  profileimagePreviewFunk() {
+  profileimagePreviewFunk(imagePreview) {
 
     
 
     for (let i = 0; i < imagePreview.length; i++) {
 
-      document.getElementById("profileimagePreview").style.background = "url(" + this.savedimgurl + ")";
+      imagePreview[i].style.background = "url(" + this.savedimgurl + ")";
 
     }
 
