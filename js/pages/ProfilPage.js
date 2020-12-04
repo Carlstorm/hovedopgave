@@ -68,10 +68,11 @@ export default class ProfilPage {
     </div>
 
 
-    <div class="popupFormWrap--ImageContent popcont">
-      <div class="popupFormWrap--ImageContent-preview image-preview""></div>
+    <div class="popupFormWrap--ImageContent popcont" id="modal-content">
+    <canvas id="canvas" style="height:0px"></canvas>
+      <div class="popupFormWrap--ImageContent-preview image-preview" id="skiftPreview"><video autoplay id="video"></div>
       <div class="popupFormWrap--ImageContent-br"></div>
-      <div class="popupFormWrap--ImageContent-UButWrap">
+      <div class="popupFormWrap--ImageContent-UButWrap" id="btn-change">
       <div class="uploadwrap">
       <input class="uploadinput" type="file" name="file" id="img" accept="image/*" onchange="previewImage(this.files[0])" hidden>
         <label for="img"><p>Vælg fil</p></label>
@@ -237,37 +238,7 @@ export default class ProfilPage {
   </div>
   `
   return htmlTemplate;
-//     let htmlTemplate = `
-//     <div class="RequestProfile">
-    
-// <div class="profilCard">
-// <div class="profilCard--inner">
-// <h3>Her kan du se DIN ${requestData.Type}!</h3>
-// <hr>
-// <p>${requestData.formName}</p>
-// <button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-// <br>
-// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-// <p>Mvh. Easyfit</p>
 
-// <hr>
-// <div class="buttonFlex"> 
-// <div class="buttonFlex--inner">
-// <p> <b> Status:</b></p>
-// </div>
-// <div class="buttonFlex--inner">
-// <button  style = "background:orange"class="buttonPending">Accepted</button>
-// </div>
-// <div class="buttonFlex--inner">
-// <button class="buttonKontakt">Kontakt</button>
-// </div>
-// </div>
-// </div>
-// </div>
-//  </div>
-//  </div>
-//   `
-//   return htmlTemplate;
   }
 
 
@@ -290,40 +261,7 @@ export default class ProfilPage {
   </div>
   `
   return htmlTemplate;
-    
-//     let htmlTemplate = `
-//     <div class="RequestProfile">
-    
-// <div class="profilCard">
-// <div class="profilCard--inner">
-// <h2>Hej navnDADADA</h2>
-// <h3>Her kan du se DIN ${requestData.type}!</h3>
-// <hr>
-// <p>${requestData.formName}</p>
-// <button style="width:200px;"> <a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-// <br>
-// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-// <p>Mvh. Easyfit</p>
 
-// <hr>
-// <div class="buttonFlex"> 
-// <div class="buttonFlex--inner">
-// <p> <b> Status:</b></p>
-// </div>
-// <div class="buttonFlex--inner">
-// <button  style = "background:green"class="buttonPending">completed</button>
-// </div>
-// <div class="buttonFlex--inner">
-// <button class="buttonKontakt">Kontakt</button>
-// </div>
-// </div>
-// </div>
-// </div>
-//  </div>
-//  </div>
-//   `
-
-//   return htmlTemplate;
   }
 
 
@@ -460,6 +398,14 @@ let dataObject = requests.val();
       let userObject = snapshot.val();
       document.getElementById("SideDisplayName").innerHTML = userObject.navn
       document.getElementById("SideDisplayEmail").innerHTML = userObject.email
+ 
+      if(userObject.img){
+        document.getElementById("profilImage").style.background = `url(${userObject.img})`
+        document.getElementById("skiftPreview").style.background = `url(${userObject.img})`
+
+      }
+
+
       if (userObject.Tlf) {
         document.getElementById("SideDisplayTlf").innerHTML = `${userObject.Tlf} <img onclick='setTlfNr()' class='addPhoneNr' src='./assets/icons/ChangeIcon.svg'>`
       } else {

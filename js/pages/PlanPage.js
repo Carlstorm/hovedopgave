@@ -455,6 +455,12 @@ export default class PlanPage {
             left: 0,
             behavior: 'smooth'
           });
+        } else if (invalidBMI) {
+          window.scrollTo({
+            top: document.getElementsByClassName("BMI")[0].offsetTop+750,
+            left: 0,
+            behavior: 'smooth'
+          });
         } else {
           window.scrollTo({
             top: document.getElementsByClassName("mål")[0].offsetTop+extras,

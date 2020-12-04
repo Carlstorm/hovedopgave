@@ -369,7 +369,11 @@ textarea {
 .content {
   width: 80%;
   min-width: 860px;
+<<<<<<< HEAD
   max-width: 1200px;
+=======
+  max-width: 1000px;
+>>>>>>> Kevin
   transform: translate(-50%);
   position: relative;
   left: 50%; }
@@ -1429,6 +1433,10 @@ input:-webkit-autofill:active {
       width: 320px;
       height: 320px;
       transform: translateX(-50%);
+<<<<<<< HEAD
+=======
+      overflow: hidden;
+>>>>>>> Kevin
       position: relative;
       left: 50%;
       border-radius: 50%; }
@@ -1956,6 +1964,13 @@ input:-webkit-autofill:active {
   background-position: center !important;
   background-size: cover !important; }
 
+#video {
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  height: 100%;
+  min-width: 100%; }
+
 .siderUserInfo {
   opacity: 0.8;
   text-align: center;
@@ -1984,12 +1999,16 @@ input:-webkit-autofill:active {
   display: none; }
 
 @media only screen and (max-width: 870px) {
+<<<<<<< HEAD
   #Plan {
     padding-top: 62px; }
+=======
+>>>>>>> Kevin
   .deskSpec {
     display: none; }
   .content {
     min-width: 0;
+<<<<<<< HEAD
     max-width: 100vw;
     width: 100%; }
     .content .BasisInfoWrap, .content .SygdommeWrapper, .content .GoalWrapper, .content .KostPreferencerWrapper, .content .AndetWrapper {
@@ -1999,6 +2018,9 @@ input:-webkit-autofill:active {
       margin: 42px 0 12px 0; }
     .content .KostPreferencerWrapper--itemflex--inner {
       width: calc(50% - 16px); }
+=======
+    max-width: 100vw; }
+>>>>>>> Kevin
   .Abonnoment {
     display: none; }
   .mobileSpec {
@@ -2070,7 +2092,11 @@ input:-webkit-autofill:active {
       color: black !important; }
       .tabbar .navbarItems a {
         color: black !important;
+<<<<<<< HEAD
         margin: 2px 8px; }
+=======
+        margin: 0 8px; }
+>>>>>>> Kevin
       .tabbar .navbarItems path {
         fill: rgba(0, 0, 0, 0.795); }
     .tabbar-active .navbarItems {
@@ -2086,6 +2112,7 @@ input:-webkit-autofill:active {
     background: rgba(0, 0, 0, 0.2) !important;
     height: 1px !important;
     width: 90% !important;
+<<<<<<< HEAD
     margin: 12px 0 !important; }
   .adminstration--siderbar {
     z-index: -1;
@@ -2223,3 +2250,6 @@ input:-webkit-autofill:active {
       text-align: center;
       margin: 0;
       font-weight: bold; }
+=======
+    margin: 12px 0 !important; } }
+>>>>>>> Kevin
