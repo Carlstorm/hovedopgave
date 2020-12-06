@@ -1,6 +1,6 @@
 class SpaService {
     constructor() {
-      this.defaultPage = "#Plan";
+      this.defaultPage = "#ForsidePage";
       this.init();
     }
   

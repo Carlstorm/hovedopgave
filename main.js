@@ -58,8 +58,10 @@ window.pageChange = () => {
     spaService.pageChange();
     if (window.location.hash != "#AdminPage" && window.location.hash != "#ProfilPage") {
         document.getElementById("navbar").classList.remove("tabbar-black")
+        document.getElementById("footerfoot").classList.remove("footerfoot-Hide")
     } else {
         document.getElementById("navbar").classList.add("tabbar-black")
+        document.getElementById("footerfoot").classList.add("footerfoot-Hide")
     }
 }
 window.logout = () => login.logout(planPage);

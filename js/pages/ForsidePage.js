@@ -12,478 +12,224 @@ export default class ForsidePage {
       <section id="ForsidePage" class="page">
         <div class="hero deskSpec">
         </div>
-      <div class="custominputnew">
+      <div class="custominputnew anies">
+      <h3 class="standardHeading">Kontakt Os</h3>
         <input placeholder="DIT KØN">
         <input placeholder="DIT NAVN">
         <input  placeholder="DIN EMAIL">
-        <div onclick="forsideForm()"class="booknu"><p>Kontakt os</p></div>
+        <div onclick="forsideForm()"class="bookKnapForside"><p>Kontakt os</p></div>
       </div>
 
 
-<section class="Abonnoment">
-        <h3 class="standardHeading">Bestil et online forløb i dag!</h3>
-          <div class="forløbWrap">
-            <div>
-            <div class="forløbWrap--item">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1500kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 1200 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost/trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            </div>
+      <div class="bgforside deskSpec"></div>
 
-            
-        </section>
-        <section class="costumrespons">
-        <h3 class="standardHeading">Hvad siger vores kunder</h3>
 
+      <section class="ForsideSection1">
+      <div class="content anies">
+      <h3 class="standardHeading">Forløb</h3>
+
+      <div class="forløbWrap">
+
+
+      <div>
+      <div class="forløbWrap--item noclick" plan-contentType="Kost" onclick="setObjectValues(['Kost', 'abonnoment'], ['plan', 'type']); setActive();">
+        <div class="forløbWrap--header">
+          <div class="forløbWrap--priswrap">
+          <div class="forløbWrap--priswrap-goldBox">
+            <p>1200kr</p>
+          </div>
+          <div class="forløbWrap--priswrap-extraText">
+            <p>herefter 999 pr. måned</p>
+          </div>
+          </div>
+          <span class="forløbWrap--header-bold">Kost</span>
+          <span class="forløbWrap--header-norm">Abonnoment</span>
+        </div>
+        <div class="forløbWrap--content">
+        <div>
+        <img src="./assets/icons/checkbox.svg">
+        <p>Fleksibelt</p>
+        </div>
+        <div class="forløbWrap--content-style2">
+        <img src="./assets/icons/checkbox.svg">
+        <p>Din målsætning i fokus</p>
+        </div>
+        <div>
+        <img src="./assets/icons/checkbox.svg">
+        <p>Fokus på dine preferencer</p>
+        </div>
+        <div class="forløbWrap--content-style2">
+        <img src="./assets/icons/checkbox.svg">
+        <p>Nye kostplaner løbende</p>
+        </div>
+        </div>
+      </div>
+      </div>
+
+      <div>
+      <div class="forløbWrap--item noclick" plan-contentType="Kost" onclick="setObjectValues(['Kost', 'abonnoment'], ['plan', 'type']); setActive();">
+        <div class="forløbWrap--header">
+          <div class="forløbWrap--priswrap">
+          <div class="forløbWrap--priswrap-goldBox">
+            <p>1500kr</p>
+          </div>
+          <div class="forløbWrap--priswrap-extraText">
+            <p>herefter 1200 pr. måned</p>
+          </div>
+          </div>
+          <span class="forløbWrap--header-bold">Kost/Træning</span>
+          <span class="forløbWrap--header-norm">Abonnoment</span>
+        </div>
+        <div class="forløbWrap--content">
+        <div>
+        <img src="./assets/icons/checkbox.svg">
+        <p>træningsprogram og kostvejledning</p>
+        </div>
+        <div class="forløbWrap--content-style2">
+        <img src="./assets/icons/checkbox.svg">
+        <p>Skradersyet for dig</p>
+        </div>
+        <div>
+        <img src="./assets/icons/checkbox.svg">
+        <p>Fokus på din målsætning</p>
+        </div>
+        <div class="forløbWrap--content-style2">
+        <img src="./assets/icons/checkbox.svg">
+        <p>Nye kost -og træningsprogrammer</p>
+        </div>
+        </div>
+      </div>
+      </div>
+
+      <div>
+      <div class="forløbWrap--item noclick" plan-contentType="Kost" onclick="setObjectValues(['Kost', 'abonnoment'], ['plan', 'type']); setActive();">
+        <div class="forløbWrap--header">
+          <div class="forløbWrap--priswrap">
+          <div class="forløbWrap--priswrap-goldBox">
+            <p>1200kr</p>
+          </div>
+          <div class="forløbWrap--priswrap-extraText">
+            <p>herefter 999 pr. måned</p>
+          </div>
+          </div>
+          <span class="forløbWrap--header-bold">Træning</span>
+          <span class="forløbWrap--header-norm">Abonnoment</span>
+        </div>
+        <div class="forløbWrap--content">
+        <div>
+        <img src="./assets/icons/checkbox.svg">
+        <p>Varieret trænning</p>
+        </div>
+        <div class="forløbWrap--content-style2">
+        <img src="./assets/icons/checkbox.svg">
+        <p>Fokus på din målsætning</p>
+        </div>
+        <div>
+        <img src="./assets/icons/checkbox.svg">
+        <p>Videoer og øvelser</p>
+        </div>
+        <div class="forløbWrap--content-style2">
+        <img src="./assets/icons/checkbox.svg">
+        <p>Nye trænningsplaner løbende</p>
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </section>
+
+      <section class="Reviews">
+      <div class="content anies">
+      <h3 class="standardHeading">Reviews</h3>
         <div id="anmeldelsessection">
-        <div id="anmendpartOlay"></div>
-        <div id="anmendpartboxwrap">
-        <img id="reviewImg" src="">   
-        <p id="anmeldelsetekst"></p>
-        <div id="anmeldelsestars">
-</div>
-        
+          <div id="anmendpartboxwrap">
+            <img id="reviewImg" src="">
+            <div class="review-contentWrap">
+            <p id="anmeldelsetekst"></p>
+            <div class="reviewHline"></div>
+            <div id="anmeldelsestars">
+            </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-      
-        
+      </div>
+      </section>
+
+      <section class="process">
+      <div class="content anies">
+      <h3 class="standardHeading">Process</h3>
+        <div class="prossesWrap">
 
 
 
-        </section>
-
-
-
-        <section id="tresteps">
-        <h3 class="standardHeading">Hvordan forløber ett forløb ved Easyfit</h3>
-</div>
-<div class="forsidetalogboks">
-    
-    <div class="forsideboks">
-        <h3>KONTAKT</h3>
-        <p>Med et onlineforløb skal vi nok få dig i mål. Du får nemlig alle de redskaber du har brug for, herunder planer til hvor meget mad du skal spise, hvordan du skal træne, og mig som din coach. Med hele denne pakke har du en at stå til ansvar for, en der kan hjælpe dig videre når motivationen er lav og planer, så du ved, at du har gang i det rigtige!</p>
-        <div class="tal"><img src="./assets/imgs/1.svg"></div>
-        </div>
-
-
-    <div class="forsideboks">
-        <h3>GODKENDELSE</h3>
-        <p>Med et onlineforløb skal vi nok få dig i mål. Du får nemlig alle de redskaber du har brug for, herunder planer til hvor meget mad du skal spise, hvordan du skal træne, og mig som din coach. Med hele denne pakke har du en at stå til ansvar for, en der kan hjælpe dig videre når motivationen er lav og planer, så du ved, at du har gang i det rigtige!</p>
-        <div class="tal"><img src="./assets/imgs/2.svg"></div>
+        <div class="prossesWrap-main">
+          <div class="prossesWrap-header">
+            <h5>Kontakt</h5>
+          </div>
+          <div class="prossesWrap-content">
+          <p>Så snart du tager kontakt til os vil vi tage en snak omkring dine præferencer. Du kan både kontakte os over Email ved at udfylde formen i toppen, eller med formen på plan siden.  Vi  kontakter dig altid til en opfølgende snak. Hvor du har muligt for at stille spørgsmål og fortælle os om dig og  dine kost- og træningspræferencer</p>
+          <img src="./assets/imgs/1.svg">
+          </div>
         </div>
 
 
-    <div class="forsideboks">
-        <h3>DIN PLAN</h3>
-        <p>Med et onlineforløb skal vi nok få dig i mål. Du får nemlig alle de redskaber du har brug for, herunder planer til hvor meget mad du skal spise, hvordan du skal træne, og mig som din coach. Med hele denne pakke har du en at stå til ansvar for, en der kan hjælpe dig videre når motivationen er lav og planer, så du ved, at du har gang i det rigtige!</p>
-        <div class="tal"><img src="./assets/imgs/3.svg"></div>
+
+
+        <div class="prossesWrap-main">
+        <div class="prossesWrap-header">
+        <h5>Godkendelse</h5>
         </div>
-</div>
-
-</section>
-
-<section class="hvemervi">
-<h3 class="standardHeading">Hvem står bag Easyfit</h3>
-    <div class="hvemervioverboks">
-    
-        <div class="inderboks">
-            <div class="ansatte1">
-            <div class="ansatteimg">
-                </div>
-            </div>
-            <div class="vrstreg"><img src="./assets/imgs/verticalline.svg"></div>
-            
-            <div class="ansatteinfo">
-                <h4>Pradeep hvenegaard</h4>
-                <p>Personlig træner & kostvejleder, Pradeep læser pt. hvor målet for den færdige
-                uddannelse er en Fysioterapeut uddannelse
-                Pradeep har gennem Årene vejledt rigtigt mange. han er super god til de fyrene, der gerne
-                vil op i vægt eller være mere tonede, men måske har ramt muren og derfor ikke kan
-                komme videre.</p></div>
-
+        <div class="prossesWrap-content">
+        <p>Så snart vi har set din plan fra kigger vi den igennem og tjekker og alt er som det skal være. Derefter sender vi en godkendelse på Email. Du kan altid se status på din Plan under din profil.</p>
+        <img src="./assets/imgs/2.svg">
         </div>
-        
-    
-       
-        <div class="inderboks">
-            <div class="ansatte2">
-            <div class="ansatteimg">
-            </div>
-            </div>
-            <div class="vrstreg"><img src="./assets/imgs/verticalline.svg"></div>
-            <div class="ansatteinfo">
-                <h4>Linda Lykke</h4>
-                <p>Personlig træner & kostvejleder, Linda er selv atlet og har stillet op i bodyfitness flere
-                    gange, hvor hun også har trukket flotte medaljer hjem, hun har vejledt og hjulpet rigtig
-                    mange med årene.
-                    linda er super dygtigt til kvinderne, der ønsker vægttab både store som små flere
-                    markeringer eller blot ønsker en sundere livsstil.</p>
-            </div>
+        </div>
+
+
+
+
+        <div class="prossesWrap-main">
+        <div class="prossesWrap-header">
+        <h5>Din plan</h5>
+        </div>
+        <div class="prossesWrap-content">
+        <p>Så snart at vi har gennemarbejde vores skræddersyet plan til dig, sender vi dig en E-mail med din helt nye personlige plan, derudover kan du altid tjekke, og hente din færdige plan på Profilsiden.</p>
+        <img src="./assets/imgs/3.svg">
+        </div>
+        </div>
+
+
 
         </div>
-        
-    </div>
-</section>
+      </div>
+      </section>
 
-<section class="Abonnoment">
-        <h3 class="standardHeading">Pakkeløsninger</h3>
-          <div class="forløbWrap">
-            <div>
-            <div class="forløbWrap--item">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              
-              </div>
-              
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1500kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 1200 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost/trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
+      <section class="Om os">
+      <div class="content anies">
+      <h3 class="standardHeading">Om</h3>
+          <div class="omWrap">
+          <div class="omWrap-main">
+            <div class="omWrap-img"></div>
+            <div class="omWrap-Hline"></div>
+            <div class="omWrap-textbox">
+              <p>Pradeep hvenegaard<p>
+              <br>
+              <p> Personlig træner & kostvejleder, Pradeep læser pt. hvor målet for den færdige uddannelse er en Fysioterapeut uddannelse Pradeep har gennem Årene vejledt rigtigt mange. han er super god til de fyrene, der gerne vil op i vægt eller være mere tonede, men måske har ramt muren og derfor ikke kan komme videre. </p>
             </div>
             </div>
 
-            
-        </section>
-        <section class="Abonnoment">
-        <h3 class="standardHeading">Personligtræning</h3>
-          <div class="forløbWrap">
-            <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
+            <div class="omWrap-main">
+            <div class="omWrap-img"></div>
+            <div class="omWrap-Hline"></div>
+            <div class="omWrap-textbox">
+              <p>Linda Lykke<p>
+              <br>
+              <p> Personlig træner & kostvejleder, Linda er selv atlet og har stillet op i bodyfitness flere gange, hvor hun også har trukket flotte medaljer hjem, hun har vejledt og hjulpet rigtig mange med årene. linda er super dygtigt til kvinderne, der ønsker vægttab både store som små flere markeringer eller blot ønsker en sundere livsstil. </p>
             </div>
             </div>
-            <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1500kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 1200 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Kost/trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            <div>
-            <div class="forløbWrap--item" onclick="setObjectValues('kost abonnoment', 'planType'); setActive();">
-              <div class="forløbWrap--header">
-                <div class="forløbWrap--priswrap">
-                <div class="forløbWrap--priswrap-goldBox">
-                  <p>1200kr</p>
-                </div>
-                <div class="forløbWrap--priswrap-extraText">
-                  <p>herefter 999 pr. måned</p>
-                </div>
-                </div>
-                <span class="forløbWrap--header-bold">Trænning</span>
-                <span class="forløbWrap--header-norm">Abonnoment</span>
-              </div>
-              <div class="forløbWrap--content">
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
-              </div>
-              <div>
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
-              </div>
-              <div class="forløbWrap--content-style2">
-              <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
-              </div>
-              </div>
-            </div>
-            </div>
-            </div>
-
-            
-        </section>
-        <section class="footer">
-<div class="footerflex">
-<div class="footerbox">
-    <h3>Kontakt info
-    </h3>
-    <div class="mailogtekst" >
-<div class="mail"><img src="./assets/imgs/mail.png"></div>
-<div class="tekst"><a>Nikolajegeskov@hotmail.com</a></div>
-</div>
-<div class="mailogtekst" >
-    <div class="mail"><img src="./assets/imgs/images.png"></div>
-    <div class="tekst"><a>29719177</a></div>
-    </div>
-    <div class="mailogtekst">
-        <div class="mail"><img src="./assets/imgs/pin.png"></div>
-        <div class="tekst"><a>karensvej 20</a></div>
-        </div>
-    
-</div>
-<div class="footerbox">
-    <h3>Kontakt info
-    </h3>
-    <div id="socialemedier" >
-        
-        <div id="facebookfooter"><a href="https://www.facebook.com/easyfit.kostvejledning"><img src="./assets/imgs/facebook.png"></a></div>
-        <div id="instagramfooter"><img src="./assets/imgs/instagram.png"></div>
-    </div>
-</div>
-<div class="footerbox">
-    <h3>
-        Privatlivspolitik 
-    </h3>
-    <div>adresse</div>
-    
-    
-</div>
-</div>
-
-</section>
-
+          </div>
+      </div>
+      </section>
       </section>
       `
       this.reviews();
