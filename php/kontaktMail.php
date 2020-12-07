@@ -1,42 +1,31 @@
 <?php
 
-$email = $_REQUEST['email'];
-$navn = $_REQUEST['navn'];
+header('Content-Type: text/html; charset=utf-8'); 
 $form = $_POST['form'];
-$response = 1;
+$response = 3;
 
-/////
+//json decoder
 $formData = json_decode($form, true);
-// print $formData["køn"];
-// print $formData["navn"];
-print $email;
 
-$testemail = $formData["email"];
+
+// /// form variabler
+$Køn = $formData["Køn"];
+$Navn = $formData["Navn"];
+$testemail = $formData["Email"];
 
 $recipients = array(
-    "webdev@kevinnicholas.eu, $testemail"// email fra login
+    "Nicholas.kevin96@gmail.com, $testemail"// email fra login
     
   );
 
   $to = implode(',', $recipients); 
   
-print $to;
 
-// mail('webdev@kevinnicholas.eu', 'the subject', 'the message',
-//    'mailout.one.com');
 
 $provider = 'webdev@kevinnicholas.eu';
 
 // Subject
 $subject = 'Test af php';
-
-
-// /// form variabler
-$køn = $formData["køn"];
-$by = $formData["by"];
-$navnKvit = $formData["navn"];
-$adresse = $formData["adresse"];
-$fødselsår = $formData["fødselsår"];
 
 
 
@@ -78,22 +67,22 @@ $message = '
     
     <p>Hej easyfit her er alle informationer i skal bruge for at kontakte personen</p>
     
-    <table>
+    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 50%;">
       <tr>
         <th>Emne i kontaktform</th>
         <th>Valgt</th>
       </tr>
       <tr>
-        <td>Navn</td>
-        <td>'.$navnKvit.'</td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Køn</td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">'.$Køn.'</td>
       </tr>
       <tr>
-        <td>Køn</td>
-        <td>'.$køn.'</td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Navn"</td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">'.$Navn.'</td>
       </tr>
       <tr>
-        <td>Email</td>
-        <td>'.$email.'</td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Email"</td>
+        <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">'.$testemail.'</td>
       </tr>
     </table>
     
@@ -101,17 +90,17 @@ $message = '
     </html>
     
 
+
+
 ';
 
 // To send HTML mail, the Content-type header must be set
 
     $headers = array(
       "From: webdev@kevinnicholas.eu",
-      'Content-type: text/html; charset=uft-8',
-      'MIME-Version: 1.0'
+      "Content-type: text/html; charset=uft-8"
   );
 
-  //$headers = "From: webdev@kevinnicholas.eu\r\n";
   
 
 // send

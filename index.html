@@ -3,10 +3,16 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>stærk person</title>
+  <title>Easyfit hjemmeside til fremvisning og bestilling af kostplaner og træningsplaner. Kontakt meget gerne easyfit igennem deres hjemmeside for en skræddersyet kost eller træningsplan. Her kan du få professionelt hjælp til lige din målsætning og komme godt i mål med både kost og træning</title>
   <meta name="viewport" content="initial-scale=1" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="description" content="En side til køb og fremvisning af kost og træningsplaner fra easyfit"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/fav icon.PNG">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo/fav icon.PNG">
+  <link rel="canonical" href="https://kevinnicholas.eu"/>
+
+
+
+
   <link rel="stylesheet" href="css/styles.css" />
 
   <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
@@ -40,8 +46,8 @@
     </a>
   </div>
   <div class="burger mobileSpec" onclick="toggleBrugermenu()">
-    <img class="burgerIcon" src="assets/icons/burger.svg">
-    <img class="crossIcon" src="assets/icons/cross.svg">
+    <img class="burgerIcon" src="assets/icons/burger.svg" alt="burger">
+    <img class="crossIcon" src="assets/icons/cross.svg" alt="cross">
   </div>
 
   <div class="navfill mobileSpec">
@@ -229,7 +235,7 @@
             l1.7-8.1l15.7-9.5l-3.7,17.6h8.4L411.4,445.3z"/>
     </clipPath>
   </defs>
-  <image clip-path="url(#shape)"  href="assets/textures/holdTall.jpg" ></image>
+  <image clip-path="url(#shape)"  href="assets/textures/holdTall.jpg" alt="svg shape" ></image>
 </svg>
   </div>
   </nav>
@@ -247,6 +253,29 @@
 <p style="display: none;" onclick="logout()"> Log Ud</p>
 
 <section id="root"></section>
+<h1 style="visibility: hidden;">Hjemmesiden til easyfit</h1>
+
+
+<footer class="deskSpec" id="footerfoot">
+  <div class="footerContent">
+    <div>
+      <span>Gennerelt info</span>
+      <p><img src="assets/imgs/pin.png">Karensvej 20</p>
+      <p><img src="assets/imgs/mail.png">Easyfit@fit.dk</p>
+      <p><img src="assets/imgs/images.png">29719177</p>
+    </div>
+    <div>
+      <span>Følg os</span>
+      <p><img src="assets/imgs/facebook.png"></p>
+      <p><img src="assets/imgs/instagram.png"></p>
+    </div>
+    <div>
+      <span>Privatlivspolitik</span>
+      <p>Privatlivspolitik</p>
+    </div>
+  </div>
+
+</footer>
 
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>

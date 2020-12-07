@@ -44,19 +44,36 @@ window.SletAnsøgning = () => adminPage.SletAnsøgning();
 window.SendUserData = () => {
     userdata.send(Currentuser, planPage.GetValue())
     planPage.ChangePopUpForm();
+
+    ///outcomment til email
     userdata.sendemail(Currentuser, planPage.GetValue())
+}
+
+
+///outcomment til email
+window.forsideForm = () => {forsidePage.forsideEmailObject(Currentuser)}
+
+
+window.Godkend = () => {
+    planPage.Godkend(Currentuser, login)
+
 } 
 
-window.Godkend = () => planPage.Godkend(Currentuser, login)
+
 
 
 
 window.pageChange = () => {
+    if (window.innerWidth < 800) {
+        toggleBrugermenuFunk();
+    }
     spaService.pageChange();
     if (window.location.hash != "#AdminPage" && window.location.hash != "#ProfilPage") {
         document.getElementById("navbar").classList.remove("tabbar-black")
+        document.getElementById("footerfoot").classList.remove("footerfoot-Hide")
     } else {
         document.getElementById("navbar").classList.add("tabbar-black")
+        document.getElementById("footerfoot").classList.add("footerfoot-Hide")
     }
 }
 window.logout = () => login.logout(planPage);
@@ -68,7 +85,7 @@ window.toggleShowHide = () => adminPage.toggleShowHide();
 
 // } 
 window.onclickPlus = () => {profilPage.onclickPlus()}
-window.forsideForm = () => {forsidePage.forsideEmailObject(Currentuser)}
+
 window.onclickCross = () => {profilPage.onclickCross()}
 window.onclick = (event) => { profilPage.onclickWindowClose(event)}
 window.Opencamera = () => { cameraService.Opencamera()}
@@ -84,7 +101,7 @@ window.closeLogin = () =>
     }
 window.gembillede = () => {cameraService.Gemurl(Currentuser)}
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
-window.AddsliderController = () => planPage.AddsliderController();
+window.AddsliderController = (phone) => planPage.AddsliderController(phone);
 window.setActive = (nr) => planPage.setActive(nr);
 
 window.setObjectValues = (val, type, abonnement) => planPage.setObjectValues(val, type, abonnement);
@@ -115,9 +132,12 @@ window.setpage = (page) => spaService.setpage(page)
 
 
 window.toggleBrugermenu = () => {
-    document.getElementById("navbar").classList.toggle("tabbar-active")
+    toggleBrugermenuFunk();
 }
 
+function toggleBrugermenuFunk() {
+    document.getElementById("navbar").classList.toggle("tabbar-active")
+}
 
 // Watchers --> after login specifiks
 firebase.auth().onAuthStateChanged(user => {

@@ -97,22 +97,40 @@ class UserData {
 
     ////email php
 
-    sendemail(user, formData)
-    {
-    
-    
-    formData.usernavn = user.navn;
-    formData.email = user.email;
-    
+    sendemail(user, formData) {
+
     //console.log(formData);
+
+        let mailData = {
+            Plan: formData.plan,
+            Type: formData.type,
+            AktivitetAndet: formData.Aktivitet.AktivitetAndet,
+            AktivitetErhverv: formData.Aktivitet.AktivitetErhverv,
+            AktivitetFritid: formData.Aktivitet.AktivitetFritid,
+            BmiHøjde:formData.BMI.Højde,
+            BmiVægt:formData.BMI.Vægt,
+            Adresse:formData.UserData.Adresse,
+            Alder:formData.UserData.Alder,
+            By:formData.UserData.By,
+            Navn:formData.UserData.Navn,
+            Køn:formData.UserData.Køn,
+            Tlf:formData.UserData.Tlf,
+            TrænningErfaring:formData.Trænning.TrænningErfaring,
+            TrænningHyppighed:formData.Trænning.Trænninghyppighed,
+            Email:user.email,
+            Sygdomme:formData.Sygdomme,
+            Andet:formData.Andet,
+            KostKrav:formData.KostKrav.pref.toString()
+        }
+
+   
     
-      var jsonObj =  "form=" + (JSON.stringify(formData));
     
       ////////////stringfy object
-        // var emailData = new FormData();
+      var jsonObj =  "form=" + (JSON.stringify(mailData));
+    
+    
         var xhttp = new XMLHttpRequest();
-        // emailData.append("email", user.email);
-        // emailData.append("navn", user.navn);
      
         // Set POST method and ajax file path
         xhttp.open("POST", "php/kvitteringKunde.php", true);
@@ -136,21 +154,17 @@ class UserData {
            
         };
         
-        // Send request with data
-        //xhttp.send(emailData, jsonObj);
         xhttp.send(jsonObj);
         console.log(jsonObj)
-        this.sendAdminPlan(user, formData)
+       this.sendAdminPlan(mailData)
         
         }
     
     
     
-        sendAdminPlan(user, formData)
-        {
+        sendAdminPlan(formData) {
         
-        formData.usernavn = user.navn;
-        formData.email = user.email;
+    
         
         console.log(formData);
         

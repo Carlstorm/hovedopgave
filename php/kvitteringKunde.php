@@ -1,19 +1,17 @@
 <?php
 
-$email = $_GET['email'];
-$navn = $_REQUEST['navn'];
+
 $form = $_POST['form'];
 $response = 1;
 
 /////
 $formData = json_decode($form, true);
-// print $formData["køn"];
-// print $formData["navn"];
 
-$testemail = $formData["email"];
+
+$testemail = $formData["Email"];
 
 $recipients = array(
-    "webdev@kevinnicholas.eu, $testemail"// email fra login
+    "nicholas.kevin96@gmail.com, $testemail"// email fra login
     
   );
 
@@ -21,21 +19,19 @@ $recipients = array(
   
 
 
-// mail('webdev@kevinnicholas.eu', 'the subject', 'the message',
-//    'mailout.one.com');
-
 $provider = 'webdev@kevinnicholas.eu';
 
 // Subject
 $subject = 'Test af php';
 
 
+
 // /// form variabler
-$køn = $formData["køn"];
-$by = $formData["by"];
-$navnKvit = $formData["navn"];
-$adresse = $formData["adresse"];
-$fødselsår = $formData["fødselsår"];
+$navnKvit = $formData["Navn"];
+$email = $testemail;
+
+
+
 
 
 
@@ -253,7 +249,7 @@ $message = '
                   <table>
                       <tr>
                           <td>
-                              <h1>Hej '.$navn.'tak for din bestilling</h1>
+                              <h1>Hej '.$navnKvit.' tak for din bestilling</h1>
                               Du vil få en e-mail og en notifikation på din profil, når vi har godkendt din bestilling.
                               
                              <br> Venlig hilsen

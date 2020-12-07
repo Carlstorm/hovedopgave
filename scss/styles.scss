@@ -43,12 +43,13 @@ body {
 }
 
 .standardHeading {
+  margin: 0;
   text-transform: uppercase;
   color: rgb(153, 153, 153);
   font-style: italic;
   font-weight: 400;
   text-align: center;
-  margin: 64px 0 24px 0;
+  padding: 64px 0 24px 0;
   font-size: 28px;
   // text-transform: uppercase;
 }
@@ -95,7 +96,7 @@ textarea {
 .content {
     width: 80%;
     min-width: 860px;
-    max-width: 1000px;
+    max-width: 1200px;
     transform: translate(-50%);
     position: relative;
     left: 50%;
@@ -284,7 +285,7 @@ header {
       }
     }
     width: 80%;
-    min-width: 800px;
+    min-width: 864px;
     transform: translate(-50%);
     left: 50%;
     position: relative;
@@ -393,7 +394,7 @@ header {
         top: 26.5px;
         position: relative;
         margin: 0;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       div {
@@ -1625,7 +1626,6 @@ input:-webkit-autofill:active {
       width: 320px;
       height: 320px;
       transform: translateX(-50%);
-      overflow: hidden;
       position: relative;
       left: 50%;
       border-radius: 50%;
@@ -2356,7 +2356,15 @@ p {
   display: none;
 }
 
+.noclick {
+  pointer-events: none !important;
+}
+
 @media only screen and (max-width: 870px) {
+
+  #Plan {
+    padding-top: 62px;
+  }
 
   .deskSpec {
     display: none;
@@ -2365,10 +2373,85 @@ p {
   .content {
     min-width: 0;
     max-width: 100vw;
+    width: 100%;
+    .BasisInfoWrap, .SygdommeWrapper, .GoalWrapper, .KostPreferencerWrapper, .AndetWrapper {
+      width: calc(100% - 64px);
+      left: calc(50% - 8px)
+    }
+
+    .standardHeading {
+      margin: 42px 0 12px 0;
+    }
+
+    .KostPreferencerWrapper--itemflex--inner {
+      width: calc(50% - 16px);
+    }
   }
 
-  .Abonnoment {
-    display: none;
+  .forløbWrap {
+    min-width: 0;
+    max-width: 95%;
+    width: 90%;
+    flex-wrap: wrap;
+    >div{
+      max-width: 90%;
+      width: 100%;
+    }
+  }
+
+  .custominputnew {
+    padding: 82px 0 24px 0;
+    left: 0 !important;
+    width: 100% !important;
+    top: 0 !important;
+    background-color: color(C-BgWhite);
+    display: relative !important;
+    position: relative !important;
+    left: 0;
+    transform: translate(0%) !important;
+    input {
+      width: 70% !important;
+      transform: translateX(-50%) !important;
+      position: relative !important;
+      left: 50% !important;
+    }
+    .bookKnapForside {
+
+    }
+  }
+
+  #anmendpartboxwrap {
+    flex-direction: column;
+    top: -87% !important;
+  }
+
+  .standardHeading {
+    margin: 0 !important;
+    padding: 24px 0;
+  }
+
+  .Reviews {
+    overflow: hidden;
+    max-width: 100vw;
+    height: 524px !important;
+    p {
+      text-align: center;
+    }
+  }
+
+  #anmeldelsestars {
+    width: max-content;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  #reviewImg {
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: 180px !important;
+    margin-bottom: 12px;
   }
 
   .mobileSpec {
@@ -2456,7 +2539,7 @@ p {
       color: black !important;
       a {
         color: black !important;
-        margin: 0 8px;
+        margin: 2px 8px;
       }
       path {
         fill: rgba(0, 0, 0, 0.795);
@@ -2489,9 +2572,443 @@ p {
     margin: 12px 0 !important;
   }
 
+  .adminstration--siderbar {
+    z-index: -1;
+    width: 100%;
+    height: 128px;
+  }
 
+  .adminstration--siderbarforshow {
+    width: 100%;
+    height: 128px;
+    position: relative;
+    animation: none !important;
+    #profilImage {
+      position: relative;
+      top: 16px;
+      left: 24px;
+      margin: 0;
+      height: 82px;
+      width: 82px;
+    }
+    .siderUserInfo {
+      top: 18px;
+      right: 26px;
+      position: absolute;
+      max-width: calc(100% - 120px);
+      width: max-content;
+      margin: 0;
+      text-align: left;
+      p {
+        margin: 4px;
+      }
+    }
+    h2 {
+      display: none !important;
+    }
+    .sideHline {
+      display: none;
+    }
+  }
+
+  .popupFormWrap {
+    width: 100vw;
+    z-index: 1;
+    left: 0;
+  }
+
+  .adminstration--pageWrap {
+    z-index: 0;
+    flex-direction: column;
+  }
+
+  .popupFormWrap--ImageContent {
+    max-width: 80vw;
+    top: calc(50% + 29px);
+  }
+
+  .popupFormWrap--side {
+    display: none;
+  }
+
+  .popupFormWrap--content {
+    top: calc(50% + 29px);
+    width: 90vw;
+  }
+
+  .popupFormWrap--PhoneContent {
+    max-width: 80vw;
+  }
+
+  .adminstration--siderbar-admin {
+    height: 62px;
+  }
+
+  .adminstration--siderbarforshow-admin {
+    height: 62px;
+  }
+
+  .sidebarButt-admin {
+    width: 50% !important;
+    position: absolute;
+    text-align: center;
+    p {
+      padding: 20px 0 0 0px !important;
+    }
+  }
+
+  .sidebarButt-admin2 {
+    width: 50% !important;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    p {
+      padding: 20px 0 0 0px !important;
+    }
+  }
+
+  .adminstration--contentWrap {
+    padding: 0 18px;
+  }
+
+  .Reviews {
+    background: texture(T-black) !important;
+  }
+
+  .review-contentWrap {
+    margin: 0 8px !important;
+  }
+
+  .PendingRequestElementWrap-special {
+    width: 100%;
+  }
+
+  .process {
+    padding-bottom: 0 !important;
+  }
+
+  .prossesWrap {
+    flex-direction: column;
+    align-items: center;
+    >div {
+      width: 90% !important;
+      p {
+        text-align: center !important;
+      }
+    }
+  }
+
+  .omWrap {
+    flex-direction: column;
+    align-items: center;
+    >div {
+      margin-bottom: 64px;
+    }
+  }
+
+  .ForsideSection1 {
+    padding-bottom: 42px !important;
+  }
   
 
+  .PendingRequestElementWrap {
+    width: 100%;
+    height: 82px;
+    div {
+      border-radius: 4px !important;
+    }
+  }
+  .PendingRequestElement-contentWrap {
+    display: none;
+  }
+
+  .popupFormWrap--button-style2 {
+    margin: 0;
+    width: 90%;
+    margin: 8px 5% 0 5%;
+    border-radius: 4px;
+  }
+
+  .popupFormWrap--bottom {
+    height: max-content;
+    flex-direction: column;
+    padding-bottom: 8px;
+    .popupFormWrap--button {
+      margin: 0;
+      width: 90%;
+      margin: 8px 5% 0 5%;
+      border-radius: 4px;
+    }
+    .uploadwrap {
+      margin: 0;
+      width: 90%;
+      margin: 8px 5% 0 5%;
+      label {
+        margin: 0;
+        border-radius: 4px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.footerfoot-Hide {
+  display: none;
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FRONTPAGE
+
+.custominputnew {
+  width: 382px;
+  height: max-content;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 400px;
+  left: 67%;
+
+  input {
+    color: rgba(255, 255, 255, 0.795);
+    font-size: 18px !important;
+    height: 40px;
+    border-radius: 4px;
+    outline: none !important;
+    border: solid 1px color(C-gold);
+    width: 100%;
+    margin: 2px 0px 18px 0;
+    padding-left: 12px;
+    background: none;
+    &:focus {
+      border: solid 1px color(C-goldLight);
+    }
+  }
+
+  .bookKnapForside {
+    background: texture(T-gold);
+    background-size: 100%;
+    height: 42px;
+    width: 124px;
+    border-radius: 25px;
+    margin: 8px 0 0 0px !important;
+    transform: translateX(-50%);
+    left: 50% !important;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.9;
+    &:hover {
+      transform: translateX(-50%) scale(1.02);
+      opacity: 1;
+    }
+      p {
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.85) !important;
+        pointer-events: none;
+        border-radius: 40px;
+        transform: translate(-50%, -50%);
+        top: 48%;
+        left: 50%;
+        position: relative;
+        text-align: center;
+        margin: 0;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+}
+
+
+.Reviews {
+  background-size: cover;
+  background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,0.4990371148459384) 0%, rgba(0,0,0,0.9808298319327731) 100%);
+height: 428px;
+}
+
+.process {
+  background: color(C-BgWhite);
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 64px;
+
+   .prossesWrap {
+     padding-top: 24px;
+     position: relative;
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     
+     &-main {
+      margin: 1%;
+      margin-bottom: 24px;
+      width: 28%;
+      height: max-content;
+      -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
+      >div {
+        p {
+          padding: 20px;
+          margin: 0;
+        }
+        h5 {
+          margin: 0;
+          position: relative;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%;
+          font-size: 28px;
+          color: color(C-goldLight);
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+      img {
+        width: 64px;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        bottom: 20px;
+      }
+     }
+
+     &-header {
+       height: 112px;
+       width: 100%;
+       background: texture(T-black);
+       background-size: 180%;
+     }
+
+     &-content {
+      position: relative;
+      height: 382px;
+      width: 100%;
+      background: white;
+      background-size: 180%;
+    }
+   }
+}
+
+
+.Om {
+  padding-top: 24px;
+  background: color(C-BgWhite);
+  padding-bottom: 212px;
+}
+
+.omWrap {
+  padding-top: 32px;
+  display: flex;
+  justify-content: center;
+  &-main {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &-img {
+  height: 212px;
+  width: 212px;
+  border-radius: 50%;
+  background: black;
+  border: 2px solid color(C-goldLight);
+  background-image: url("../assets/imgs/profilepic.jpeg");
+  background-size: cover;
+  background-position: center;
+  }
+
+  &-Hline {
+    margin: 24px;
+    width: 4px;
+    height: 84px;
+    background: color(C-goldLight);
+  }
+
+  &-textbox {
+    width: 324px;
+    text-align: center;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.bgforside {
+  z-index: -1;
+  background: texture(T-black);
+  background-size: cover;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+}
+
+
+.ForsideSection1 {
+  background: color(C-BgWhite);
+  height: max-content;
+  padding-bottom: 112px;
+}
+
+
+.standardHeading-Special {
+  color: white !important;
+}
+
+
+footer {
+  width: 100%;
+  height: 324px;
+  background: texture(T-black);
+  background-size: cover;
+
+  span {
+    font-size: 18px;
+    opacity: 0.8;
+  }
+
+
+  p {
+    img {
+      width: 24px;
+      padding: 0 10px 0 0;
+      transform: translateY(7px);
+    }
+  }
+
+  .footerContent {
+    padding-top: 24px;
+    width: 80%;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background: none;
+  }
+}
+
+.reviewHline {
+  background: color(C-goldLight);
+  height: 2px;
+  width: 96%;
+  margin: 12px 0;
 }
