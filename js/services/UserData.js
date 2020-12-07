@@ -2,7 +2,8 @@ class UserData {
     constructor() {
         this.formType = "Kostplan"
         this.formNr = 1;
-        this.sendPath
+        this.sendPath;
+        this.KostKrav;
     }
 
     send(user, data, formNr) {
@@ -100,7 +101,12 @@ class UserData {
     sendemail(user, formData) {
 
     //console.log(formData);
-
+if(formData.KostKrav.pref){
+   this.KostKrav = formData.KostKrav.pref.toString()
+   
+}else{
+    this.KostKrav = "ingen"
+}
         let mailData = {
             Plan: formData.plan,
             Type: formData.type,
@@ -120,7 +126,7 @@ class UserData {
             Email:user.email,
             Sygdomme:formData.Sygdomme,
             Andet:formData.Andet,
-            KostKrav:formData.KostKrav.pref.toString()
+            KostKrav:this.KostKrav
         }
 
    
