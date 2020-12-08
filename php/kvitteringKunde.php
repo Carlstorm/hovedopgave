@@ -250,7 +250,7 @@ $message = '
                       <tr>
                           <td>
                               <h1>Hej '.$navnKvit.' tak for din bestilling</h1>
-                              Du vil få en e-mail og en notifikation på din profil, når vi har godkendt din bestilling.
+                              Du kan se status på din plan inde på din profil, Statusen ændre sig når vi har godkendt og når vi sender dig helt nye personlige plan!
                               
                              <br> Venlig hilsen
                               

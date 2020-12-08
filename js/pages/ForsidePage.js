@@ -26,7 +26,7 @@ export default class ForsidePage {
 
       <section class="ForsideSection1">
       <div class="content anies">
-      <h3 class="standardHeading">Forløb</h3>
+      <h3 class="standardHeading">Hvad vi kan tilbyde</h3>
 
       <div class="forløbWrap">
 
@@ -140,7 +140,7 @@ export default class ForsidePage {
 
       <section class="Reviews">
       <div class="content anies">
-      <h3 class="standardHeading">Reviews</h3>
+      <h3 class="standardHeading">Hvad siger tidligere kunder</h3>
         <div id="anmeldelsessection">
           <div id="anmendpartboxwrap">
             <img id="reviewImg" src="">
@@ -157,7 +157,7 @@ export default class ForsidePage {
 
       <section class="process">
       <div class="content anies">
-      <h3 class="standardHeading">Process</h3>
+      <h3 class="standardHeading">Hvordan er et forløb ved Easyfit?</h3>
         <div class="prossesWrap">
 
 
@@ -167,7 +167,7 @@ export default class ForsidePage {
             <h5>Kontakt</h5>
           </div>
           <div class="prossesWrap-content">
-          <p>Så snart du tager kontakt til os vil vi tage en snak omkring dine præferencer. Du kan både kontakte os over Email ved at udfylde formen i toppen, eller med formen på plan siden.  Vi  kontakter dig altid til en opfølgende snak. Hvor du har muligt for at stille spørgsmål og fortælle os om dig og  dine kost- og træningspræferencer</p>
+          <p>Så snart du tager kontakt til os vil vi tage en snak omkring dine præferencer. Du kan både kontakte os over Email ved at udfylde formen i toppen, eller udfylde formen på plan siden. Vi skal bruge disse informationer til at vi kan nå dine mål sammen, om det er vægttab eller muskelopbygning. Vi bruger informationerne til og lave den bedste kostplan eller træningsplan, som er skræddersyet efter dine behov!</p>
           <img src="./assets/imgs/1.svg">
           </div>
         </div>
@@ -180,7 +180,7 @@ export default class ForsidePage {
         <h5>Godkendelse</h5>
         </div>
         <div class="prossesWrap-content">
-        <p>Så snart vi har set din plan fra kigger vi den igennem og tjekker og alt er som det skal være. Derefter sender vi en godkendelse på Email. Du kan altid se status på din Plan under din profil.</p>
+        <p>Så snart vi har set din plan fra kigger vi den igennem og tjekker om vi har alt den information som vi skal bruge. Derefter sender vi dig en godkendelse på Email, samtidig med at vi begynder og lave din skræddersyet kostplan eller træningsplan.</p>
         <img src="./assets/imgs/2.svg">
         </div>
         </div>
@@ -193,7 +193,7 @@ export default class ForsidePage {
         <h5>Din plan</h5>
         </div>
         <div class="prossesWrap-content">
-        <p>Så snart at vi har gennemarbejde vores skræddersyet plan til dig, sender vi dig en E-mail med din helt nye personlige plan, derudover kan du altid tjekke, og hente din færdige plan på Profilsiden.</p>
+        <p>Så snart at vi har gennemarbejde vores skræddersyet kostplan eller træningsplan til dig, sender vi dig en E-mail med din helt nye personlige plan, derudover kan du altid tjekke, og hente din færdige plan på Profilsiden.</p>
         <img src="./assets/imgs/3.svg">
         </div>
         </div>
@@ -206,7 +206,7 @@ export default class ForsidePage {
 
       <section class="Om os">
       <div class="content anies">
-      <h3 class="standardHeading">Om</h3>
+      <h3 class="standardHeading">Om os</h3>
           <div class="omWrap">
           <div class="omWrap-main">
             <div class="omWrap-img"></div>

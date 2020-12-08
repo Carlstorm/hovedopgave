@@ -45,7 +45,7 @@ $message = '
           <div class="hero-text" style="text-align:center;position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%,-50%);color:white;">
             <h1 style="font-size:50px"> Hej! '.$Navn.' Velkommen til team EasyFit!</h1>
             <p style="font-size: 25px;">Vi er super glade for at have dig med på holdet!</p>
-            <p style="font-size: 25px;">Se eller oprette dine nye profil her!!</p>
+            <p style="font-size: 25px;">Du kan se eller oprette dine nye profil her!!</p>
             
             <button style="border: none;outline: 0;display: inline-block;padding: 10px 25px;color: black;background-color: #a38435;text-align: center;cursor: pointer;"><a href="https://kevinnicholas.eu/#ProfilPage"><b>Se Profil</b></a></button>
           </div>
