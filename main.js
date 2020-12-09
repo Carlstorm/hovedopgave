@@ -44,22 +44,14 @@ window.SletAnsøgning = () => adminPage.SletAnsøgning();
 window.SendUserData = () => {
     userdata.send(Currentuser, planPage.GetValue())
     planPage.ChangePopUpForm();
-
-    ///til email
     userdata.sendemail(Currentuser, planPage.GetValue())
 }
 
-
-///til email
-window.forsideForm = () => {forsidePage.forsideEmailObject(Currentuser)}
-
-
 window.Godkend = () => {
     planPage.Godkend(Currentuser, login)
+    //userdata.sendemail(Currentuser, planPage.GetValue())
 
 } 
-
-
 
 
 
@@ -85,7 +77,7 @@ window.toggleShowHide = () => adminPage.toggleShowHide();
 
 // } 
 window.onclickPlus = () => {profilPage.onclickPlus()}
-
+window.forsideForm = () => {forsidePage.forsideEmailObject(Currentuser)}
 window.onclickCross = () => {profilPage.onclickCross()}
 window.onclick = (event) => { profilPage.onclickWindowClose(event)}
 window.Opencamera = () => { cameraService.Opencamera()}
@@ -100,8 +92,6 @@ window.closeLogin = () =>
         }
     }
 window.gembillede = () => {cameraService.Gemurl(Currentuser)}
-
-
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 window.AddsliderController = (phone) => planPage.AddsliderController(phone);
 window.setActive = (nr) => planPage.setActive(nr);
