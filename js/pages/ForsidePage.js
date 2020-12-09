@@ -209,7 +209,7 @@ export default class ForsidePage {
       <h3 class="standardHeading">Om os</h3>
           <div class="omWrap">
           <div class="omWrap-main">
-            <div class="omWrap-img"></div>
+            <div class="omWrap-img-1"></div>
             <div class="omWrap-Hline"></div>
             <div class="omWrap-textbox">
               <p>Pradeep hvenegaard<p>
@@ -219,7 +219,7 @@ export default class ForsidePage {
             </div>
 
             <div class="omWrap-main">
-            <div class="omWrap-img"></div>
+            <div class="omWrap-img-2"></div>
             <div class="omWrap-Hline"></div>
             <div class="omWrap-textbox">
               <p>Linda Lykke<p>

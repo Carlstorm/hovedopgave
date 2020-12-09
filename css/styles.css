@@ -85,6 +85,7 @@
   left: 50%; }
   #anmendpartboxwrap img {
     width: 200px;
+    height: 200px;
     border-radius: 100px; }
   #anmendpartboxwrap .review-contentWrap {
     margin-left: 32px;
@@ -2393,13 +2394,22 @@ input:-webkit-autofill:active {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center; }
-  .omWrap-img {
+  .omWrap .omWrap-img-1 {
     height: 212px;
     width: 212px;
     border-radius: 50%;
     background: black;
     border: 2px solid #d0b85e;
-    background-image: url("../assets/imgs/profilepic.jpeg");
+    background-image: url("../assets/imgs/mand.PNG");
+    background-size: cover;
+    background-position: center; }
+  .omWrap .omWrap-img-2 {
+    height: 212px;
+    width: 212px;
+    border-radius: 50%;
+    background: black;
+    border: 2px solid #d0b85e;
+    background-image: url("../assets/imgs/girl.PNG");
     background-size: cover;
     background-position: center; }
   .omWrap-Hline {

@@ -90,35 +90,6 @@ export default class ProfilPage {
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
     <div>
     <div class="adminstration--headerwrap adminstration--headerwrap-shown" onclick="toggleShowHide()">
     <div class="adminstration--headerwrap-main">
@@ -187,36 +158,6 @@ export default class ProfilPage {
   `
   return htmlTemplate;
 
-//     let htmlTemplate = `
-//     <div class="RequestProfile">
-     
-// <div class="profilCard">
-// <div class="profilCard--inner">
-// <h3>Her kan du se din ${requestData.plan} plan!</h3>
-// <hr>
-// <p>${requestData.formName}</p>
-// <button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-// <br>
-// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-// <p>Mvh. Easyfit</p>
-
-// <hr>
-// <div class="buttonFlex"> 
-// <div class="buttonFlex--inner">
-// <p> <b> Status:</b></p>
-// </div>
-// <div class="buttonFlex--inner">
-// <button  style = "background:yellow"class="buttonPending">pending</button>
-// </div>
-// <div class="buttonFlex--inner">
-// <button class="buttonKontakt">Kontakt</button>
-// </div>
-// </div>
-// </div>
-// </div>
-//   </div>
-//   `
-//   return htmlTemplate;
   }
 
   AcceptedRequest(requestData,user) {

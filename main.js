@@ -45,12 +45,12 @@ window.SendUserData = () => {
     userdata.send(Currentuser, planPage.GetValue())
     planPage.ChangePopUpForm();
 
-    ///outcomment til email
+    ///til email
     userdata.sendemail(Currentuser, planPage.GetValue())
 }
 
 
-///outcomment til email
+///til email
 window.forsideForm = () => {forsidePage.forsideEmailObject(Currentuser)}
 
 
@@ -100,6 +100,8 @@ window.closeLogin = () =>
         }
     }
 window.gembillede = () => {cameraService.Gemurl(Currentuser)}
+
+
 window.uploadPDF = (userID, FormName, Fileindex) => upload.uploadPDF(userID, FormName, Fileindex, userdata);
 window.AddsliderController = (phone) => planPage.AddsliderController(phone);
 window.setActive = (nr) => planPage.setActive(nr);

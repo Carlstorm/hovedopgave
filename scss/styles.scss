@@ -2925,16 +2925,27 @@ height: 428px;
     justify-content: flex-start;
     align-items: center;
   }
-  &-img {
+  .omWrap-img-1 {
   height: 212px;
   width: 212px;
   border-radius: 50%;
   background: black;
   border: 2px solid color(C-goldLight);
-  background-image: url("../assets/imgs/profilepic.jpeg");
+  background-image: url("../assets/imgs/mand.PNG");
   background-size: cover;
   background-position: center;
   }
+
+  .omWrap-img-2 {
+    height: 212px;
+    width: 212px;
+    border-radius: 50%;
+    background: black;
+    border: 2px solid color(C-goldLight);
+    background-image: url("../assets/imgs/girl.PNG");
+    background-size: cover;
+    background-position: center;
+    }
 
   &-Hline {
     margin: 24px;

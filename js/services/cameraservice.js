@@ -52,8 +52,6 @@ class CameraService {
 
     };
 
-
-
     // let stream
 
     // let tracks
@@ -203,7 +201,6 @@ document.getElementById("btn-change").innerHTML = "";
 
   uploadFileImg(file) {
     
-
     document.getElementById("video").style.display = "none";
    // console.log(file)
     let imagePreview = document.getElementsByClassName("image-preview");
@@ -228,8 +225,6 @@ document.getElementById("btn-change").innerHTML = "";
 
 
   profileimagePreviewFunk(imagePreview) {
-    
-
     for (let i = 0; i < imagePreview.length; i++) {
 
       imagePreview[i].style.background = "url(" + this.savedimgurl + ")";
