@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+
 
 <head>
   <meta charset="utf-8" />
@@ -17,6 +19,25 @@
 
   <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
+  <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '746418195980938');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=746418195980938&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+
 </head>
 
 <header>
@@ -31,7 +52,7 @@
       <a class="tabbar--item loginButt" onclick="login()">login</a>
     </div>
     <div class="horizontalBreakLine mobileSpec"></div>
-    <a class="tabbar--item icontest">
+    <a class="tabbar--item icontest" href="https://www.facebook.com/easyfit.kostvejledning">
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       viewBox="0 0 310 310" style="enable-background:new 0 0 310 310;" xml:space="preserve">
    <g id="XMLID_834_" style="fill: white">
@@ -266,8 +287,8 @@
     </div>
     <div>
       <span>Følg os</span>
-      <p><img src="assets/imgs/facebook.png"></p>
-      <p><img src="assets/imgs/instagram.png"></p>
+      <p><a href="https://www.facebook.com/easyfit.kostvejledning"><img src="assets/imgs/facebook.png"></a></p>
+      <p><a href="https://www.facebook.com/easyfit.kostvejledning"><img src="assets/imgs/instagram.png"></a></p>
     </div>
     <div>
       <span>Privatlivspolitik</span>
