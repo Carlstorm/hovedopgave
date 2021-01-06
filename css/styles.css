@@ -44,6 +44,32 @@
   font-size: 15px;
   background-size: 180%; }
 
+#thankMsg {
+  color: #d0b85e;
+  text-align: center;
+  width: 100%;
+  display: none; }
+
+.thanksMsgAnimate {
+  display: block !important;
+  -webkit-animation: fadeInOut 8s;
+  /* Safari 4+ */
+  -moz-animation: fadeInOut 8s;
+  /* Fx 5+ */
+  -o-animation: fadeInOut 8s;
+  /* Opera 12+ */
+  animation: fadeInOut 8s;
+  /* IE 10+, Fx 29+ */
+  opacity: 0; }
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0; }
+  45% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 /***************************************custom*****************************************/
 /**********kundereveiw*******************/
 #anmeldelsessection {
@@ -2041,6 +2067,8 @@ input:-webkit-autofill:active {
       transform: translateX(-50%) !important;
       position: relative !important;
       left: 50% !important; }
+    .custominputnew p {
+      width: 50%; }
   #anmendpartboxwrap {
     flex-direction: column;
     top: -87% !important; }

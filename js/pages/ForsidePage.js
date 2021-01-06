@@ -18,6 +18,7 @@ export default class ForsidePage {
         <input placeholder="DIT NAVN" id="navnInput">
         <input  placeholder="DIN EMAIL" id="emailInput">
         <div onclick="forsideForm()"class="bookKnapForside"><p>Kontakt os</p></div>
+        <p id="thankMsg">Tak! Din mail er sendt.</p>
       </div>
 
 
@@ -238,6 +239,8 @@ export default class ForsidePage {
 
 
 
+
+
   forsideEmailObject() {
 
 
@@ -271,10 +274,25 @@ export default class ForsidePage {
            var response = this.responseText;
           console.log(response);
            if(response == 3){
-              alert("Email sendt");
+             //animatemsg
+        document.getElementById("thankMsg").className='thanksMsgAnimate';
+            ///clear values
+       document.getElementById('navnInput').value="";
+       document.getElementById('kønInput').value="";
+       document.getElementById('emailInput').value="";
+
+       ///Reset
+       document.getElementById("thankMsg").className='';
+          
               
            }else{
-              alert("Woops en fejl");
+             // alert("Woops en fejl");
+              ///Reset
+       //document.getElementById("thankMsg").classList.remove('thanksMsgAnimate');
+         
+
+       document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
+             
               
            }
          }
@@ -307,7 +325,7 @@ export default class ForsidePage {
                var response = this.responseText;
               console.log(response);
                if(response == 4){
-                  alert("Email sendt");
+                  console.log("Email sendt");
                   
                }else{
                   alert("Woops en fejl");
