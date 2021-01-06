@@ -256,11 +256,13 @@ export default class PlanPage {
         <div class="BasisInfoWrap">
         <div id="BrugerData">
           <span id="RequiredInput-Højde">Højde:</span>
-          <input value="" onkeyup="(setObjectValues(this.value, 'Højde', 'BMI'))">
+          <label class="inputlabel" for="hojdeinput">Cm</label>
+          <input id="hojdeinput" value="" onkeyup="(setObjectValues(this.value, 'Højde', 'BMI'))">
         </div>
         <div id="BrugerData">
           <span id="RequiredInput-Vægt">Vægt:</span>
-          <input value="" onkeyup="(setObjectValues(this.value, 'Vægt', 'BMI'))">
+          <label class="inputlabel" for="kginput">Kg</label>
+          <input id="kginput" value="" onkeyup="(setObjectValues(this.value, 'Vægt', 'BMI'))">
         </div>
         </section>
 
@@ -318,7 +320,8 @@ export default class PlanPage {
             </div>
                 <div class="GoalWrapper--item KostSpecifiks">
                 <h4 class="smallerHeading">Vægttabsmål</h4>
-                   <input onkeyup="(setObjectValues(this.value, 'MålVægt', 'Mål'))">
+                <label class="inputlabel" for="kgmål">Kg</label>
+                <input id="kgmål" onkeyup="(setObjectValues(this.value, 'MålVægt', 'Mål'))">
                 </div>      
          </div>
         </section>

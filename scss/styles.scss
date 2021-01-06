@@ -1,6 +1,10 @@
 @import "variables/variabler";
 @import "./forside.scss";
 
+@font-face {
+  font-family: calfri;
+  src: url(../assets/fonts/CalibriR.ttf);
+}
 
 .page {
   display: none;
@@ -38,7 +42,7 @@ body {
   color: rgb(54, 54, 54);
   background: color(C-BgWhite);
   margin: 0;
-  font-family: "calibri";
+  font-family: "calfri";
   overflow-x: hidden;
 }
 
@@ -1305,6 +1309,7 @@ min-width: 275px;
   
   
 .loginWrap {
+  cursor: pointer;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -1536,7 +1541,6 @@ input:-webkit-autofill:active {
         margin-right: 4px;
         opacity: 0.5;
         transition: transform 0.2s ease-out;
-        height: 100%;
         width: auto;
       }
     }
@@ -1564,7 +1568,7 @@ input:-webkit-autofill:active {
     top: 50%;
     left: 50%;
     width: 400px;
-    height: 482px;
+    height: max-content;
     padding: 24px;
 
 
@@ -1645,8 +1649,8 @@ input:-webkit-autofill:active {
       box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
       transform: translateX(-50%);
       left: 50%;
-      position: absolute;
-      bottom: 24px;
+      position: relative;
+      margin-top: 22px;
       p {
         margin: 0;
         color: white;
@@ -1787,19 +1791,21 @@ input:-webkit-autofill:active {
   z-index: 999999;
   cursor: pointer;
 
+
+
   &--content {
     -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
     height: 80%;
     width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 1000px;
     border-radius: 12px;
     background: white;
-    transform: translate(-50%, -50%);
     position: relative;
-    top: 50%;
-    left: 50%;
     display: flex;
     overflow: hidden;
     cursor: default;
@@ -2315,6 +2321,7 @@ p {
   left: 50%;
   height: 100%;
   min-width: 100%;
+  pointer-events: none !important;
 }
 
 .siderUserInfo {
@@ -2416,11 +2423,8 @@ p {
       left: 50% !important;
     }
     .bookKnapForside {
-      
+
     }
-    p {width: 50%;
-    }
-    
   }
 
   #anmendpartboxwrap {
@@ -3027,4 +3031,39 @@ footer {
   height: 2px;
   width: 96%;
   margin: 12px 0;
+}
+
+.inputlabel {
+  position: relative;
+  font-size: 20px;
+  top: 32px;
+  right: 0;
+  width: 26px;
+  float: right;
+  color: rgba(0, 0, 0, 0.486);
+  text-align: left;
+}
+
+// .crosswhite {
+//   height: 24px;
+//   top: -12px;
+//   right: 8px;
+//   position: relative;
+//   float: right;
+// }
+
+.whiteCross {
+  width: 28px;
+  position: absolute;
+  top: -38px;
+  right: 14px;
+  pointer-events: none;
+}
+
+.hiddenMidler {
+  opacity: 0;
+}
+
+.onloadShow {
+  animation: animOpacity 0.3s forwards ease-out;
 }

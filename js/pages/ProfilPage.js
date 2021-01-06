@@ -60,6 +60,7 @@ export default class ProfilPage {
     
 
     <div class="popupFormWrap--PhoneContent popcont">
+    <img class="whiteCross" src="./assets/icons/crossWhite.svg">
     <p>TIlføj Tlf:</p>
     <div>
       <input></input>
@@ -69,6 +70,7 @@ export default class ProfilPage {
 
 
     <div class="popupFormWrap--ImageContent popcont" id="modal-content">
+    <img class="whiteCross" src="./assets/icons/crossWhite.svg">
     <canvas id="canvas" style="height:0px"></canvas>
       <div class="popupFormWrap--ImageContent-preview image-preview" id="skiftPreview"><video autoplay id="video"></div>
       <div class="popupFormWrap--ImageContent-br"></div>
@@ -80,7 +82,6 @@ export default class ProfilPage {
       <div onclick="Opencamera()"><p class="popupFormWrap--ImageContent-Kamerabut">Kamera</p></div>
       </div>
       <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
-
     </div>
 
 

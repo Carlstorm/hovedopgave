@@ -328,6 +328,10 @@
   display: flex;
   flex-direction: column; }
 
+@font-face {
+  font-family: calfri;
+  src: url(../assets/fonts/CalibriR.ttf); }
+
 .page {
   display: none; }
 
@@ -357,7 +361,7 @@ body {
   color: #363636;
   background: #fbfaf8;
   margin: 0;
-  font-family: "calibri";
+  font-family: "calfri";
   overflow-x: hidden; }
 
 .standardHeading {
@@ -1213,6 +1217,7 @@ header {
         font-size: 40px; }
 
 .loginWrap {
+  cursor: pointer;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -1385,7 +1390,6 @@ input:-webkit-autofill:active {
       margin-right: 4px;
       opacity: 0.5;
       transition: transform 0.2s ease-out;
-      height: 100%;
       width: auto; }
   .adminstration--headerwrap-bottomBar {
     width: 100%;
@@ -1415,7 +1419,7 @@ input:-webkit-autofill:active {
     top: 50%;
     left: 50%;
     width: 400px;
-    height: 482px;
+    height: max-content;
     padding: 24px; }
     .popupFormWrap--ImageContent-UButWrap {
       margin-top: 4px;
@@ -1481,8 +1485,8 @@ input:-webkit-autofill:active {
       box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
       transform: translateX(-50%);
       left: 50%;
-      position: absolute;
-      bottom: 24px; }
+      position: relative;
+      margin-top: 22px; }
       .popupFormWrap--ImageContent-UploadBut p {
         margin: 0;
         color: white;
@@ -1592,13 +1596,13 @@ input:-webkit-autofill:active {
     box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
     height: 80%;
     width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 1000px;
     border-radius: 12px;
     background: white;
-    transform: translate(-50%, -50%);
     position: relative;
-    top: 50%;
-    left: 50%;
     display: flex;
     overflow: hidden;
     cursor: default;
@@ -1996,7 +2000,8 @@ input:-webkit-autofill:active {
   position: relative;
   left: 50%;
   height: 100%;
-  min-width: 100%; }
+  min-width: 100%;
+  pointer-events: none !important; }
 
 .siderUserInfo {
   opacity: 0.8;
@@ -2067,8 +2072,6 @@ input:-webkit-autofill:active {
       transform: translateX(-50%) !important;
       position: relative !important;
       left: 50% !important; }
-    .custominputnew p {
-      width: 50%; }
   #anmendpartboxwrap {
     flex-direction: column;
     top: -87% !important; }
@@ -2496,3 +2499,26 @@ footer {
   height: 2px;
   width: 96%;
   margin: 12px 0; }
+
+.inputlabel {
+  position: relative;
+  font-size: 20px;
+  top: 32px;
+  right: 0;
+  width: 26px;
+  float: right;
+  color: rgba(0, 0, 0, 0.486);
+  text-align: left; }
+
+.whiteCross {
+  width: 28px;
+  position: absolute;
+  top: -38px;
+  right: 14px;
+  pointer-events: none; }
+
+.hiddenMidler {
+  opacity: 0; }
+
+.onloadShow {
+  animation: animOpacity 0.3s forwards ease-out; }

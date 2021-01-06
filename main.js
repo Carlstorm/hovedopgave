@@ -121,6 +121,10 @@ window.setpage = (page) => spaService.setpage(page)
 
 
 
+window.onload = function() {
+    document.querySelector("BODY").classList.add("onloadShow")
+    document.querySelector("HEADER").classList.add("onloadShow")
+   }
 
 
 window.toggleBrugermenu = () => {
