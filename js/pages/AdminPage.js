@@ -22,15 +22,17 @@ export default class AdminPage {
     <div class="adminstration--siderbar adminstration--siderbar-admin">
       <div class="adminstration--siderbarforshow adminstration--siderbarforshow-admin anies-slide">
       <h2>Adminstration</h2>
+        <p class="sidebarHeading2">Statistik:</p>
         <div class="sideHline"></div>
         <div class="sidebarButt sidebarButt-admin">
-        <p>PLANERARAR</p>
+          <img src="./assets/icons/analytics.svg">
         </div>
-        <div class="sideHline"></div>
         <div class="sidebarButt sidebarButt-admin2">
-        <p>STatestics</p>
+        <img src="./assets/icons/analyticsGoogle.svg">
         </div>
-        <div class="sideHline"></div>
+
+
+
       </div>
     </div>
     <div class="adminstration--contentWrap anies">

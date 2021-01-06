@@ -295,7 +295,7 @@ let dataObject = requests.val();
 
   
     // pending
-    document.getElementById("PendingRequests").innerHTML = "<p>Loading...</p>"
+    document.getElementById("PendingRequest").innerHTML = "<p>Loading...</p>"
     this.onPendingValueChange = this.PendingrequestPath.on('value', (snapshot) => {
       this.UpdateRequestsPending(snapshot,user)
     })
