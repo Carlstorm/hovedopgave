@@ -3,17 +3,23 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>stærk person</title>
+  <title>Easyfit hjemmeside til fremvisning og bestilling af kostplaner og træningsplaner. Kontakt meget gerne easyfit igennem deres hjemmeside for en skræddersyet kost eller træningsplan. Her kan du få professionelt hjælp til lige din målsætning og komme godt i mål med både kost og træning</title>
   <meta name="viewport" content="initial-scale=1" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="description" content="En side til køb og fremvisning af kost og træningsplaner fra easyfit"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/fav icon.PNG">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo/fav icon.PNG">
+  <link rel="canonical" href="https://kevinnicholas.eu"/>
+
+
+
+
   <link rel="stylesheet" href="css/styles.css" />
 
   <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 </head>
 
-<header>
+<header class="hiddenMidler">
       
   <nav class="tabbar" id="navbar">
   <div class="navbarItems">
@@ -40,8 +46,8 @@
     </a>
   </div>
   <div class="burger mobileSpec" onclick="toggleBrugermenu()">
-    <img class="burgerIcon" src="assets/icons/burger.svg">
-    <img class="crossIcon" src="assets/icons/cross.svg">
+    <img class="burgerIcon" src="assets/icons/burger.svg" alt="burger">
+    <img class="crossIcon" src="assets/icons/cross.svg" alt="cross">
   </div>
 
   <div class="navfill mobileSpec">
@@ -229,17 +235,18 @@
             l1.7-8.1l15.7-9.5l-3.7,17.6h8.4L411.4,445.3z"/>
     </clipPath>
   </defs>
-  <image clip-path="url(#shape)"  href="assets/textures/holdTall.jpg" ></image>
+  <image clip-path="url(#shape)"  href="assets/textures/holdTall.jpg" alt="svg shape" ></image>
 </svg>
   </div>
   </nav>
   </header>
 
-<body onhashchange="pageChange()">
+<body onhashchange="pageChange()" class="hiddenMidler">
 
 <div class="loginWrap" id="loginScreen" onmousedown="closeLogin()">
   <p id="LoginExtraText"> Login for at fortsætte:</p>
   <div class="loginWrap--container">
+    <img class="whiteCross" src="./assets/icons/crossWhite.svg">
     <div id="firebaseui-auth-container"></div>
   </div>
 </div>
@@ -247,6 +254,7 @@
 <p style="display: none;" onclick="logout()"> Log Ud</p>
 
 <section id="root"></section>
+<h1 style="opacity: 0; position: absolute;">Hjemmesiden til easyfit</h1>
 
 
 <footer class="deskSpec" id="footerfoot">

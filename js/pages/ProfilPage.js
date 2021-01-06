@@ -60,6 +60,7 @@ export default class ProfilPage {
     
 
     <div class="popupFormWrap--PhoneContent popcont">
+    <img class="whiteCross" src="./assets/icons/crossWhite.svg">
     <p>TIlføj Tlf:</p>
     <div>
       <input></input>
@@ -69,6 +70,7 @@ export default class ProfilPage {
 
 
     <div class="popupFormWrap--ImageContent popcont" id="modal-content">
+    <img class="whiteCross" src="./assets/icons/crossWhite.svg">
     <canvas id="canvas" style="height:0px"></canvas>
       <div class="popupFormWrap--ImageContent-preview image-preview" id="skiftPreview"><video autoplay id="video"></div>
       <div class="popupFormWrap--ImageContent-br"></div>
@@ -80,7 +82,6 @@ export default class ProfilPage {
       <div onclick="Opencamera()"><p class="popupFormWrap--ImageContent-Kamerabut">Kamera</p></div>
       </div>
       <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
-
     </div>
 
 
@@ -88,35 +89,6 @@ export default class ProfilPage {
 
 
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
 
     <div>
@@ -187,36 +159,6 @@ export default class ProfilPage {
   `
   return htmlTemplate;
 
-//     let htmlTemplate = `
-//     <div class="RequestProfile">
-     
-// <div class="profilCard">
-// <div class="profilCard--inner">
-// <h3>Her kan du se din ${requestData.plan} plan!</h3>
-// <hr>
-// <p>${requestData.formName}</p>
-// <button style="width:200px;><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" download="${requestData.formName}">Download</a></button>
-// <br>
-// <button style="width:200px;"><a href="./UserForms/${user.uid}/${requestData.formName}.pdf" target="_blank">Se PDF!</a></button>
-// <p>Mvh. Easyfit</p>
-
-// <hr>
-// <div class="buttonFlex"> 
-// <div class="buttonFlex--inner">
-// <p> <b> Status:</b></p>
-// </div>
-// <div class="buttonFlex--inner">
-// <button  style = "background:yellow"class="buttonPending">pending</button>
-// </div>
-// <div class="buttonFlex--inner">
-// <button class="buttonKontakt">Kontakt</button>
-// </div>
-// </div>
-// </div>
-// </div>
-//   </div>
-//   `
-//   return htmlTemplate;
   }
 
   AcceptedRequest(requestData,user) {

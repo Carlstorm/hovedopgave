@@ -65,7 +65,7 @@ export default class PlanPage {
       <div class="content anies">
         <div class="kvitering"></div>
         <section class="Abonnoment">
-        <h3 class="standardHeading">Abonnoment</h3>
+        <h3 class="standardHeading">Hvad kan vi hjælpe med?</h3>
           <div class="forløbWrap">
             <div>
             <div class="forløbWrap--item" plan-contentType="Kost" onclick="setObjectValues(['Kost', 'abonnoment'], ['plan', 'type']); setActive();">
@@ -84,19 +84,19 @@ export default class PlanPage {
               <div class="forløbWrap--content">
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
+              <p>Fleksibelt</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
+              <p>Din målsætning i fokus</p>
               </div>
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
+              <p>Fokus på dine præferencer</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
+              <p>Nye kostplaner løbende </p>
               </div>
               </div>
             </div>
@@ -118,19 +118,19 @@ export default class PlanPage {
               <div class="forløbWrap--content">
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
+              <p>Træningsprogram og kostvejledning</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
+              <p>Skræddersyet til dig</p>
               </div>
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
+              <p>Fokus på din Målsætning</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
+              <p>Nye kost- og træningsprogrammer</p>
               </div>
               </div>
             </div>
@@ -152,19 +152,19 @@ export default class PlanPage {
               <div class="forløbWrap--content">
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
+              <p>Varieret træning</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
+              <p>Fokus på din målsætning</p>
               </div>
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 3</p>
+              <p>Videoer og øvelser</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 4</p>
+              <p>Nye Trænningsplaner løbende</p>
               </div>
               </div>
             </div>
@@ -186,11 +186,11 @@ export default class PlanPage {
               <div class="forløbWrap--content">
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
+              <p>Fleksibelt og Skræddersyet</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
+              <p>Enkelt kostplan</p>
               </div>
               </div>
             </div>
@@ -209,11 +209,11 @@ export default class PlanPage {
               <div class="forløbWrap--content">
               <div>
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 1</p>
+              <p>Fokus på din målsætning</p>
               </div>
               <div class="forløbWrap--content-style2">
               <img src="./assets/icons/checkbox.svg">
-              <p>værdi 2</p>
+              <p>Enkelt træningsplan med øvelser</p>
               </div>
               </div>
             </div>
@@ -223,7 +223,7 @@ export default class PlanPage {
         </section>
 
         <section class="BasisInfo">
-        <h3 class="standardHeading">USER INFO</h3>
+        <h3 class="standardHeading">OM DIG</h3>
         <div class="BasisInfoWrap">
         <div id="BrugerData">
           <span id="RequiredInput-Name">Navn:</span>
@@ -256,11 +256,13 @@ export default class PlanPage {
         <div class="BasisInfoWrap">
         <div id="BrugerData">
           <span id="RequiredInput-Højde">Højde:</span>
-          <input value="" onkeyup="(setObjectValues(this.value, 'Højde', 'BMI'))">
+          <label class="inputlabel" for="hojdeinput">Cm</label>
+          <input id="hojdeinput" value="" onkeyup="(setObjectValues(this.value, 'Højde', 'BMI'))">
         </div>
         <div id="BrugerData">
           <span id="RequiredInput-Vægt">Vægt:</span>
-          <input value="" onkeyup="(setObjectValues(this.value, 'Vægt', 'BMI'))">
+          <label class="inputlabel" for="kginput">Kg</label>
+          <input id="kginput" value="" onkeyup="(setObjectValues(this.value, 'Vægt', 'BMI'))">
         </div>
         </section>
 
@@ -271,7 +273,7 @@ export default class PlanPage {
           <div slider-type="AktivitetErhverv" group-type="Aktivitet" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
             <p>Aktivitet i arbejde?</p>
-            <p class="slider--changeText" data-text="text1,text2,text3,text4,text5">Some value</p>
+            <p class="slider--changeText" data-text="Stortset stille siddende- kontorarbejde.,Jeg går en smule på arbejde.,Jeg går/står meget på arbejde.,Jeg går/står hovedssageligt på arbejde., Jeg har meget fysisk hårdt arbejde går/står og løfter.">Some value</p>
             </div>
             <div class="slider--secondaryText">
             <p>Lidt</p>
@@ -288,7 +290,7 @@ export default class PlanPage {
           <div slider-type="AktivitetFritid" group-type="Aktivitet" class="AktivitetsNivauWrap--item slider">
             <div class="slider--mainText">
             <p>Aktivitiet i din fritid?</p>
-            <p class="slider--changeText" data-text="text1,text2,text3,text4,text9">Some value</p>
+            <p class="slider--changeText" data-text="Lidt aktiv - går/cykler måske nogle ture sjældent.,Moderat aktiv - dyrker en form for sport 1-2 gange om ugen.,Jævnligt aktiv - styrketræner, løber eller dyrker anden form for sport 3-4 gange om ugen.,Meget aktiv - dyrker sport eller styrketræner én til flere gange næsten hver dag. ,Jeg dyrker elitesport- træner ekstremt hårdt en til flere gange dagligt.">Some value</p>
             </div>
             <div class="slider--secondaryText">
             <p>Lidt</p>
@@ -310,7 +312,7 @@ export default class PlanPage {
 
 
         <section class="mål">
-        <h3 class="standardHeading">goal</h3>
+        <h3 class="standardHeading">Din Målsætning</h3>
          <div class="GoalWrapper">
              <div class="GoalWrapper--item" >
               	<h4 id="RequiredInput-Mål" class="smallerHeading">Skriv lidt om dine mål</h4>
@@ -318,14 +320,15 @@ export default class PlanPage {
             </div>
                 <div class="GoalWrapper--item KostSpecifiks">
                 <h4 class="smallerHeading">Vægttabsmål</h4>
-                   <input onkeyup="(setObjectValues(this.value, 'MålVægt', 'Mål'))">
+                <label class="inputlabel" for="kgmål">Kg</label>
+                <input id="kgmål" onkeyup="(setObjectValues(this.value, 'MålVægt', 'Mål'))">
                 </div>      
          </div>
         </section>
 
 
         <section class="KostPreferencer KostSpecifiks">
-        <h3 class="standardHeading">KostPreferencer</h3>
+        <h3 class="standardHeading">Kostpræferencer</h3>
           <div class="KostPreferencerWrapper">
           <h4 class="smallerHeading">Din kost:</h4>
             <div class="KostPreferencerWrapper--itemflex">
@@ -354,7 +357,7 @@ export default class PlanPage {
         <div slider-type="TrænningErfaring" group-type="Trænning" class="AktivitetsNivauWrap--item slider">
           <div class="slider--mainText">
           <p>Trænings erfaring?</p>
-          <p class="slider--changeText" data-text="text1,text2,text3,text4,text5">Some value</p>
+          <p class="slider--changeText" data-text="Jeg har aldrig trænet før.,Jeg er nybegynder og har prøvet det et par gange.,Jeg har trænet noget tid og kan det mest basale.,Jeg har trænet i mere end to år og har godt styr på det meste.,Jeg har godt styr på træning og har dyrket det på højt plan.">Some value</p>
           </div>
           <div class="slider--secondaryText">
           <p>Lidt</p>
@@ -371,7 +374,7 @@ export default class PlanPage {
         <div slider-type="Trænninghyppighed" group-type="Trænning" class="AktivitetsNivauWrap--item slider">
           <div class="slider--mainText">
           <p>Hvor ofte træner du?</p>
-          <p class="slider--changeText" data-text="text1,text2,text3,text4,text9">Some value</p>
+          <p class="slider--changeText" data-text="0 gange ugenligt.,1-2 gange ugenligt.,2-4 gange ugenligt.,4-6 gange ugenligt.,Hver dag.">Some value</p>
           </div>
           <div class="slider--secondaryText">
           <p>Lidt</p>
@@ -389,7 +392,7 @@ export default class PlanPage {
       <h3 class="standardHeading">Sygdomme</h3>
         <div class="SygdommeWrapper">
           <div class ="SygdommeWrapper--item">
-              <h4 class="smallerHeading">Er du syg spasser</h4>
+              <h4 class="smallerHeading">Har du nogle sygdomme vi skal vide noget om?</h4>
              <textarea onkeyup="(setObjectValues(this.value, 'Sygdomme'))"></textarea>
            </div>
         </div>
@@ -399,7 +402,7 @@ export default class PlanPage {
       <h3 class="standardHeading">Andet</h3>
           <div class="AndetWrapper">
            <div class="AndetWrapper--item">
-             <h4 class="smallerHeading">Har du noget andet smukke?</h4>
+             <h4 class="smallerHeading">Tilføj gerne hvis du har mere</h4>
               <textarea onkeyup="(setObjectValues(this.value, 'Andet'))"></textarea>
           </div>
         </div>

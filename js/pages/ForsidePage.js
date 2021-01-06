@@ -9,14 +9,14 @@ export default class ForsidePage {
   
   template() {
     document.getElementById("root").innerHTML += /*html*/ `
-      <section id="ForsidePage" class="page">
+      <section id="ForsidePage" class="page" onload="showdacontent()">
         <div class="hero deskSpec">
         </div>
       <div class="custominputnew anies">
       <h3 class="standardHeading">Kontakt Os</h3>
-        <input placeholder="DIT KØN">
-        <input placeholder="DIT NAVN">
-        <input  placeholder="DIN EMAIL">
+        <input placeholder="DIT KØN" id="kønInput">
+        <input placeholder="DIT NAVN" id="navnInput">
+        <input placeholder="DIN EMAIL" id="emailInput">
         <div onclick="forsideForm()"class="bookKnapForside"><p>Kontakt os</p></div>
       </div>
 
@@ -26,7 +26,7 @@ export default class ForsidePage {
 
       <section class="ForsideSection1">
       <div class="content anies">
-      <h3 class="standardHeading">Forløb</h3>
+      <h3 class="standardHeading">Hvad vi kan tilbyde</h3>
 
       <div class="forløbWrap">
 
@@ -140,7 +140,7 @@ export default class ForsidePage {
 
       <section class="Reviews">
       <div class="content anies">
-      <h3 class="standardHeading">Reviews</h3>
+      <h3 class="standardHeading">Hvad siger tidligere kunder</h3>
         <div id="anmeldelsessection">
           <div id="anmendpartboxwrap">
             <img id="reviewImg" src="">
@@ -157,7 +157,7 @@ export default class ForsidePage {
 
       <section class="process">
       <div class="content anies">
-      <h3 class="standardHeading">Process</h3>
+      <h3 class="standardHeading">Hvordan er et forløb ved Easyfit?</h3>
         <div class="prossesWrap">
 
 
@@ -167,7 +167,7 @@ export default class ForsidePage {
             <h5>Kontakt</h5>
           </div>
           <div class="prossesWrap-content">
-          <p>Så snart du tager kontakt til os vil vi tage en snak omkring dine præferencer. Du kan både kontakte os over Email ved at udfylde formen i toppen, eller med formen på plan siden.  Vi  kontakter dig altid til en opfølgende snak. Hvor du har muligt for at stille spørgsmål og fortælle os om dig og  dine kost- og træningspræferencer</p>
+          <p>Så snart du tager kontakt til os vil vi tage en snak omkring dine præferencer. Du kan både kontakte os over Email ved at udfylde formen i toppen, eller udfylde formen på plan siden. Vi skal bruge disse informationer til at vi kan nå dine mål sammen, om det er vægttab eller muskelopbygning. Vi bruger informationerne til og lave den bedste kostplan eller træningsplan, som er skræddersyet efter dine behov!</p>
           <img src="./assets/imgs/1.svg">
           </div>
         </div>
@@ -180,7 +180,7 @@ export default class ForsidePage {
         <h5>Godkendelse</h5>
         </div>
         <div class="prossesWrap-content">
-        <p>Så snart vi har set din plan fra kigger vi den igennem og tjekker og alt er som det skal være. Derefter sender vi en godkendelse på Email. Du kan altid se status på din Plan under din profil.</p>
+        <p>Så snart vi har set din plan fra kigger vi den igennem og tjekker om vi har alt den information som vi skal bruge. Derefter sender vi dig en godkendelse på Email, samtidig med at vi begynder og lave din skræddersyet kostplan eller træningsplan.</p>
         <img src="./assets/imgs/2.svg">
         </div>
         </div>
@@ -193,7 +193,7 @@ export default class ForsidePage {
         <h5>Din plan</h5>
         </div>
         <div class="prossesWrap-content">
-        <p>Så snart at vi har gennemarbejde vores skræddersyet plan til dig, sender vi dig en E-mail med din helt nye personlige plan, derudover kan du altid tjekke, og hente din færdige plan på Profilsiden.</p>
+        <p>Så snart at vi har gennemarbejde vores skræddersyet kostplan eller træningsplan til dig, sender vi dig en E-mail med din helt nye personlige plan, derudover kan du altid tjekke, og hente din færdige plan på Profilsiden.</p>
         <img src="./assets/imgs/3.svg">
         </div>
         </div>
@@ -206,10 +206,10 @@ export default class ForsidePage {
 
       <section class="Om os">
       <div class="content anies">
-      <h3 class="standardHeading">Om</h3>
+      <h3 class="standardHeading">Om os</h3>
           <div class="omWrap">
           <div class="omWrap-main">
-            <div class="omWrap-img"></div>
+            <div class="omWrap-img-1"></div>
             <div class="omWrap-Hline"></div>
             <div class="omWrap-textbox">
               <p>Pradeep hvenegaard<p>
@@ -219,7 +219,7 @@ export default class ForsidePage {
             </div>
 
             <div class="omWrap-main">
-            <div class="omWrap-img"></div>
+            <div class="omWrap-img-2"></div>
             <div class="omWrap-Hline"></div>
             <div class="omWrap-textbox">
               <p>Linda Lykke<p>
@@ -238,29 +238,27 @@ export default class ForsidePage {
 
 
 
-  forsideEmailObject(user) {
+  forsideEmailObject() {
 
 
     let formDataForside = {
-      navn: document.getElementById('navnInput').value,
-      køn: document.getElementById('kønInput').value,
-      email: document.getElementById('emailInput').value,
+      Navn: document.getElementById('navnInput').value,
+      Køn: document.getElementById('kønInput').value,
+      Email: document.getElementById('emailInput').value,
     };
     console.log(formDataForside);
 
-    this.sendforsidePlan(user,formDataForside)
+    this.sendforsidePlan(formDataForside)
   }
 
 
-  sendforsidePlan(user, formData)
+  sendforsidePlan(formDataForside)
   {
   
-  formData.usernavn = user.navn;
-  formData.email = user.email;
   
-  console.log(formData);
+  //console.log(formDataForside);
   
-    var jsonObj =  "form=" + (JSON.stringify(formData));
+    var jsonObj =  "form=" + (JSON.stringify(formDataForside));
   
       var xhttp = new XMLHttpRequest();
       // Set POST method and ajax file path
@@ -272,7 +270,7 @@ export default class ForsidePage {
          if (this.readyState == 4 && this.status == 200) {
            var response = this.responseText;
           console.log(response);
-           if(response == 2){
+           if(response == 3){
               alert("Email sendt");
               
            }else{
@@ -283,9 +281,52 @@ export default class ForsidePage {
       };
       
       xhttp.send(jsonObj);
+      this.sendvelkosmt(formDataForside);
       console.log(jsonObj)
       
       }
+
+
+
+      sendvelkosmt(formDataForside)
+      {
+      
+      
+      //console.log(formDataForside);
+      
+        var jsonObj =  "form=" + (JSON.stringify(formDataForside));
+      
+          var xhttp = new XMLHttpRequest();
+          // Set POST method and ajax file path
+          xhttp.open("POST", "php/velkomstMail.php", true);
+          xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          
+          // call on request changes state
+          xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+               var response = this.responseText;
+              console.log(response);
+               if(response == 4){
+                  alert("Email sendt");
+                  
+               }else{
+                  alert("Woops en fejl");
+                  
+               }
+             }
+          };
+          
+          xhttp.send(jsonObj);
+          console.log(jsonObj)
+          
+          }
+    
+
+
+
+
+
+
 
 
 

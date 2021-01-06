@@ -44,10 +44,14 @@ window.SletAnsøgning = () => adminPage.SletAnsøgning();
 window.SendUserData = () => {
     userdata.send(Currentuser, planPage.GetValue())
     planPage.ChangePopUpForm();
-    // userdata.sendemail(Currentuser, planPage.GetValue())
+    userdata.sendemail(Currentuser, planPage.GetValue())
 }
 
-window.Godkend = () => planPage.Godkend(Currentuser, login)
+window.Godkend = () => {
+    planPage.Godkend(Currentuser, login)
+    //userdata.sendemail(Currentuser, planPage.GetValue())
+
+} 
 
 
 
@@ -117,6 +121,10 @@ window.setpage = (page) => spaService.setpage(page)
 
 
 
+window.onload = function() {
+    document.querySelector("BODY").classList.add("onloadShow")
+    document.querySelector("HEADER").classList.add("onloadShow")
+   }
 
 
 window.toggleBrugermenu = () => {
