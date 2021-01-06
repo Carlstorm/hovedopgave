@@ -328,6 +328,39 @@
   display: flex;
   flex-direction: column; }
 
+.cookie {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100%;
+  top: 90vh;
+  position: fixed;
+  z-index: 9999;
+  background-color: #272729;
+  justify-content: center; }
+  .cookie p {
+    color: white; }
+  .cookie a {
+    color: gold; }
+
+.hide-cookie {
+  display: none; }
+
+.show-cookie {
+  display: block; }
+
+.cookieflex-1 {
+  width: 100%; }
+
+#accept {
+  background: url("../assets/textures/gold.jpg");
+  background-size: 100%;
+  height: 24px;
+  border-radius: 4px;
+  margin: 4px;
+  margin-top: 15px;
+  text-shadow: 1px 1px 4px black; }
+
 @font-face {
   font-family: calfri;
   src: url(../assets/fonts/CalibriR.ttf); }
@@ -1337,6 +1370,13 @@ input:-webkit-autofill:active {
     height: 64px;
     width: 100%;
     cursor: pointer; }
+    .adminstration--siderbarforshow .sidebarButt img {
+      height: 45%;
+      transform: translate(0%, -50%);
+      position: relative;
+      top: 50%;
+      left: 20px;
+      width: auto; }
     .adminstration--siderbarforshow .sidebarButt:hover {
       background: rgba(255, 255, 255, 0.1); }
       .adminstration--siderbarforshow .sidebarButt:hover p {
@@ -2522,3 +2562,8 @@ footer {
 
 .onloadShow {
   animation: animOpacity 0.3s forwards ease-out; }
+
+.sidebarHeading2 {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 22px;
+  margin: 24px 0 10px 22px; }
