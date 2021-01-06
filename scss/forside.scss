@@ -58,6 +58,41 @@
     
 }
 
+#thankMsg{
+  color:rgb(208, 184, 94); 
+  text-align: center;
+  width: 100%;
+  display: none;
+}
+
+.thanksMsgAnimate{
+  display: block!important;
+  -webkit-animation: fadeInOut 8s; /* Safari 4+ */
+  -moz-animation: fadeInOut 8s; /* Fx 5+ */
+  -o-animation: fadeInOut 8s; /* Opera 12+ */
+  animation: fadeInOut 8s; /* IE 10+, Fx 29+ */
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+  
+    45% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  opacity: 0;
+}
+
+
+
+
+
+
+
 /***************************************custom*****************************************/
 
 /**********kundereveiw*******************/
