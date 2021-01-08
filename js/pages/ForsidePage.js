@@ -12,7 +12,7 @@ export default class ForsidePage {
     document.getElementById("root").innerHTML += /*html*/ `
       <section id="ForsidePage" class="page">
       <div class="hero deskSpec">
-      <p>Få en skræddersyet kostplan her</p>
+      <p class="overskriftmobil">Få en skræddersyet kostplan her</p>
       <button class="buttonmobil" type="button">Planer > </button>
       </div>
       <div class="custominputnew anies">
