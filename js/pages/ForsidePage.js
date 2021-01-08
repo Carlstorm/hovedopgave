@@ -5,7 +5,6 @@ let q = 0;
 export default class ForsidePage {
   constructor() {
     this.template();
-    this. cookietjek();
   }
   
   template() {
@@ -408,56 +407,6 @@ export default class ForsidePage {
 
 
 
-      cookietjek(){
-        const cookieStorage = {
-    
-          //hent cookie objectet og map over det.
-          getItem: (item) => {
-              console.log(document.cookie)
-              const cookies = document.cookie
-                  .split(';')
-                  .map(cookie => cookie.split('='))
-                  .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
-              return cookies[item];
-          },
-          //set item key value par i funktion
-          setItem: (item, value) => {
-              document.cookie = `${item}=${value};`
-          }
-        }
-        
-        ///hvilken type storage vi bruger lokal cookie storage 
-        const storageType = cookieStorage;
-        const consentPropertyName = 'Easy_fit_cookie';
-        
-        ///Tjek om lokale database har cookies
-        const shouldShowPopup = () => storageType.getItem(consentPropertyName);
-    
-        //gem objektet i cookie store, når der klikkes på acceptknappen
-        const saveToStorage = () => storageType.setItem(consentPropertyName, true);
-        
-       
-          
-        
-        //event listner til knappen
-          const acceptCookie = event => {
-              saveToStorage(storageType);
-              //toogle scss class
-              consentPopup.classList.add('hide-cookie');
-    
-              console.log(cookieStorage);
-          }
-          const consentPopup = document.getElementById('accept-popup');
-          const acceptBtn = document.getElementById('accept');
-          acceptBtn.addEventListener('click', acceptCookie);
-        
-          if (shouldShowPopup(storageType)) {
-            console.log("vi tester")
-            consentPopup.classList.add('hide-cookie');
-          }
-        
-        
-      };
 
 
 
