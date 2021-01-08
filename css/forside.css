@@ -326,3 +326,36 @@
 .forsideboks {
   display: flex;
   flex-direction: column; }
+
+.cookie {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  z-index: 9999;
+  background-color: #272729;
+  justify-content: center; }
+  .cookie p {
+    color: white; }
+  .cookie a {
+    color: gold; }
+
+.hide-cookie {
+  display: none; }
+
+.show-cookie {
+  display: block; }
+
+.cookieflex-1 {
+  width: 100%;
+  padding-top: 6px; }
+
+#accept {
+  background: texture(T-gold);
+  background-size: 100%;
+  height: 24px;
+  border-radius: 4px;
+  margin: 0px 0 0 6px;
+  text-shadow: 1px 1px 4px black; }

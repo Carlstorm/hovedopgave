@@ -2012,6 +2012,9 @@ input:-webkit-autofill:active {
 
 
 ///
+.deskSpec p{ display: none;}
+
+.deskSpec button{display: none;}
 
 .profilCard{
   margin:1%;
@@ -2401,13 +2404,45 @@ p {
 
 @media only screen and (max-width: 870px) {
 
+  .sidebarHeading2 {
+    display: none !important;
+  }
+
   #Plan {
     padding-top: 62px;
   }
 
-  .deskSpec {
-    display: none;
-  }
+  .deskSpec { 
+   
+    height: 40vh;
+    background-position-x: 30%; 
+   }
+
+
+   .deskSpec button{
+     display: inline;
+     margin-top: 50%;
+     margin-left: 59%;
+     padding: 15px;
+     border-radius: 20px;
+     background: texture(T-gold);
+     background-size: 100%;
+     border: none;
+   }
+
+
+   .deskSpec p{ 
+    display: inline;
+     text-align: center;
+     color: #bdb16c91;
+     font-style: italic;
+     position: absolute;
+     z-index: 3;
+    left: 40%;
+    margin-top: 35%;
+    
+     
+   }
 
   .content {
     min-width: 0;

@@ -5,13 +5,16 @@ let q = 0;
 export default class ForsidePage {
   constructor() {
     this.template();
+    this. cookietjek();
   }
   
   template() {
     document.getElementById("root").innerHTML += /*html*/ `
       <section id="ForsidePage" class="page">
-        <div class="hero deskSpec">
-        </div>
+      <div class="hero deskSpec">
+      <p>Få en skræddersyet kostplan her</p>
+      <button class="buttonmobil" type="button">Planer > </button>
+      </div>
       <div class="custominputnew anies">
       <h3 class="standardHeadingFp">Kontakt Os</h3>
         <input placeholder="DIT KØN" id="kønInput">
@@ -275,23 +278,20 @@ export default class ForsidePage {
           console.log(response);
            if(response == 3){
              //animatemsg
-        document.getElementById("thankMsg").className='thanksMsgAnimate';
+      
+      //document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
+      document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
             ///clear values
        document.getElementById('navnInput').value="";
        document.getElementById('kønInput').value="";
        document.getElementById('emailInput').value="";
 
-       ///Reset
-       document.getElementById("thankMsg").className='';
           
               
            }else{
-             // alert("Woops en fejl");
+             alert("Woops en fejl");
               ///Reset
-       //document.getElementById("thankMsg").classList.remove('thanksMsgAnimate');
-         
-
-       document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
+             // document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
              
               
            }
@@ -407,6 +407,56 @@ export default class ForsidePage {
 
 
 
+      cookietjek(){
+        const cookieStorage = {
+    
+          //hent cookie objectet og map over det.
+          getItem: (item) => {
+              console.log(document.cookie)
+              const cookies = document.cookie
+                  .split(';')
+                  .map(cookie => cookie.split('='))
+                  .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
+              return cookies[item];
+          },
+          //set item key value par i funktion
+          setItem: (item, value) => {
+              document.cookie = `${item}=${value};`
+          }
+        }
+        
+        ///hvilken type storage vi bruger lokal cookie storage 
+        const storageType = cookieStorage;
+        const consentPropertyName = 'Easy_fit_cookie';
+        
+        ///Tjek om lokale database har cookies
+        const shouldShowPopup = () => storageType.getItem(consentPropertyName);
+    
+        //gem objektet i cookie store, når der klikkes på acceptknappen
+        const saveToStorage = () => storageType.setItem(consentPropertyName, true);
+        
+       
+          
+        
+        //event listner til knappen
+          const acceptCookie = event => {
+              saveToStorage(storageType);
+              //toogle scss class
+              consentPopup.classList.add('hide-cookie');
+    
+              console.log(cookieStorage);
+          }
+          const consentPopup = document.getElementById('accept-popup');
+          const acceptBtn = document.getElementById('accept');
+          acceptBtn.addEventListener('click', acceptCookie);
+        
+          if (shouldShowPopup(storageType)) {
+            console.log("vi tester")
+            consentPopup.classList.add('hide-cookie');
+          }
+        
+        
+      };
 
 
 
