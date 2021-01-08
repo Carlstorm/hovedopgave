@@ -31,10 +31,6 @@ class CameraService {
     </div>
     <button class="popupFormWrap--ImageContent-Kamerabut" id="tagbilledeknap" onclick="tagbillede()">Tag billede</button>
     </div>
-    <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
-
-
-
 
   `;
 
@@ -82,8 +78,6 @@ document.getElementById("btn-change").innerHTML = "";
       </div>
       <div onclick="Opencamera()"><p class="popupFormWrap--ImageContent-Kamerabut">Kamera</p></div>
       </div>
-      <div class="popupFormWrap--ImageContent-UploadBut" onclick="gembillede()"><p>Updater!</p></div>
- 
  
  `;
 
