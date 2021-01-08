@@ -2012,13 +2012,7 @@ input:-webkit-autofill:active {
 
 
 ///
-<<<<<<< Updated upstream
-.deskSpec p{ 
-  display: none;
-}
-=======
 .overskriftmobil{ display: none;}
->>>>>>> Stashed changes
 
 .deskSpec button{
   display: none;
@@ -2411,6 +2405,10 @@ p {
 }
 
 @media only screen and (max-width: 870px) {
+
+  .sidebarHeading2 {
+    display: none !important;
+  }
 
   #Plan {
     padding-top: 62px;
