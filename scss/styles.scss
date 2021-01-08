@@ -2012,9 +2012,13 @@ input:-webkit-autofill:active {
 
 
 ///
-.deskSpec p{ display: none;}
+.deskSpec p{ 
+  display: none;
+}
 
-.deskSpec button{display: none;}
+.deskSpec button{
+  display: none;
+}
 
 .profilCard{
   margin:1%;
