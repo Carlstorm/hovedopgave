@@ -11,8 +11,10 @@ export default class ForsidePage {
   template() {
     document.getElementById("root").innerHTML += /*html*/ `
       <section id="ForsidePage" class="page">
-        <div class="hero deskSpec">
-        </div>
+      <div class="hero deskSpec">
+      <p>Få en skræddersyet kostplan her</p>
+      <button class="buttonmobil" type="button">Planer > </button>
+      </div>
       <div class="custominputnew anies">
       <h3 class="standardHeadingFp">Kontakt Os</h3>
         <input placeholder="DIT KØN" id="kønInput">
