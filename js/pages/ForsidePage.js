@@ -276,23 +276,20 @@ export default class ForsidePage {
           console.log(response);
            if(response == 3){
              //animatemsg
-        document.getElementById("thankMsg").className='thanksMsgAnimate';
+      
+      //document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
+      document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
             ///clear values
        document.getElementById('navnInput').value="";
        document.getElementById('kønInput').value="";
        document.getElementById('emailInput').value="";
 
-       ///Reset
-       document.getElementById("thankMsg").className='';
           
               
            }else{
-             // alert("Woops en fejl");
+             alert("Woops en fejl");
               ///Reset
-       //document.getElementById("thankMsg").classList.remove('thanksMsgAnimate');
-         
-
-       document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
+             // document.getElementById("thankMsg").classList.add('thanksMsgAnimate');
              
               
            }
