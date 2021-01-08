@@ -24,12 +24,16 @@ export default class AdminPage {
       <h2>Adminstration</h2>
         <p class="sidebarHeading2">Statistik:</p>
         <div class="sideHline"></div>
+        <a href="https://www.facebook.com/events_manager2/list/pixel/746418195980938/overview?act=553812821803585" target= "_blank">
         <div class="sidebarButt sidebarButt-admin">
           <img src="./assets/icons/analytics.svg">
         </div>
+        </a>
+        <a href="https://console.firebase.google.com/project/easyfitdatabase/analytics/app/web:MGIzNjUxMDctMGZjYi00YjIzLTg1MTYtNTYyYjRhMDMyZTAz/overview/~2F%3Ft%3D1609933126657&fpn%3D278701724148&swu%3D1&sgu%3D1&sus%3Dupgraded&cs%3Dapp.m.dashboard.overview&g%3D1" target= "_blank">
         <div class="sidebarButt sidebarButt-admin2">
         <img src="./assets/icons/analyticsGoogle.svg">
         </div>
+        </a>
 
 
 
@@ -52,7 +56,7 @@ export default class AdminPage {
 
         <div class="popupFormWrap--side"> 
         <div class="popupFormWrap--imgWrap">
-          <div class="popupFormWrap--imgWrap--image"></div>
+          <div class="popupFormWrap--imgWrap--image" id="clickedFormUserProfile"></div>
         </div>
         <div class="popupFormWrap--userinfWrap" id="PopprofileWrap">
         <p>Loading...</p>
@@ -319,7 +323,7 @@ export default class AdminPage {
 
   navitem() {
     let Navitem = document.createElement("A")
-    Navitem.innerHTML = "AdminPage"
+    Navitem.innerHTML = "Admin"
     Navitem.href = "#AdminPage";
     Navitem.className = "tabbar--item directanies"
     this.Navitem = Navitem;
@@ -379,6 +383,7 @@ export default class AdminPage {
     console.log(event.target)
     if (event.target.id == "popupForm1" || event.target.id.includes("popupForm") || event.target.id == "lukKnap") {
       document.getElementById("popupForm1").classList.remove("popupFormWrap-shown")
+      document.getElementById("clickedFormUserProfile").style.backgroundImage = `url(./assets/imgs/profileplaceholder.jpg)`
     }
   }
 
@@ -405,7 +410,6 @@ export default class AdminPage {
     document.getElementById("PopprofileWrap").innerHTML = `
     <p>${requestObject.name}</p>
     <p>${requestObject.email}</p>
-    <p>${requestObject.email}</p>
     `
       let HtTEMP = ""
       HtTEMP += `<h2>${requestObject.request.plan} - ${requestObject.request.type} </h2>`
@@ -421,6 +425,21 @@ export default class AdminPage {
           HtTEMP += `<p>${value}</p>`
       }
     }
+
+
+    let userId = element.id.split("/")
+
+    firebase.database().ref(`/users/${userId[0]}`).once('value', (snapshotda) => {
+      let userinfoExtras = snapshotda.val();
+      if (userinfoExtras.img) {
+        document.getElementById("clickedFormUserProfile").style.backgroundImage = `url(${userinfoExtras.img})`
+      }
+      if (userinfoExtras.Tlf) {
+        document.getElementById("PopprofileWrap").innerHTML += `
+        <p>${userinfoExtras.Tlf}</p>
+        `
+      }
+    })
 
     if (element.classList.contains("AcceptedRequests")) {
 

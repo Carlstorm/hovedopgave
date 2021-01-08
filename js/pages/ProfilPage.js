@@ -284,7 +284,7 @@ let dataObject = requests.val();
 
   navitem() {
     let Navitem = document.createElement("A")
-    Navitem.innerHTML = "ProfilPage"
+    Navitem.innerHTML = "Profil"
     Navitem.href = "#ProfilPage";
     Navitem.className = "tabbar--item directanies"
     this.Navitem = Navitem;

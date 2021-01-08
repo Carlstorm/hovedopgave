@@ -58,6 +58,18 @@ body {
   // text-transform: uppercase;
 }
 
+
+.standardHeadingFp {
+  margin: 0;
+  text-transform: uppercase;
+  color: rgb(153, 153, 153);
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  padding: 0px 0 24px 0;
+  font-size: 28px;
+}
+
 .standardSection {
   width: 80%;
   max-width: 100px;
@@ -131,8 +143,10 @@ textarea {
 
 .hero {
   opacity: 1 !important;
-  height: 750px;
+  height: 80vh;
   width: 100%;
+  min-height: 482px;
+  position: relative;
   // background-color: rgba(0, 0, 0, 0.541);
   background-image: url("../assets/imgs/bgHero.jpg");
   // background-blend-mode: overlay;
@@ -395,10 +409,11 @@ header {
 
       p {
         transform: translateY(-50%);
-        top: 26.5px;
+        top: 49%;
         position: relative;
         margin: 0;
         font-size: 14px;
+        height: max-content;
       }
 
       div {
@@ -1632,7 +1647,7 @@ input:-webkit-autofill:active {
 
     &-preview {
       border: solid 4px #d0b85e;
-      background: url(https://i.pinimg.com/236x/ce/2a/95/ce2a95e99faceaf7af19c273b10ebcc1.jpg);
+      background: url(../assets/imgs/profileplaceholder.jpg);
       background-position: center !important;
       background-size: cover !important;
       width: 320px;
@@ -1849,7 +1864,9 @@ input:-webkit-autofill:active {
       top: 50%;
       left: 50%;
       border-radius: 50%;
-      background: rgb(94, 94, 94);
+      background-size: cover;
+      background-position: center;
+      background-image: url(../assets/imgs/profileplaceholder.jpg);
     }
   }
 
@@ -2228,7 +2245,7 @@ align-items: baseline;
 #profilImage{
   border: solid 4px color(C-goldLight);
   margin: 32px 40px;
-  background: url(https://i.pinimg.com/236x/ce/2a/95/ce2a95e99faceaf7af19c273b10ebcc1.jpg);
+  background: url(../assets/imgs/profileplaceholder.jpg);
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -2373,6 +2390,13 @@ p {
 
 .noclick {
   pointer-events: none !important;
+}
+
+
+@media only screen and (max-height: 600px) {
+.custominputnew {
+  top: 232px !important;
+}
 }
 
 @media only screen and (max-width: 870px) {
@@ -2795,7 +2819,7 @@ p {
   height: max-content;
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 400px;
+  top: 40%;
   left: 67%;
 
   input {
@@ -2878,10 +2902,9 @@ height: 428px;
       box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
       >div {
         p {
-          padding: 20px;
+          padding: 32px 20px 20px 20px;
           margin: 0;
           text-align: center;
-          margin-top: 50px;
         }
         h5 {
           margin: 0;
@@ -2897,10 +2920,10 @@ height: 428px;
       }
       img {
         width: 64px;
-        position: absolute;
+        position: relative;
         transform: translateX(-50%);
         left: 50%;
-        bottom: 30px;
+        padding: 20px 0 32px 0;
       }
      }
 
@@ -2913,7 +2936,7 @@ height: 428px;
 
      &-content {
       position: relative;
-      height: 382px;
+      min-height: 382px;
       width: 100%;
       background: white;
       background-size: 180%;

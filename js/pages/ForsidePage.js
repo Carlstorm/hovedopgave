@@ -14,7 +14,7 @@ export default class ForsidePage {
         <div class="hero deskSpec">
         </div>
       <div class="custominputnew anies">
-      <h3 class="standardHeading">Kontakt Os</h3>
+      <h3 class="standardHeadingFp">Kontakt Os</h3>
         <input placeholder="DIT KØN" id="kønInput">
         <input placeholder="DIT NAVN" id="navnInput">
         <input  placeholder="DIN EMAIL" id="emailInput">
